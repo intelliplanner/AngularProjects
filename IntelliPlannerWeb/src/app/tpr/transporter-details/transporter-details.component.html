@@ -1,0 +1,79 @@
+<div class="container-fluid reg-page-bg p-4">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <ol class="breadcrumb bg-primary ">
+                    <li class="breadcrumb-item active text-white text-center">Transporter Details&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                      
+                    </li>
+
+                    <li class="breadcrumb-item active text-white text-center">
+                        <div class="float-right">
+                            <mat-paginator #paginator [length]="length" [pageSize]="pageSize" [pageSizeOptions]="pageSizeOptions" [showFirstLastButtons]="true"
+                                class="">
+                            </mat-paginator>
+                        </div>
+                    </li>
+                </ol>
+            </div>
+        </div>
+    </div>
+
+    <div class="container m-h-250">
+        <form>
+            <div class="animated fadeInDown ">
+                <div class="form-group">
+                    <div class="form-row">
+
+                        <div class="col-md-12 ">
+
+                            <div class="table-responsive mat-elevation-z8">
+                                <table mat-table [dataSource]="dataSource" class="w-100">
+
+                                    <ng-container matColumnDef="Transporter Name">
+                                        <th mat-header-cell *matHeaderCellDef> Transporter Name </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+                                    </ng-container>
+
+                                    <ng-container matColumnDef="Created Date">
+                                        <th mat-header-cell *matHeaderCellDef> Created Date </th>
+                                        <td mat-cell *matCellDef="let element"> {{element.created_on}} </td>
+                                    </ng-container>
+                                    <ng-container matColumnDef="Status">
+                                            <th mat-header-cell *matHeaderCellDef>Status</th>
+                                            <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+                                        </ng-container>
+                                    <ng-container matColumnDef="Actions">
+                                        <th mat-header-cell *matHeaderCellDef>Actions</th>
+                                        <td mat-cell *matCellDef="let element">
+                                            <button class="a-btnsearch btn btn-circle btn-success  text-white shadow btn-sm" routerLink="/tpr/createUpdateTransporter/{{element.id}}">
+                                                <i class="fa fa-edit" matTooltip="Edit"></i>
+                                            </button>
+
+                                        </td>
+
+                                    </ng-container>
+
+                                
+                                    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                                    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+                                </table>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+            <hr>
+            <div class="form-group float-right">
+                <button class="btn btn-primary btn-sm" type="button" routerLink="/">Back </button>
+
+            </div>
+        </form>
+    </div>
+</div>

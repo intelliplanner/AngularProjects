@@ -1,0 +1,19 @@
+<div class="table-responsive">
+  <table class="table table-bordered" *ngIf="employees && employees.length">
+    <thead >
+      <tr class="bg-primary">
+        <th>Name</th>
+        <th>Email</th>
+  		<th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empForm of employees">
+        <td>{{empForm.fullName}}</td>
+        <td>{{empForm.email}}</td>
+        <td><button type="button" class="button btn-primary" (click)="editEmployee(empForm.id)" >Edit</button></td>
+      </tr>      
+    </tbody>
+  </table>
+  </div>
+ 

@@ -1,0 +1,8 @@
+export const environment = {
+  production: true,
+  baseUrlGet: 'https://api.eideas.nic.in/eIdeas/',
+  baseUrlLogin: 'https://api.eideas.nic.in/auth/login',
+  baseUrlUser: 'http://10.246.76.136:80/user/',
+  
+
+};

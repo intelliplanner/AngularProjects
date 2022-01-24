@@ -1,0 +1,201 @@
+<ion-header mode="ios">
+  <ion-navbar mode="ios" color="cement">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title mode="ios">Drivers </ion-title>
+    <!--     <ion-buttons end royal>
+      <button ion-button icon-only (click)="add()">
+        <ion-icon name="add"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+  <ion-toolbar no-border mode="ios" color="cement">
+    <ion-searchbar [(ngModel)]="search" placeholder="Search by Vehicle number or Name or Phone number" (ionChange)="getItems($event)"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <!--   <ion-list class="hidden-xl hidden-lg hidden-md">
+    <ion-item *ngFor="let driver of drivers" (click)="edit(driver)">
+      <h2>{{driver.name}}</h2>
+      <h4>{{driver.phone}}</h4>
+      <p>
+        <ion-badge color="primary" *ngIf="driver.tracking_type == 'EPOD'">EPOD</ion-badge>
+        <ion-badge color="dark" *ngIf="driver.tracking_type == 'SIM'">SIM</ion-badge>
+        <ion-badge color="danger" *ngIf="driver.tracking_type == 'EPOD' && !driver.app_installed">App Not Installed</ion-badge>
+        <ion-badge color="secondary" *ngIf="driver.tracking_type == 'EPOD' && driver.app_installed">App Installed</ion-badge>
+      </p>
+    </ion-item>
+  </ion-list>
+  <div padding class="hidden-xs hidden-sm" padding>
+    <table border="0" style="background-color: #f8f8f8 !important;border:5px solid #f8f8f8">
+      <tr>
+        <th>Name</th>
+        <th>Phone.No</th>
+        <th>Tracking Type</th>
+        <th>Ready for Tracking?</th>
+      </tr>
+      <tr *ngFor="let driver of drivers">
+        <td (click)="edit(driver)">{{driver.name}}</td>
+        <td (click)="edit(driver)">{{driver.phone}}</td>
+        <td *ngIf="driver.tracking_type == 'EPOD'" (click)="edit(driver)">
+          <ion-badge color="primary">Epod</ion-badge>
+        </td>
+        <td *ngIf="driver.tracking_type == 'SIM'" (click)="edit(driver)">
+          <ion-badge color="dark">Sim</ion-badge>
+        </td>
+        <td>
+          <ion-icon *ngIf="driver.tracking_type == 'EPOD' && !driver.app_installed" name="close-circle" color="danger"> No</ion-icon>
+          <ion-icon *ngIf="driver.tracking_type == 'EPOD' && driver.app_installed" name="checkmark-circle" color="secondary"> Yes</ion-icon> 
+          <span *ngIf="driver.tracking_type == 'SIM'">NA</span>
+        </td>
+      </tr>
+    </table>
+  </div> -->
+  <div class="hidden-xl hidden-lg hidden-md">
+
+  <ion-card *ngFor="let driver of drivers">
+    <div padding>
+      <ion-item (click)="openInvoice(invoice)">
+        <ion-note item-start style="color:#000 !important;font-weight: 300">
+          Driver Name
+        </ion-note>
+        <ion-note item-end>
+          {{driver.driver_name}}
+        </ion-note>
+      </ion-item>
+      <ion-item (click)="openInvoice(invoice)">
+        <ion-note item-start style="color:#000 !important;font-weight: 300">
+          Driver Phone
+        </ion-note>
+        <ion-note item-end>
+          {{driver.driver_phoneno}}
+        </ion-note>
+      </ion-item>
+      <ion-item (click)="openInvoice(invoice)">
+        <ion-note item-start style="color:#000 !important;font-weight: 300">
+          Vehicle Number
+        </ion-note>
+        <ion-note item-end>
+          {{driver.vehicle_no}}
+        </ion-note>
+      </ion-item>
+      <ion-item (click)="openInvoice(invoice)">
+        <ion-note item-start style="color:#000 !important;font-weight: 300">
+          Consent Status
+        </ion-note>
+        <ion-note item-end>
+          {{driver.driver_using_smartphone_or_sim_plant == 'SIM' ? driver.driver_consent_status : '---'}}&nbsp;&nbsp;<ion-badge color="dark" (click)="getdriverConsent(driver)" *ngIf="(driver.driver_consent_status != 'ALLOWED' && driver.driver_using_smartphone_or_sim_plant == 'SIM')">
+                <ion-icon name="checkbox" style="color:green"></ion-icon>
+        </ion-badge>
+        </ion-note>
+      </ion-item>
+      <ion-item (click)="openInvoice(invoice)">
+        <ion-note item-start style="color:#000 !important;font-weight: 300">
+          Tracking Type
+        </ion-note>
+        <ion-note item-end>
+        <ion-badge color="primary" *ngIf="driver.tracking_type == 'EPOD'">EPOD</ion-badge>
+        <ion-badge color="dark" *ngIf="driver.tracking_type == 'SIM'">SIM</ion-badge>&nbsp;&nbsp;<ion-badge color="dark" (click)="getnewdriverLocation(driver)" *ngIf="(driver.second_driver_using_smartphone_or_sim != null && driver.second_driver_start_location == null)"><ion-icon name="checkbox" style="color:red"></ion-icon>
+        </ion-badge>
+        </ion-note>
+      </ion-item>
+    </div>
+    <div>
+      <ion-row no-padding no-margin>
+        <ion-col no-padding no-margin col-5 style="background: #488aff;">
+          <button ion-button full color="primary" style="font-size: 12px;box-shadow: none;" (click)="addNewDriver(driver)">Modify Driver</button>
+        </ion-col>
+        <ion-col no-padding no-margin col-7 style="background: #222222;">
+          <button ion-button full color="dark" style="font-size: 12px" (click)="getLocation(driver)">Show Location</button>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ion-card>
+
+<!--     <ion-item>
+      <h2>{{driver.driver_name}}</h2>
+      <h4>{{driver.driver_phoneno}}</h4>
+      <h4>{{driver.vehicle_no}}</h4>
+      <p>
+        <ion-badge color="primary" *ngIf="driver.tracking_type == 'EPOD'">EPOD</ion-badge>
+        <ion-badge color="dark" *ngIf="driver.tracking_type == 'SIM'">SIM</ion-badge>
+        <ion-badge color="danger" *ngIf="driver.tracking_type == 'EPOD' && !driver.app_installed">App Not Installed</ion-badge>
+        <ion-badge color="secondary" *ngIf="driver.tracking_type == 'EPOD' && driver.app_installed">Ready for Tracking</ion-badge>
+      </p>
+      <button ion-button clear block (click)="addNewDriver(driver)">New Driver
+      </button>
+    </ion-item> -->
+  </div>
+
+
+
+  <div class="hidden-xs hidden-sm" style="height: 100%">
+    <div class="outer" scroller>
+      <div class="inner">
+        <table border="0" style="background-color: #f8f8f8 !important;border:5px solid #f8f8f8">
+          <tr>
+            <th style="color:blue;width: 100px;">Vehicle No</th>
+            <th style="color:blue;width: 100px;">Driver Name</th>
+            <th style="color:blue;width: 160px;">Driver Mobile Number</th>
+            <!-- <th>DO Number</th> -->
+            <th style="color:blue;width: 120px;">Shipment Date</th>
+            <th style="color:blue;width: 130px;">Destination Name</th>
+            <th style="color:blue;width: 120px;">Consent Status</th>
+            <th style="color:blue;width: 120px;">Tracking Type</th>
+            <th style="color:blue;width: 100px;" (click)="click()">Location</th>
+            <th style="color:blue;width: 100px;"></th>
+          </tr>
+          <tr *ngFor="let driver of drivers">
+            <td>{{driver.vehicle_no}}</td>
+            <td>{{driver.driver_name}}</td>
+            <td>{{driver.driver_phoneno}}</td>
+            <!--  <td>
+          <span>{{driver.do_number1}}</span>
+          <span>{{driver.do_number2}}</span>
+          <span>{{driver.do_number3}}</span>
+          <span>{{driver.do_number4}}</span>
+          <span>{{driver.do_number5}}</span>
+        </td> -->
+            <td>{{driver.shipment_creation_date}}</td>
+            <td>
+              <span>{{driver.destination_name1}}</span>
+              <span>{{driver.destination_name2}}</span>
+              <span>{{driver.destination_name3}}</span>
+              <span>{{driver.destination_name4}}</span>
+              <span>{{driver.destination_name5}}</span>
+            </td>
+            <td>
+              {{driver.driver_using_smartphone_or_sim_plant == 'SIM' ? driver.driver_consent_status : '---'}}&nbsp;&nbsp;<ion-badge color="dark" (click)="getdriverConsent(driver)" *ngIf="(driver.driver_consent_status != 'ALLOWED' && driver.driver_using_smartphone_or_sim_plant == 'SIM')">GetConsent
+                <ion-icon name="checkbox" style="color:green"></ion-icon>
+              </ion-badge>
+            </td>
+            <td *ngIf="driver.driver_using_smartphone_or_sim_plant == 'EPOD'">
+              <ion-chip color="primary">&nbsp;&nbsp;Epod&nbsp;&nbsp;</ion-chip>
+            </td>
+            <td *ngIf="driver.driver_using_smartphone_or_sim_plant == 'SIM'">
+              <ion-chip color="dark">&nbsp;&nbsp;Sim&nbsp;&nbsp;</ion-chip>&nbsp;&nbsp;<ion-badge color="dark" (click)="getnewdriverLocation(driver)" *ngIf="(driver.second_driver_using_smartphone_or_sim != null && driver.second_driver_start_location == null)">
+                <ion-icon name="checkbox" style="color:red"></ion-icon>
+              </ion-badge>
+            </td>
+            <td>
+              <!-- <button ion-button clear block (click)="addNewDriver(driver)">Location -->
+              <ion-badge (click)="getLocation(driver)" color="dark">
+                <ion-icon *ngIf="driver.plant_location != null" name="ios-pin-outline"></ion-icon>
+              </ion-badge>
+              <!-- </button> -->
+            </td>
+            <td style="background:blue;color:white;font-weight: bold;cursor: pointer;" (click)="addNewDriver(driver)" text-center>
+              Modify
+            </td>
+            <!--   <td>
+          <ion-icon *ngIf="driver.tracking_type == 'EPOD' && !driver.app_installed" name="close-circle" color="danger"> No</ion-icon>
+          <ion-icon *ngIf="driver.tracking_type == 'EPOD' && driver.app_installed" name="checkmark-circle" color="secondary"> Yes</ion-icon> 
+          <span *ngIf="driver.tracking_type == 'SIM'">NA</span>
+        </td> -->
+          </tr>
+        </table>
+      </div>
+    </div>
+  </div>
+</ion-content>

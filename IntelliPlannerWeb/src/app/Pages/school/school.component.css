@@ -1,0 +1,137 @@
+.breadcrumbsection {
+    background-color: #f3f3f3;
+}
+.breadcrumb {
+    margin-bottom: 0;
+    list-style: none;
+    background-color: transparent;
+    border-radius: 0;
+}
+.nav-tabs {
+    border-bottom: 1px solid #dee2e6;
+    cursor: pointer;
+}
+.notificationbg{
+    background-color: #0066cf !important;
+}
+.instituteCourseSection {
+    margin: 20px 0 25px !important;
+}
+span.notification {
+    font-size: 20px !important;
+}
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: rgba(0,0,0,.05) !important;
+}
+.prp{
+    border: 1px solid #dee2e6;
+    background-color: rgba(0,0,0,.05) !important;
+    padding: 5px;
+}
+
+a[_ngcontent-juq-c5] {
+    color: #007bff;
+    text-decoration: none;
+    background-color: transparent;
+}
+
+.nav {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 0;
+    margin-bottom: 0;
+    list-style: none;
+    cursor: pointer;
+}
+
+
+.nav-tabs .nav-link.active, .tabsmenu .nav-tabs .nav-item.show .nav-link {
+    color: #fff!important;
+    background-color: #00446d!important;
+    border: 1px solid #fff;
+    font-size: 16px;
+    padding: 15px 20px;
+}
+.tabsstyle {
+    border: 1px solid #fff;
+    padding: 10px 0;
+    border-radius: 0 0 4px 4px;
+}
+.bg-white {
+    background-color: #fff!important;
+}
+.headingIIT {
+    background: #00446d;
+    padding: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+}
+* :after, :before {
+    box-sizing: border-box;
+}
+
+.table-responsive {
+    display: block;
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.table-responsive > .table-bordered {
+    border: 0;
+}
+
+.table-responsive > .table th 
+{
+    background: none !important;
+    color: #212529 !important;
+    font-size:14px !important;
+    text-transform: uppercase !important;
+}
+
+.table {
+    width: 100%;
+    margin-bottom: 1rem;
+    color: #212529;
+}
+
+.table-bordered, .table-bordered td, .table-bordered th {
+    border: 1px solid #dee2e6;
+}
+.nav-tabs .nav-link {
+    border: 1px solid transparent;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+}
+
+.tabs-bg-default {
+    background-color: grey;
+    border: 1px solid #fff!important;
+    font-size: 15px;
+    padding: 15px 20px;
+}
+.mat-tab-label {
+    background-color: #171616;
+    border: 1px solid #fff!important;
+    font-size: 15px;
+    padding: 15px 20px;
+    color: #fff!important;
+    border-top-left-radius: .25rem;
+    border-top-right-radius: .25rem;
+    
+}
+.mat-tab-label.mat-tab-label-active {
+    color: #fff!important;
+    background-color: #00446d!important;
+    border: 1px solid #fff;
+    font-size: 16px;
+    padding: 15px 20px;
+}
+.mat-tab-body-content {
+    height: 100%;
+    overflow: auto;
+    /* width: 139px; */
+    margin-left: 32px;
+    margin-right: 32px;
+}

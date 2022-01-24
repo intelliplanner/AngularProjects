@@ -1,0 +1,25 @@
+.n-p-btn{width: 40px !important;
+
+    background: rgba(0, 0, 0, 0.2);
+  
+}
+.captcha-text{
+    background-image: url("/assets/images/backPattern.png");
+}
+
+.loginshoweyecls{position: absolute;right: 0;top: 10px;}
+
+// .login-lang-select{
+//     //height: 20px;
+//     font-size: x-small !important;
+   
+// }
+
+.min-height230{min-height: 265px;}
+
+
+.loginnav ul li{padding: 1px 10px;
+    border-right: #76bbea dotted 1px;}
+.loginnav ul li:hover{background: #0d4f7b;}
+.loginnav ul li.active{background: #0d4f7b;}
+.loginnav ul li a{color: #fff;}

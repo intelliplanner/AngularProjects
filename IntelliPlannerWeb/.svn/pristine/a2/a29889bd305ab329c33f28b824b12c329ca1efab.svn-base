@@ -1,0 +1,12 @@
+<!-- --Notification -->
+<p-growl [(value)]="sharedService.global_notification"></p-growl>
+<!-- ---Loader--- -->
+<div *ngIf="sharedService.global_loader" class="loadermainbg">
+  <div class="loader"></div>
+</div>
+
+<app-header></app-header>
+<div id="mainContent">
+  <router-outlet></router-outlet>
+</div>
+<app-footer></app-footer>

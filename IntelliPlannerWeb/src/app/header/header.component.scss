@@ -1,0 +1,110 @@
+.selectlang-colr .mat-form-field-appearance-legacy .mat-form-field-underline {
+  background-color: rgba(255, 255, 255, 1);
+}
+
+.selectlang-colr .mat-select-arrow {
+  color: #fff;
+  opacity: 1;
+}
+
+.profilebox-icon {
+  font-size: 20px;
+  margin: 0px;
+  float: right;
+}
+
+.bg-hovernone .dropdown-item:hover {
+  background: none !important;
+}
+
+.userper-profile {
+  float: left;
+}
+
+.userper-profile li {
+  width: 100%;
+  float: left;
+  color: #fff;
+  line-height: 37px;
+  border-bottom: #fff dotted 1px;
+}
+
+.userper-profile li b {
+  float: right;
+  text-align: left;
+
+  color: #fff;
+}
+
+.userper-profile li b::before {
+  content: ":";
+}
+
+.usernamelbl {
+  float: left;
+  padding-top: 5px;
+  text-align: left;
+  color: #b6e2ff !important;
+
+  /* word-wrap: break-word; */
+  white-space: normal;
+  line-height: 8px;
+  padding-left: 4px;
+  font-size: 15px;
+}
+
+.userper-profile .dropdown-divider {
+  height: 0;
+  margin: 0.3rem 0 !important;
+  overflow: hidden;
+  border-top: 1px dotted #77b4de !important;
+}
+
+.loginnav ul li {
+  padding: 1px 10px;
+  border-right: #76bbea dotted 1px;
+}
+
+.loginnav ul li:hover {
+  background: #0d4f7b;
+}
+
+.loginnav ul li.active {
+  background: #0d4f7b;
+}
+
+.loginnav ul li a {
+  color: #fff;
+}
+
+.navbar-expand .navbar-nav {
+  cursor: pointer;
+}
+.matFont {
+  font-size: 13px !important;
+  padding-top: 0.7rem !important;
+}
+
+.checkbox-header {
+  padding-top: 16px;
+}
+
+.skip-content {
+  padding-top: 0.35rem !important;
+}
+
+// div.mat-checkbox-frame
+// {
+//   border-color: white;
+//   border-width: 2px;
+//   border-style: solid;
+//   transform: scale(0.8);
+// }
+
+.checkbox > input:checked {
+  //border: 1px solid #41B883;
+  background-color: pink;
+}
+
+.nic-logo{float: right;}
+.nic-logo img{max-height: 80px; margin-top: 10px;}

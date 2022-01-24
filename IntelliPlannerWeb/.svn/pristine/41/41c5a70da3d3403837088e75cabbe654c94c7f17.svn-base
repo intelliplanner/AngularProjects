@@ -1,0 +1,154 @@
+<div class="mcare-topbar-info ">
+    <div class="container-fluid mainheader-bg">
+        <div class="row">
+            <div class="col-lg-4 col-md-4 common-left">
+                <ul class="listtypenone mt-1" style="padding-left: 1rem !important;">
+                    <!-- <li class="nationanemblm">
+                        &nbsp;
+                    </li> -->
+                    <li class="topbartext-color">
+                        <a title="National Portal of India" target="_blank" href="#" class="topbartext-color">
+                            भारत सरकार<br>GOVERNMENT OF INDIA
+                        </a>
+                    </li>
+                    <li class="topbartext-color ministry">
+                        <a title="National Informatics Centre" target="_blank" href="#" class="topbartext-color">
+                            शिक्षा मंत्रालय<br>MINISTRY OF EDUCATION
+                        </a>
+                    </li>
+                </ul>
+            </div>
+            <div class="col-md-8 selectlang-colr">
+                <button class="btn btn-outline-light  btn-sm mt-0 mb-0  float-right" *ngIf="!showLoginButton"
+                    (click)="signUp()"><i class="fas fa-sign-in-alt"></i>&nbsp;Sign Up </button>
+                <button (click)="login()" class="btn btn-outline-light btn-sm mt-0 mb-0 mr-3 float-right"
+                    *ngIf="showLoginButton"><i class="fas fa-user"></i>&nbsp;Login
+                </button>
+
+
+                <mat-form-field class="login-lang-select float-right mr-3">
+                    <mat-select [(value)]="defaultLanguage" (selectionChange)="submitLangId($event)">
+                        <mat-option *ngFor="let data of languages" [value]="data.id">
+                            {{data.languageName}}
+                        </mat-option>
+                    </mat-select>
+                </mat-form-field>
+
+
+                <div class="float-right mr-2 ml-2 checkbox-header">
+                    <input type="checkbox" class="float-left pl-0" (change)="bilingual($event.target)">
+                </div>
+                <div class="float-right matFont">
+                    <mat-label>Language/भाषा:</mat-label>
+                </div>
+
+                <div class="float-right mr-3 skip-content">
+                    <a title="Skip to main content" href="javascript:scroll(mainContent)"
+                        style="color: white;font-size: 11px">
+                        <i class="fa fa-arrow-down"></i> {{skip}}
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="login-nav shadow">
+    <div class="container-fluid ">
+        <div class="row">
+            <div class="col-md-1">
+                <a href="#" class="loginniclogo"></a>
+            </div>
+
+            <!-- <div class="col-md-2 office-name">
+                <div>{{officeNameHindi}}</div>
+                <div class="left-header">{{officeName}}</div>
+              
+            </div> -->
+            <div class="col-md-2 office-name">
+                <span class="left-header" style="font-size: 16px;">उच्च शिक्षा विभाग</span><br>
+                <span class="left-header" style="font-size: 16px;">Department Of Higher Education</span>
+            </div>
+
+
+            <div class="col-md-7 login-headng">
+                <div class="subtitle">शैक्षिक संस्थान निर्देशिका - एक सेवा</div>
+                <h2 class="tittle">Educational Institute Directory as a Service
+                </h2>
+            </div>
+
+            <!-- <div class="col-md-2 zindex-1">
+                <a href="#" class="logiecounslogo"> </a>
+            </div> -->
+            <div class="col-md-2 zindex-1">
+                <a href="#" class="logiecounslogo"> </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid p-0 mt-0 mb-2">
+
+    <nav class="navbar navbar-expand navbar-light bg-nic loginnav p-0">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+            aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item" routerLinkActive="active">
+                    <a routerLink="/login" class="nav-link text-white"><i class="fa fa-home">{{home}}</i><span
+                            class="sr-only">(current)</span></a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white">{{aboutus}}</a>
+                </li>
+
+                <!-- <li class="nav-item">
+                    <a class="nav-link text-white">Projects</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white">Whats New</a>
+                </li>  -->
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link text-white" routerLink="/university">{{university}}</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link text-white" routerLink="/standalone">{{standalone}}</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link text-white" routerLink="/college">{{college}}</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link text-white" routerLink="/school">{{school}}</a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link text-white" routerLink="/iti">{{iti}}</a>
+                </li>
+
+                <li class="nav-item" routerLinkActive="active">
+                    <a class="nav-link text-white" routerLink="/course">{{search}}</a>
+                </li>
+
+
+            </ul>
+            <ul class="navbar-nav menucolor mr-auto col-md-3"
+                style="margin-right: 0 !important;padding-right: 0 !important;padding-left: 5em;">
+                <li class="nav-item">
+                    <a class="nav-link text-white">{{whatsnew}}</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-white" routerLink="/contactus"><i
+                            class="fa fa-phone-square">{{contactus}}</i></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+</div>

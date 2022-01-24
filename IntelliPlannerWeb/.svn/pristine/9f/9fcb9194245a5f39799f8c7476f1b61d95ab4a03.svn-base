@@ -1,0 +1,35 @@
+import { NgModule } from '@angular/core';
+import { Routes, RouterModule } from '@angular/router';
+import { LoginComponent } from './login/login.component';
+import { AboutusComponent } from './aboutus/aboutus.component';
+import { ContactusComponent } from './contactus/contactus.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { ForgotPasswordComponent } from './forgot-password/forgot-password.component';
+import { CourseComponent } from './course/course.component';
+import { DetailsComponent } from './details/details.component';
+
+
+const appRoutes: Routes = [
+  { path: '', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'forgot-password', component: ForgotPasswordComponent },
+  { path: 'aboutus', component: AboutusComponent },
+  { path: 'course', component: CourseComponent },
+  { path: 'details', component: DetailsComponent },
+
+  { path: 'contactus', component: ContactusComponent, },
+  { path: 'signup', loadChildren: () => import('./registration/registration.module').then(m => m.RegistrationModule) },
+  { path: '*', component: PageNotFoundComponent },
+  { path: 'university', loadChildren: () => import('./Pages/university/university.module').then(m => m.UniversityModule) },
+  { path: 'standalone', loadChildren: () => import('./Pages/standalone/standalone.module').then(m => m.StandaloneModule) },
+  { path: 'college', loadChildren: () => import('./Pages/college/college.module').then(m => m.CollegeModule) },
+  { path: 'school', loadChildren: () => import('./Pages/school/school.module').then(m => m.SchoolModule) },
+  { path: 'iti', loadChildren: () => import('./Pages/iti/iti.module').then(m => m.ItiModule) },
+  // { path: 'subcategory', loadChildren: () => import('./Pages/subcategory/subcategory.module').then(m => m.SubcategoryModule) }
+];
+
+@NgModule({
+  imports: [RouterModule.forRoot(appRoutes, { useHash: true })],
+  exports: [RouterModule]
+})
+export class AppRoutingModule { }

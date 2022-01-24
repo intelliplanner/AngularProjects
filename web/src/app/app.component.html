@@ -1,0 +1,14 @@
+
+<div *ngIf="currentUrl==='/login'; else elseBlock">
+    <router-outlet></router-outlet>
+</div>
+
+<ng-template #elseBlock>
+  <app-sidebar></app-sidebar>
+</ng-template>
+
+   
+
+
+
+

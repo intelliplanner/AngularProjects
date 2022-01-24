@@ -1,0 +1,52 @@
+page-add-edit-driver {
+		 table {
+    border-collapse: collapse;
+    width: 100%;
+    table-layout: fixed;
+  }
+
+
+.swiper-container {
+background: #fff;
+}
+  td {
+    border: 1px solid #dddddd;
+    border-top: none;
+    border-bottom: none;
+    text-align: left;
+    padding: 8px;
+    font-size: 13px;
+    height: 38px;
+    z-index: 9999;
+  }
+
+  .toolbar-title-md {
+    margin-left: 33px;
+  }
+
+  th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    background-color: #f8f8f8 !important;
+    font-size: 13px;
+    color: #fff;
+    font-weight: 400;
+  }
+
+  tr {
+    background-color: #fff;
+  }
+
+  tr:nth-child(even) {
+    background-color: #d9e3ef;
+    z-index: 999999;
+  }
+
+  .headcol {
+    position: fixed;
+    width: 100px;
+    left: 0;
+  }
+
+}

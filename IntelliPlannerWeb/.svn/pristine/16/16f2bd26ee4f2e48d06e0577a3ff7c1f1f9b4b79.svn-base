@@ -1,0 +1,87 @@
+<div class="container-fluid p-0 mt-0 mb-2" >
+
+        <nav class="navbar navbar-expand navbar-light bg-nic loginnav p-0">
+          
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarText">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item ">
+                  <a class="nav-link" routerLink="/login">   Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item" routerLinkActive="active">
+                  <a class="nav-link" routerLink="/aboutus" >About Us</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" routerLink="/contactus" >Contact Us</a>
+                </li>
+              </ul>
+             
+            </div>
+          </nav>
+    
+    </div>
+
+
+    <div class="container-fluid reg-page-bg p-4">
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <ol class="breadcrumb bg-primary ">
+                        <!-- <li class="breadcrumb-item">
+                        <a routerLink="/dashboard">Dashboard</a>
+                    </li> -->
+                        <li class="breadcrumb-item active text-white">Contact Us</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    
+        <div class="container">
+            <div class="animated fadeInDown card shadow mb-4 p-4">
+                <div class="form-group">
+                    <div class="form-row">
+    
+                      
+                        <div class="col-md-12">
+    
+                            <h2 class="pt-4 pr-4 text-primary text-center" >About Us</h2>
+                            <hr>
+                            <p class="text-center bg-light pb-3 pt-3 col-md-12 mt-3 float-left" >
+                                On behalf of UGC, the National Eligibility Test (NET) is conducted for determining the eligibility of Indian nationals for the Eligibility for Assistant Professor only or Junior Research Fellowship & Eligibility for Assistant Professor Both in Indian Universities and Colleges.
+                                Till recently, the CBSE conducted the NET in 84 subjects at 91 selected Cities of spread across the country.
+                                From Dec 2018 onwards, the UGC- NET (for Eligibility for Assistant Professor only or Junior Research Fellowship & Eligibility for Assistant Professor both), will be conducted by the NTA.
+                                The award of JRF and Eligibility for Assistant Professor both OR Eligibility for Assistant Professor only depends on the performance of the candidate in both the papers of NET in aggregate. However, the candidates qualifying exclusively for Assistant Professor are not to be considered for award of JRF. Candidates who qualify the Test for eligibility for Assistant Professor are governed by the rules and regulations for recruitment of Assistant Professor of the concerned universities/colleges/state governments, as the case may be.
+                              </p>
+    
+                                
+                    
+                        </div>
+    
+                    </div>
+                </div>
+            </div>
+    
+    
+    
+            <!-- <hr>
+                <div class="form-group float-right">
+                    <button class="btn btn-primary">Register </button>
+                    &nbsp;
+                    <button class="btn btn-light "  routerLink="/login">Cancel </button>
+                </div> -->
+    
+    
+        </div>
+    </div>
+    
+    <footer class="login-footer mt-5 container-fluid float-left">
+        <div class="container my-auto">
+            <div class="copyright text-center my-auto">
+                Designed, Developed and Maintained by eCounselling Division, National Informatics Centre ( NIC )
+            </div>
+        </div>
+    </footer>
+    

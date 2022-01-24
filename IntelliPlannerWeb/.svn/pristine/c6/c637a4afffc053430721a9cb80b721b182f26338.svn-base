@@ -1,0 +1,160 @@
+<div class="container-fluid veri-page-bg p-4">
+
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 d-flex justify-content-center ">
+                <div
+                    class="col-md-7 mt-4 p-4 bg-white shadow border-bottom-primary mt-0 login-box animated fadeInRight card">
+                    <div class=" example-form" *ngIf="!showPasswordFields">
+
+
+                        <div class="border-bottom-dark col-md-12 signuptxtbox text-center">
+                            <i class="fas fa-user-plus"></i>
+                            <h5>Sign Up Step 1</h5>
+                        </div>
+                        <form [formGroup]="otpForm">
+                            <!-- <mat-form-field class="col-md-9 mt-3">
+                                <input matInput autocomplete="off" placeholder="Enter Mobile OTP" required
+                                    formControlName="mobileOtp" (keypress)="restrictNumeric($event)">
+                            </mat-form-field>
+                            <button class="btn btn-link float-right mt-30 btn-sm">Resend OTP</button>
+                            <div class="err-msgs float-left w-50"
+                                *ngIf="otpForm.controls['mobileOtp'].dirty || otpForm.controls['mobileOtp'].value || otpForm.controls['mobileOtp'].touched || isFornInvalid ">
+                                <span *ngIf="otpForm.controls['mobileOtp'].hasError('required')">Please enter
+                                    mobile otp.</span>
+                            </div> -->
+
+                            <mat-form-field class="col-md-9 mt-3">
+                                <input matInput autocomplete="off" placeholder="Enter Email OTP" required
+                                    formControlName="emailOtp" (keypress)="restrictNumeric($event)">
+                            </mat-form-field>
+                            <!-- <button class="btn btn-link float-right mt-30 btn-sm">Resend OTP</button> -->
+                            <div class="err-msgs float-left w-50"
+                                *ngIf="otpForm.controls['emailOtp'].dirty || otpForm.controls['emailOtp'].value || otpForm.controls['emailOtp'].touched || isFornInvalid ">
+                                <span *ngIf="otpForm.controls['emailOtp'].hasError('required')">Please enter
+                                    Email otp.</span>
+                            </div>
+
+                            <!-- start captcha code -->
+                            <div class="col-md-12 float-left">
+                                <mat-form-field class="col-md-8 p-0 float-left  d-block">
+                                    <input matInput autocomplete="off" maxlength="15" (paste)="false"
+                                        (draggable)="false" (drop)="false" (dragover)="false" formControlName="captcha"
+                                        placeholder="Enter Captcha" class="textTransform" />
+                                </mat-form-field>
+                                <div class="mt-30 col-md-4 float-left pl-4">
+                                    <span tabindex="0"
+                                    class="captcha textTransform col-md-6 captcha-text text-white p-2 text-center ">
+                                    <span>{{captchaText}}</span>
+                                </span>
+                                <i tabindex="0" class="fa fa-refresh captcha-refresh ml-4 mt-2"
+                                    (click)="getCaptcha()"></i>
+                                </div>
+                            </div>
+                            <div class="err-msgs float-left w-100"
+                                *ngIf="otpForm.controls['captcha'].dirty || otpForm.controls['captcha'].value || otpForm.controls['captcha'].touched || isFornInvalid ">
+                                <span *ngIf="otpForm.controls['captcha'].hasError('required')">Please enter captcha
+                                </span>
+                                <span
+                                    *ngIf="otpForm.controls['captcha'].hasError('captchaNotValidError') && otpForm.controls['captcha'].value">Please
+                                    enter valid pin.</span>
+                            </div>
+                            <!-- end captcha code -->
+                        </form>
+                        <hr class="mt-5 float-left w-100">
+                        <div class="form-group  d-flex justify-content-center float-right">
+                            <button class="btn btn-success btn-sm" (click)="submitOtpData()">Submit</button>
+                        </div>
+                    </div>
+                    <div class=" example-form" *ngIf="showPasswordFields">
+                        <!-- <div class="example-form"> -->
+                        <div class="border-bottom-dark col-md-12 signuptxtbox text-center">
+                            <i class="fas fa-user-plus"></i>
+                            <h5>Sign Up Final Step</h5>
+                        </div>
+                        <form [formGroup]="passwordForm">
+                            <mat-form-field class="col-md-12 mt-3">
+                                <input matInput autocomplete="off" placeholder="User ID" required
+                                    formControlName="userId" (focus)="validatetUser()"
+                                    (blur)="getExistUsername($event.target.value)">
+                            </mat-form-field>
+                            <div class="err-msgs"
+                                *ngIf="passwordForm.controls['userId'].dirty || passwordForm.controls['userId'].value || passwordForm.controls['userId'].touched || isPasswordFormInvalid ">
+                                <span *ngIf="passwordForm.controls['userId'].hasError('required')">Please enter
+                                    user id.</span>
+                                <span *ngIf="existUserName == true">Username already exist</span>
+                            </div>
+
+                            <mat-form-field class="col-md-12 mt-3">
+                                <input matInput type="password" autocomplete="off" placeholder="Password"
+                                    [type]="show ? 'text' : 'password'" required formControlName="password"
+                                    matTooltip="Password must be 8 to 13 characters long with at least one Upper case, one lower case alphabet and one numeric value and at least one special characters!@#$%^&*-">
+                                <span class="loginshoweyecls">
+                                    <i (click)="password()" class="fa"
+                                        [ngClass]="{'fa-eye-slash': !show, 'fa-eye': show}"
+                                        aria-hidden="true"></i></span>
+                            </mat-form-field>
+                            <div class="err-msgs"
+                                *ngIf="passwordForm.controls['password'].dirty || passwordForm.controls['password'].value || passwordForm.controls['password'].touched || isPasswordFormInvalid ">
+                                <span *ngIf="passwordForm.controls['password'].hasError('required')">Please enter
+                                    password.</span>
+                                <div *ngIf="passwordForm.controls['password'].hasError('pattern')">Invalid Password
+                                </div>
+                            </div>
+
+                            <mat-form-field class="col-md-12 mt-3">
+                                <input matInput type="password" autocomplete="off" placeholder="Confirm Password"
+                                    required formControlName="confirmPassword">
+                            </mat-form-field>
+                            <div class="err-msgs"
+                                *ngIf="passwordForm.controls['confirmPassword'].dirty || passwordForm.controls['confirmPassword'].value || passwordForm.controls['confirmPassword'].touched || isPasswordFormInvalid ">
+                                <span *ngIf="passwordForm.controls['confirmPassword'].hasError('required')">Please
+                                    confirm password
+                                </span>
+                                <span *ngIf="passwordForm.controls['confirmPassword'].hasError('mustMatch')">Password
+                                    must
+                                    match</span>
+                            </div>
+
+                            <!-- start captcha code -->
+                            <div class="col-md-12 float-right">
+                                <mat-form-field class="col-md-8 p-0 float-left  d-block">
+                                    <input matInput autocomplete="off" maxlength="15" (paste)="false"
+                                        (draggable)="false" (drop)="false" (dragover)="false" formControlName="captcha"
+                                        placeholder="Enter Captcha" class="textTransform" />
+                                </mat-form-field>
+                                <div class="mt-30 col-md-4 float-left pl-4">
+                                    <span tabindex="0"
+                                    class="captcha textTransform col-md-6 captcha-text text-white p-2 text-center ">
+                                    <span>{{captchaText}}</span>
+                                </span>
+                                <i tabindex="0" class="fa fa-refresh captcha-refresh ml-4 mt-2"
+                                    (click)="getCaptcha()"></i>
+                                </div>
+                            </div>
+                            <div class="err-msgs float-left w-100"
+                                *ngIf="passwordForm.controls['captcha'].dirty || passwordForm.controls['captcha'].value || passwordForm.controls['captcha'].touched || isPasswordFormInvalid ">
+                                <span *ngIf="passwordForm.controls['captcha'].hasError('required')">Please enter captcha
+                                </span>
+                                <span
+                                    *ngIf="passwordForm.controls['captcha'].hasError('captchaNotValidError') && passwordForm.controls['captcha'].value">Please
+                                    enter valid pin.</span>
+                            </div>
+                            <!-- end captcha code -->
+                        </form>
+                        <hr class="mt-5 float-left w-100">
+                        <div class="form-group  d-flex justify-content-center float-right">
+
+
+                            <button class="btn btn-success btn-sm" (click)="submitPasswordData()">Final Submit</button>
+                            <button class="btn btn-light float-right outline-0 ml-2 btn-sm"
+                                (click)="cancelSignUp()">Cancel</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+

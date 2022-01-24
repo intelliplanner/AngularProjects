@@ -1,0 +1,66 @@
+Installing Cordova and Ionic:		npm install -g cordova ionic
+
+
+Creating Apps: While creating apps in Ionic, you can choose from the following three options to start with −
+
+*Tabs App:		ionic start myApp tabs
+*Blank App		ionic start myApp blank
+*Side menu app		ionic start myApp sidemenu
+
+
+Ionic Start command will create a folder named myApp and setup Ionic files and folders.
+
+C:\Users\Username\Desktop> cd myApp
+Now, we want to access the myApp folder that we just created. This is our root folder.
+
+Let us now add the Cordova project for the Android Platform and install the basic Cordova plugins as well. The following code allows us to run the app on the Android emulator or a device.
+
+C:\Users\Username\Desktop\myApp> ionic platform add android
+The next step is to build the app. If you have building errors after running the following command, you probably did not install the Android SDK and its dependencies.
+
+C:\Users\Username\Desktop\myApp> ionic build android
+The last step of the installation process is to run your app, which will start the mobile device, if connected, or the default emulator, if there is no device connected. Android Default Emulator is slow, so I suggest you to install Genymotion or some other popular Android Emulator.
+
+C:\Users\Username\Desktop\myApp> ionic run android
+
+-----------------------------------------
+
+Install with each Application(Driver-App, Transporter-App, e-pod Admin, customer-App) :		npm install
+
+
+ionic cordova platform add android
+ionic cordova resources android --force
+npm i -g cordova-res
+ionic cordova resources android --force
+
+
+Mobile App build
+			ionic cordova build android
+			ionic cordova build android --prod
+			ionic cordova build android --prod --release
+
+debug/run on mobile    ionic cordova run android
+
+
+
+note: (apk sign)
+	  (release keystore file using java)
+
+install sdk manage to android studio
+
+
+
+
+
+
+Customer_app    provider/globals				(deploy on server) (web app)
+transporter_app provider/auth					(web+android)
+drivers_app provider/auth							(android)
+
+epod_admin  provider/globals/					(web_app)
+
+
+Web application build   =  ionic build --prod   (in www directory)
+
+
+chrome inspect  : chrome://inspect/#devices

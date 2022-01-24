@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>EIDeas</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+   <link rel="icon" type="image/x-icon" href="assets/images/favicon.png">
+  <!-- <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" /> -->
+  
+ 
+   <!-- <link href="https://use.fontawesome.com/releases/v5.2.0/css/all.css" rel="stylesheet"> -->
+
+  <!-- <link rel="stylesheet" type="text/css" href="https://startbootstrap.com/assets/style-snippet.css" /> -->
+  
+<!-- ------------------------------------ -->
+<link href='assets/font-googleapis-robota.css' rel='stylesheet' type='text/css'>
+<link href='assets/font-googleapis-source.css' rel='stylesheet' type='text/css'>
+<link href='assets/font-material-icon.css' rel='stylesheet' type='text/css'>
+<link href='assets/style-snippet.css' rel='stylesheet' type='text/css'>
+<link href='assets/all.css' rel='stylesheet' type='text/css'>
+
+
+
+
+<!--  -->
+
+<!-- jquery min -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/bootstrap.bundle.min.js"></script>
+
+<!-- Toggle js -->
+<script src="assets/js/sb-admin.min.js"></script>
+
+
+<!-- Custom styles for this template-->
+<link href="assets/animate.css" rel="stylesheet">
+<link href="assets/sb-admin.css" rel="stylesheet">
+<link href="assets/sb-admin.min.css" rel="stylesheet">
+
+<script src="assets/js/canvasjs.min.js"></script>
+<script>
+  /** Skip to main content */
+  function scroll(el) {
+   // let el = document.getElementById(id);
+   el.scrollIntoView();
+ }
+ 
+</script>
+
+
+</head>
+<body>
+  <app-root></app-root>
+</body>
+</html>

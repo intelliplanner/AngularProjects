@@ -1,0 +1,80 @@
+<footer class="mt-5">
+    <section class="footersecond">
+        <div class="container">
+            <div class="row  my-auto">
+                <div class="col-sm">
+                    <a class="" href="https://ecounselling.nic.in/" target="_blank"><img src="/assets/images/ecounselling.png" class="img-fluid mx-auto d-block padd5" alt="nic"></a>
+                </div>
+                <div class="col-sm">
+                    <a class="" href="http://www.digitalindia.gov.in/" target="_blank"><img src="/assets/images/digital-india-logo.png" class="img-fluid mx-auto d-block padd5" alt="digital-India"></a>
+                </div>
+                <div class="col-sm">
+                    <a class="" href="https://data.gov.in/" target="_blank"><img src="/assets/images/data-gov-logo.png" class="img-fluid mx-auto d-block padd5" alt=""></a>
+                </div>
+                <div class="col-sm">
+                    <a class="" href="https://www.india.gov.in/" target="_blank"><img src="/assets/images/india-gov-logo.png" class="img-fluid mx-auto d-block padd5" alt=""></a>
+                </div>
+                <div class="col-sm">
+                    <a class="" href="https://www.nic.in" target="_blank"><img src="/assets/images/nic_logo.png" class="img-fluid mx-auto d-block padd5" alt="nic"></a>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="footerthird">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-sm-12 d-flex">
+                    <ul class="list-unstyled list-inline justify-content-center mx-auto">
+                        <li class="list-inline-item">
+                            <a routerLink="/term_condition" target="_self">
+                                {{btmtitle1}}
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a routerLink="/hyperlink" target="_self">
+                                {{btmtitle2}}
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a routerLink="/privacy" target="_self">
+                                {{btmtitle3}}
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a routerLink="/copyright" target="_self">
+                                {{btmtitle4}}
+                            </a>
+                        </li>
+                        <li class="list-inline-item">
+                            <a routerLink="/disclaimer" target="_self">
+                                {{btmtitle5}}
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="footerfirst">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-md-3">
+                    <p class=version>
+                        {{version}}
+                    </p>
+                </div>
+                <div class="col-md-6">
+                    <p class="text-center disclaimer">
+                        {{notice}}
+                    </p>
+                </div>
+                <div class="col-md-3">
+                    <p class="lastupdated">
+                        {{lastUpdated}}
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+</footer>

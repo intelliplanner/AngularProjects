@@ -1,0 +1,158 @@
+
+
+<section class="instituteCourseSection">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-4">
+                <div class="card">
+                    <div class="card-header notificationbg"><span class="notification text-white"> {{search_window}}
+                        </span></div>
+                    <div class="card-body bg-white notificationbody fontsize">
+                        <form autocomplete="off" [formGroup]="instituteForm" (ngSubmit)="SearchResult()"
+                            class="ng-pristine ng-invalid ng-touched">
+                            <div class="form-group row"><label class="col-sm-3 col-form-label"> {{lbl_state}} </label>
+                                <div class="col-sm-9">
+
+                                    <select formControlName="state" class="form-control" (change)="changeState()">
+                                        <option value="">--{{ddl_state}}--</option>
+                                        <option *ngFor="let state of allState" [ngValue]="state.id">{{state.value}}
+                                        </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-3 col-form-label"> {{lbl_district}}
+                                </label>
+                                <div class="col-sm-9">
+                                    <select class="form-control" formControlName="district"
+                                        (change)="onDistrictChange()">
+                                        <option value="">--{{ddl_district}}--</option>
+                                        <option *ngFor="let district of allDistrict" [ngValue]="district.id">
+                                            {{district.value}} </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-3 col-form-label">{{lbl_category}} </label>
+                                <div class="col-sm-9">
+                                    <select formControlName="category" class="form-control"
+                                        (change)="getAllSubcategory()">
+                                        <option value="">--{{ddl_category}}--</option>
+                                        <option *ngFor="let cat of categoryList" [ngValue]="cat.id">
+                                            {{cat.name}} </option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-3 col-form-label"> {{lbl_sub_category}}
+                                </label>
+                                <div class="col-sm-9"><select formControlName="subcat" class="form-control"
+                                        (change)="onChangeSubCategory()">
+                                        <option value="">--{{ddl_sub_category}}--</option>
+                                        <option *ngFor="let subcat of subCategoryList" [ngValue]="subcat.id">
+                                            {{subcat.name}} </option>
+                                    </select></div>
+                            </div>
+                            <div class="form-group row"><label class="col-sm-3 col-form-label"> {{keyword}}</label>
+                                <div class="col-sm-9"><input formControlName="key" class="form-control " id="key_word"
+                                        name="key_word" required="" type="text" placeholder="{{keyword}}"></div>
+                            </div>
+                            <div class="form-group row">
+                                <div class="col-sm-12 text-center"><button class="btn btn-primary"
+                                        type="submit">{{btn_submit}}</button></div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-8">
+                <ul class="nav nav-tabs tabsmenu">
+                    <li class="nav-item" *ngFor="let Inst_x of ProminentInstituteList">
+                        <a class="nav-link tabs-bg-default text-white {{Inst_x.visiable}}" id="Tab{{Inst_x.Name}}"
+                            data-toggle="tab" (click)="getAllInsData(Inst_x)" href="#{{Inst_x.Name}}">
+                            {{(this.languageId==27) ? Inst_x.Name_h : Inst_x.Name}}
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link tabs-bg-default text-white {{searchTab==='search' ? 'active' : ''}}"
+                            data-toggle="tab" (click)="onSearchTabClick(0)" [ngStyle]="getMyStyles()" href="#Search">
+                            {{search_result}}
+                        </a>
+                    </li>
+                </ul>
+
+                <div class="tab-content bg-white tabsstyle">
+                    <div class="tab-pane container {{Inst_y.visiable}}" *ngFor="let Inst_y of ProminentInstituteList"
+                        id="{{Inst_y.Name}}">
+                        <h3 class="headingIIT">{{(this.languageId==27) ? Inst_y.fullName_h : Inst_y.fullName}}</h3>
+
+                        <div class="table-responsive"
+                            *ngFor="let data of addressData | paginate: { itemsPerPage: 10, currentPage: p }; let i= 'index' ">
+                            <table class="table table-bordered table-hover table-striped table-sm fontsize">
+                                <tbody>
+                                    <tr>
+                                        <th rowspan="3" style="width:5%;">{{ i +1 }} </th>
+                                        <th> {{data.name}} </th>
+                                    </tr>
+                                    <tr>
+                                        <td> {{data.address.subLocality}},
+                                            {{data.address.district}}-{{data.address.pinCode}}, {{data.address.state}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a style="cursor: pointer;"
+                                            [routerLink]="['/details']" [queryParams]="{ id: data.id,standardId:'10019'}">{{viewInstitutionDetails}}
+                                            </a>
+                                        </td>
+                                    </tr>
+                                  
+                                </tbody>
+                            </table>
+                        </div>
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </div>
+
+
+                    <div class="tab-pane container {{searchTab==='search' ? 'active' : ''}}"
+                        [ngClass]="{'active':searchTab==='search'}" id="Search">
+                        <h3 class="headingIIT" *ngIf="!search_message">{{filter_the_result}} &nbsp;
+                            <input type="text" id="Txtboxfilter" placeholder="Search" [(ngModel)]="Txtboxfilter"
+                                (keyup)="GridController($event.target.value)">
+                        </h3>
+
+                        <!-- <h3 class="headingIIT" *ngIf="search_message">{{search_message?no_search_result:""}}</h3> -->
+
+
+                        <div class="table-responsive"
+                            *ngFor="let data of AllSearchList| paginate: { itemsPerPage: 10, currentPage: q }; let i= 'index' ">
+                            <table class="table table-bordered table-hover table-striped table-sm fontsize">
+                                <tbody>
+                                    <tr>
+                                        <th rowspan="3" style="width:5%;"> {{i + 1}}</th>
+                                        <th> {{data.name}} </th>
+                                    </tr>
+                                    <tr>
+                                        <td> {{data.address.subLocality}},
+                                            {{data.address.district}}-{{data.address.pinCode}}, {{data.address.state}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                    
+                                    <td><a style="cursor: pointer;"
+                                        [routerLink]="['/details']" [queryParams]="{ id: data.id,standardId:'10019'}">{{viewInstitutionDetails}}
+                                        </a>
+                                    </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <pagination-controls (pageChange)="q = $event"></pagination-controls>
+
+
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+

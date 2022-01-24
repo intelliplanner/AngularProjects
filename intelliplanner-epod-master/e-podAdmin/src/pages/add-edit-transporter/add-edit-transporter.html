@@ -1,0 +1,168 @@
+<ion-header>
+  <ion-navbar color="cement">
+    <ion-title><span *ngIf="action == 'add'">Add</span><span *ngIf="action == 'edit'">Edit</span> Transporter</ion-title>
+    <ion-buttons end royal>
+      <button [disabled]="form.invalid" *ngIf="action == 'add' && action2 == 'notplantadd'" ion-button icon-only (click)="addTransporter()">ADD
+        <ion-icon name="checkbox" color="light"></ion-icon>
+      </button>
+      <button [disabled]="form.invalid" *ngIf="action == 'edit' && action2 == 'notplantadd'" ion-button icon-only (click)="updateTransporter()">UPDATE
+        <ion-icon name="checkbox" color="light"></ion-icon>
+      </button>
+
+       <button [disabled]="!(objt.plant && objt.plant.plant_code && objt.transporter_ID && objt.password)" *ngIf="action2 == 'plantadd'" ion-button icon-only (click)="addPlantTransporter()">ADD.
+        <ion-icon name="checkbox" color="light"></ion-icon>
+      </button>
+      <button *ngIf="action == 'edit' && action2 == 'notplantadd'" ion-button icon-only (click)="deleteTransporter()">
+        <ion-icon name="trash" color="light"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+    <ion-navbar mode="ios">
+    <ion-segment mode="ios" [(ngModel)]="tab">
+      <ion-segment-button value="transporteradd" (click)="addeditplantfunc()">
+        <span *ngIf="action == 'add'">Add</span><span *ngIf="action == 'edit'">Edit</span> Transporter
+      </ion-segment-button>
+      <ion-segment-button value="transporterplant" (click)="addplantfunc()" *ngIf="action == 'edit'
+      ">  
+        Add Plant
+      </ion-segment-button>
+    </ion-segment>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+<div [ngSwitch]="tab">
+<div *ngSwitchCase="'transporteradd'">
+  <form [formGroup]="form">
+    <ion-list style="background: transparent;">
+        <ion-item no-padding [class.invalid]="form.get('name').invalid">
+        <ion-label stacked>Name</ion-label>
+        <ion-input #input formControlName="name" autocomplete="off" type="text" required></ion-input>
+      </ion-item>
+      <div class="error" *ngIf="form.get('name').hasError('required') && (form.get('name').touched || form.get('name').dirty)">Name is required</div>
+
+        <!-- <ion-item no-padding [class.invalid]="form.get('id').invalid">
+        <ion-label stacked>Transporter Id</ion-label>
+        <ion-input #input formControlName="id" autocomplete="off" type="text" required></ion-input>
+      </ion-item>
+      <div class="error" *ngIf="form.get('id').hasError('required') && (form.get('id').touched || form.get('id').dirty)">Transporter Id is required</div> -->
+      
+      <ion-item no-padding [class.invalid]="form.get('email').invalid">
+        <ion-label stacked>Email</ion-label>
+        <ion-input #input formControlName="email" autocomplete="off" type="email"></ion-input>
+      </ion-item>
+
+<!--       <ion-item style="padding-right: 16px;margin-top: 10px;">
+        <ion-label floating>Password</ion-label>
+        <ion-input class="textColor" formControlName="password" [type]='type' name="password" required=""></ion-input>
+        <ion-icon item-right></ion-icon>
+      </ion-item> -->
+
+
+    <!--   <ion-item no-padding [class.invalid]="form.get('password').invalid">
+        <ion-label stacked>Password</ion-label>
+        <ion-input #input formControlName="password" autocomplete="off" [type]='type' required></ion-input>
+        <button style="color: #536173" no-padding *ngIf="!showPass" ion-button clear item-right (click)="showPassword()">
+          <ion-icon style="font-size: 25px;padding: 10px;" name="ios-eye-off-outline"></ion-icon>
+        </button>
+        <button *ngIf="showPass" ion-button clear color="dark" item-right (click)="showPassword()">
+          <ion-icon style="font-size: 25px;padding: 10px;" name="ios-eye-outline"></ion-icon>
+        </button>
+      </ion-item> -->
+      <!-- <div class="error" *ngIf="form.get('password').hasError('required') && (form.get('password').touched || form.get('password').dirty)">Password is required</div> -->
+
+      <ion-item no-padding [class.invalid]="form.get('phone').invalid">
+        <ion-label stacked>Phone</ion-label>
+        <ion-input #input formControlName="phone" autocomplete="off" type="number"></ion-input>
+      </ion-item>
+  
+      <ion-item no-padding [class.invalid]="form.get('transporter_code').invalid">
+        <ion-label stacked>TransporterCode</ion-label>
+        <ion-input #input formControlName="transporter_code" autocomplete="off" type="text" required></ion-input>
+      </ion-item>
+      <div class="error" *ngIf="form.get('transporter_code').hasError('required') && (form.get('transporter_code').touched || form.get('transporter_code').dirty)">TransporterCode is required</div>
+
+      <ion-item no-padding [class.invalid]="form.get('postal_code').invalid">
+        <ion-label stacked>PostalCode</ion-label>
+        <ion-input #input formControlName="postal_code" autocomplete="off" type="text" required></ion-input>
+      </ion-item>
+      <div class="error" *ngIf="form.get('postal_code').hasError('required') && (form.get('postal_code').touched || form.get('postal_code').dirty)">Postal Code is required</div>
+
+      <ion-item no-padding [class.invalid]="form.get('street').invalid">
+        <ion-label stacked>Address</ion-label>
+        <ion-input #input formControlName="street" autocomplete="off" type="text" required></ion-input>
+      </ion-item>
+      <div class="error" *ngIf="form.get('street').hasError('required') && (form.get('street').touched || form.get('street').dirty)">Address is required</div>
+
+      <ion-item no-padding [class.invalid]="form.get('street_1').invalid">
+        <ion-label stacked>Address_1</ion-label>
+        <ion-input #input formControlName="street_1" autocomplete="off" type="text" required></ion-input>
+      </ion-item>
+      <ion-item no-padding [class.invalid]="form.get('street_2').invalid">
+        <ion-label stacked>Address_2</ion-label>
+        <ion-input #input formControlName="street_2" autocomplete="off" type="text" required></ion-input>
+      </ion-item>
+    
+      <ion-item no-padding [class.invalid]="form.get('city').invalid">
+        <ion-label stacked>City</ion-label>
+        <ion-input #input formControlName="city" autocomplete="off" type="text" required></ion-input>
+      </ion-item>
+      <div class="error" *ngIf="form.get('city').hasError('required') && (form.get('city').touched || form.get('city').dirty)">City is required</div>
+
+      <ion-item no-padding [class.invalid]="form.get('state').invalid">
+        <ion-label stacked>State</ion-label>
+        <ion-input #input formControlName="state" autocomplete="off" type="text" required></ion-input>
+      </ion-item>
+      <div class="error" *ngIf="form.get('state').hasError('required') && (form.get('state').touched || form.get('state').dirty)">State is required</div>
+
+    </ion-list>
+  </form>
+  </div>
+
+  <div *ngSwitchCase="'transporterplant'">
+  <ion-list style="background: transparent;">
+     <ion-item no-lines style="background: transparent;">
+              <ion-label>Plant</ion-label>
+              <ion-select [(ngModel)]="objt.plant" (ionChange)="typePlant(objt)">
+                <ion-option *ngFor="let p of getPlant" [value]="p">{{p.plant_name}}</ion-option>
+              </ion-select>
+      </ion-item>
+
+       <ion-item no-padding>
+        <ion-label stacked>Transporter Id</ion-label>
+        <ion-input [(ngModel)]="objt.transporter_ID" autocomplete="off" type="text" required></ion-input>
+      </ion-item>
+
+    <ion-item no-padding>
+        <ion-label stacked>Password</ion-label>
+        <ion-input [(ngModel)]="objt.password" autocomplete="off" [type]='type' required></ion-input>
+        <button style="color: #536173" no-padding *ngIf="!showPass" ion-button clear item-right (click)="showPassword()">
+          <ion-icon style="font-size: 25px;padding: 10px;" name="ios-eye-off-outline"></ion-icon>
+        </button>
+        <button *ngIf="showPass" ion-button clear color="dark" item-right (click)="showPassword()">
+          <ion-icon style="font-size: 25px;padding: 10px;" name="ios-eye-outline"></ion-icon>
+        </button>
+      </ion-item>
+  </ion-list>
+
+
+  <table border="0" style="background-color: #f8f8f8 !important;border:5px solid #f8f8f8" *ngIf="transportPlant && transportPlant.length > 0 ">
+  <tr>
+    <th style="color:blue">Plant Name</th>
+    <th style="color:blue">Transporter ID</th>
+    <th style="color:blue">Transporter Code</th>
+    <!-- <th style="color:blue">Transporter ID</th> -->
+    <!-- <th style="color:blue">Device Price</th> -->
+    <!-- <th></th> -->
+  </tr>
+  <tr *ngFor="let transporter of transportPlant">
+    <td (click)="edittransPlant(transporter)">{{transporter.plant_name}}</td>
+    <td (click)="edittransPlant(transporter)">{{transporter.transporter_ID}}</td>
+    <td (click)="edittransPlant(transporter)">{{transporter.transporter_code}}</td>
+    <!-- <td (click)="edit(transporter)">{{transporter.id || ''}}</td> -->
+    <!-- <td (click)="edit(dealer)">{{dealer.devicePrice}}</td> -->
+<!--     <td text-center><button (click)="deletedealer(dealer.id)" ion-button color="danger" clear icon-only small><ion-icon name="close" color="danger" small></ion-icon></button></td> -->
+  </tr>
+</table>
+  </div>
+</div>
+</ion-content>

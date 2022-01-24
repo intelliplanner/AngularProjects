@@ -1,0 +1,441 @@
+<ion-header mode="ios">
+
+  <ion-navbar mode="ios">
+    <ion-title *ngIf=" action == 'Shipment'">Shipment</ion-title><ion-title *ngIf=" action == 'Invoice'">Invoice</ion-title><ion-title *ngIf=" action == 'PurchaseOrder'">Purchase Order</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+	  <ion-row *ngIf=" action == 'Shipment'">
+      <ion-col col col-12 col-xl-6 offset-xl-3 col-lg-6 offset-lg-3 col-md-6 offset-md-3>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Shipment Number
+    </ion-note>
+    <ion-note item-end>
+      #{{shipment.shipment_number}}
+    </ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Plant
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.plant}}
+    </ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Shipment Status
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.shipment_status}}
+    </ion-note>
+  </ion-item>
+    <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      TRO Number
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.tro_no}}
+    </ion-note>
+  </ion-item>
+    <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Shipment Quantity
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.shipment_quantity}}
+    </ion-note>
+  </ion-item>  
+       <ion-item>
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Ship to party/Customer
+          </ion-note>
+          <ion-note item-end>
+            <span *ngIf="shipment.ship_to_party1">{{shipment.ship_to_party1}}<br></span>
+          
+            <span *ngIf="shipment.ship_to_party2">{{shipment.ship_to_party2}}<br></span>
+          
+            <span *ngIf="shipment.ship_to_party3">{{shipment.ship_to_party3}}<br></span>
+          
+            <span *ngIf="shipment.ship_to_party4">{{shipment.ship_to_party4}}<br></span>
+          
+            <span *ngIf="shipment.ship_to_party5">{{shipment.ship_to_party5}}<br></span>
+          </ion-note>
+        </ion-item>
+
+   <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Vehicle Number
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.vehicle_no}}
+    </ion-note>
+  </ion-item>
+   <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Driver Name
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.driver_name}}
+    </ion-note>
+  </ion-item>
+   <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Driver Phone
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.driver_phoneno}}
+    </ion-note>
+  </ion-item>
+     <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Driver Using
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.driver_using_smartphone_or_sim_plant}}
+    </ion-note>
+  </ion-item>
+
+   <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Truck Capacity
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.truck_capacity}}
+    </ion-note>
+  </ion-item>
+
+    <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Vehicle Classification
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.vehicle_classification_market_own}}
+    </ion-note>
+  </ion-item>
+
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Sales Office Name
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.salesoffice_name}}
+    </ion-note>
+  </ion-item>
+
+    <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Transporter Code
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.transporter_code}}
+    </ion-note>
+  </ion-item>
+
+    <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Transporter Name
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.transporter_name}}
+    </ion-note>
+  </ion-item>
+    <ion-item>
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Destination Name
+          </ion-note>
+          <ion-note item-end>
+
+            <span *ngIf="shipment.destination_name1">{{shipment.destination_name1}}<br></span>
+          
+            <span *ngIf="shipment.destination_name2">{{shipment.destination_name2}}<br></span>
+          
+            <span *ngIf="shipment.destination_name3">{{shipment.destination_name3}}<br></span>
+          
+            <span *ngIf="shipment.destination_name4">{{shipment.destination_name4}}<br></span>
+          
+            <span *ngIf="shipment.destination_name5">{{shipment.destination_name5}}<br></span>
+          </ion-note>
+        </ion-item>
+
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      shipment Creation Date&Time
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.shipment_creation_date || 'dd:mm:yy'}}&nbsp;&nbsp;{{shipment.shipment_creation_time}}
+    </ion-note>
+  </ion-item>
+    <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      LR Number
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.lr_number}}
+    </ion-note>
+  </ion-item>
+   <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Plant Location
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.plant_location || '---'}}
+    </ion-note>
+  </ion-item>
+   <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Destination Location
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.destination_location || '---'}}
+    </ion-note>
+  </ion-item>
+     <hr>
+  <ion-item>
+   <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Cancellation Indicator
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.cancellation_indicator }}
+    </ion-note>
+  </ion-item>
+ <ion-item>
+   <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Shipment Cancellation Date
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.shipment_cancellation_date || 'dd:mm:yy'}}
+    </ion-note>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+ <ion-row *ngIf=" action == 'Invoice'">
+      <ion-col col col-12 col-xl-6 offset-xl-3 col-lg-6 offset-lg-3 col-md-6 offset-md-3>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Invoice Number
+    </ion-note>
+    <ion-note item-end>
+      #{{invoice.invoice_number}}
+    </ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Plant
+    </ion-note>
+    <ion-note item-end>
+      {{invoice.plant}}
+    </ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      invoice Status
+    </ion-note>
+    <ion-note item-end>
+      {{invoice.invoice_status}}
+    </ion-note>
+  </ion-item>
+    <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      invoice Quantity
+    </ion-note>
+    <ion-note item-end>
+      {{invoice.invoice_quantity}}
+    </ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Sales Officer Name
+    </ion-note>
+    <ion-note item-end>
+      {{invoice.salesofficer_name}}
+    </ion-note>
+  </ion-item>
+
+    <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Transporter Code
+    </ion-note>
+    <ion-note item-end>
+      {{invoice.transporter_code}}
+    </ion-note>
+  </ion-item>
+
+    <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Transporter Name
+    </ion-note>
+    <ion-note item-end>
+      {{invoice.transporter_name}}
+    </ion-note>
+  </ion-item>
+   <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Shiptoparty Name
+    </ion-note>
+    <ion-note item-end>
+      {{invoice.shiptoparty_name}}
+    </ion-note>
+  </ion-item>
+   <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Soldtoparty Name
+    </ion-note>
+    <ion-note item-end>
+      {{invoice.soldtoparty_name}}
+    </ion-note>
+  </ion-item>
+ 
+    <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Invoice Creation Date&Time
+    </ion-note>
+    <ion-note item-end>
+      {{invoice.invoice_date || 'dd:mm:yy'}}&nbsp;&nbsp;{{invoice.invoice_time}}
+    </ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Destination Name
+    </ion-note>
+    <ion-note item-end>
+      {{invoice.destination_name}}
+    </ion-note>
+  </ion-item>
+    <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      DO Number
+    </ion-note>
+    <ion-note item-end>
+      {{invoice.do_number}}
+    </ion-note>
+  </ion-item>
+   <hr>
+  <ion-item>
+   <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Cancellation Indicator
+    </ion-note>
+    <ion-note item-end>
+      {{invoice.cancellation_indicator }}
+    </ion-note>
+  </ion-item>
+ <ion-item>
+   <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Invoice Cancellation Date
+    </ion-note>
+    <ion-note item-end>
+      {{invoice.invoice_cancellation_date || 'dd:mm:yy'}}
+    </ion-note>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+ <ion-row *ngIf=" action == 'PurchaseOrder'">
+      <ion-col col col-12 col-xl-6 offset-xl-3 col-lg-6 offset-lg-3 col-md-6 offset-md-3>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      PurchaseOrder Number
+    </ion-note>
+    <ion-note item-end>
+      #{{purchaseorder.purchase_order_number}}
+    </ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Plant
+    </ion-note>
+    <ion-note item-end>
+      {{purchaseorder.plant}}
+    </ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Shipment Number
+    </ion-note>
+    <ion-note item-end>
+      {{purchaseorder.shipment_number}}
+    </ion-note>
+  </ion-item>
+
+   <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Invoice Numbers
+    </ion-note>
+     <ion-note item-end>
+        <span *ngIf="purchaseorder.invoice_number1">{{purchaseorder.invoice_number1}}<br></span>
+        <span *ngIf="purchaseorder.invoice_number2">{{purchaseorder.invoice_number2}}<br></span>
+        <span *ngIf="purchaseorder.invoice_number3">{{purchaseorder.invoice_number3}}<br></span>
+        <span *ngIf="purchaseorder.invoice_number4">{{purchaseorder.invoice_number4}}<br></span>
+        <span *ngIf="purchaseorder.invoice_number5">{{purchaseorder.invoice_number5}}<br></span>
+    </ion-note>
+  </ion-item>
+
+    <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Quantity
+    </ion-note>
+    <ion-note item-end>
+      {{purchaseorder.quantity}}
+    </ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Rate
+    </ion-note>
+    <ion-note item-end>
+      {{purchaseorder.rate}}
+    </ion-note>
+  </ion-item>
+
+    <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Shipment Cost Number
+    </ion-note>
+    <ion-note item-end>
+      {{purchaseorder.shipment_cost_number}}
+    </ion-note>
+  </ion-item>
+
+    <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Shipment Cost
+    </ion-note>
+    <ion-note item-end>
+      {{purchaseorder.shipment_cost}}
+    </ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Purchaseorder Creation Date
+    </ion-note>
+    <ion-note item-end>
+      {{purchaseorder.purchase_order_date || 'dd:mm:yy'}}
+    </ion-note>
+  </ion-item>
+  <hr>
+  <ion-item>
+   <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Cancellation Indicator
+    </ion-note>
+    <ion-note item-end>
+      {{purchaseorder.cancellation_indicator }}
+    </ion-note>
+  </ion-item>
+ <ion-item>
+   <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Purchaseorder Cancellation Date
+    </ion-note>
+    <ion-note item-end>
+      {{purchaseorder.purchase_order_cancellation_date || 'dd:mm:yy'}}
+    </ion-note>
+  </ion-item>
+</ion-col>
+</ion-row>
+
+
+</ion-content>

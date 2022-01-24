@@ -1,0 +1,71 @@
+<form [formGroup]="empForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+<div class="panel panel-primary mb-2" >
+<div class="panel-heading"><h3>Create-Employee</h3></div>
+<div class="panel-body">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="empName">Name</label>
+    <div class="col-sm-2"><input type="text" class="form-control" id="empName" formControlName="empName" placeholder="Enter Name"/></div>
+  </div>
+ 
+  <div class="form-group">   
+    <label class="control-label col-sm-2" for="empEmail">Email</label>
+    <div class="col-sm-2"><input type="email" class="form-control" id="empEmail" formControlName="empEmail" placeholder="Enter Email"/></div>
+  </div>
+
+
+
+<div formGroupName="empSkills"> 
+  <div class="form-group">  
+  	<label class="control-label col-sm-2" for="skillsName">skillsName</label>  
+ 	<div class="col-sm-2">
+ 		<input type="text" class="form-control" id="skillsName" formControlName="skillsName" placeholder="Enter skills Name"/>
+ 	</div>
+
+ <label class="control-label col-sm-2" for="experianceInYear">experianceInYear</label>  
+ <div class="col-sm-2">
+ 	<input type="text" class="form-control" id="experianceInYear" formControlName="experianceInYear" placeholder="Enter experianceInYear"/>
+ </div>
+</div>
+
+
+<div class="form-group">
+	<label class="control-label col-md-2">Proficien</label>
+	<div class="col-md-8">
+	<label class="radio-inline">	<input type="radio"  formControlName="proficiency" value="beginner"/>Beginner</label>
+	<label class="radio-inline"><input type="radio"   formControlName="proficiency" value="advance"/>Advance</label>
+	</div>
+</div>
+
+</div>
+
+
+</div>
+
+<div class="panel-footer">
+	<div class="btn-toolbar">
+	<button type="submit" class="btn btn-primary mb-2">Submit</button>
+	<button type="button" class="btn btn-primary mb-2" (click)="loadDataFunc();">Load Data</button>
+</div>
+</div>
+</div>
+
+</form>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>JSON Format</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{empForm.controls.empName.value}}</td>
+        <td>{{empForm.controls.empEmail.value}}</td>
+        <td>{{empForm.value | json }}</td>
+      </tr>      
+      
+    </tbody>
+  </table>

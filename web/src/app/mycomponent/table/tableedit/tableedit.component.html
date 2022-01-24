@@ -1,0 +1,49 @@
+<div class="d-sm-flex align-items-center justify-content-between mb-4">
+    <h6 class="h6 mb-0 text-gray-800">
+        <a routerLink="/"> Dashboard </a> /
+        <a routerLink="/table"> Table List </a> /
+        <span> Table Edit </span>
+    </h6>
+</div>
+
+
+<div class="card shadow mb-4">
+<div class="card-body">
+
+  <form [formGroup]="TableFormData" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+        <label> Name</label>
+        <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.name.errors }" />
+        <div *ngIf="submitted && f.name.errors" class="invalid-feedback0" >
+            <div *ngIf="f.name.errors.required">Name is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Amount</label>
+        <input type="text" formControlName="amount" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.amount.errors }" />
+        <div *ngIf="submitted && f.amount.errors" class="invalid-feedback">
+            <div *ngIf="f.amount.errors.required">Amount is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>Priority</label>
+        <input type="text" formControlName="priority" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.priority.errors }" />
+        <div *ngIf="submitted && f.priority.errors" class="invalid-feedback">
+            <div *ngIf="f.priority.errors.required">priority is required</div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label>image</label>
+        <input type="file" formControlName="image" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.image.errors }" />
+        <div *ngIf="submitted && f.image.errors" class="invalid-feedback">
+            <div *ngIf="f.image.errors.required">image is required</div>
+        </div>
+    </div>
+  
+    <div class="form-group" align="right">
+        <button class="d-none d-sm-inline-block btn btn-sm btn-primary shadow-sm">Update Table</button>
+    </div>
+</form>
+
+</div>
+</div>

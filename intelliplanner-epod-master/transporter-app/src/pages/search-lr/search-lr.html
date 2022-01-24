@@ -1,0 +1,108 @@
+<ion-header mode="ios" no-border>
+
+ <ion-navbar mode="ios" color="light">
+     <ion-title mode="ios">Search LR</ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+  <ion-toolbar mode="ios" color="light">
+    <ion-row>
+      <ion-col col col-3>
+        Shipment No :<ion-searchbar mode="ios" placeholder="search by Shipment No." [(ngModel)]="searchTermShipment"></ion-searchbar>
+      </ion-col>
+       <ion-col col col-3>
+        LR No :<ion-searchbar mode="ios" placeholder="search by LR No." [(ngModel)]="searchTermLR"></ion-searchbar>
+      </ion-col>
+
+      <!-- <ion-col col col-6>
+        <ion-row no-padding> -->
+          <ion-col no-padding col col-2>
+            <ion-item no-lines>
+              <ion-label>LR Date :</ion-label>
+              <ion-datetime displayFormat="YYYY/MM/DD" pickerFormat="YYYY/MM/DD" [(ngModel)]="filter.fromDate"></ion-datetime>
+            </ion-item>
+          </ion-col>
+          <ion-col no-padding col col-2>
+            <button ion-button block clear (click)="search()">Search</button>
+          </ion-col>
+          <ion-col no-padding col col-2>
+            <button ion-button block clear color="danger" (click)="clearFilter()">Clear Filter</button>
+          </ion-col>
+       <!--  </ion-row>
+      </ion-col> -->
+
+    </ion-row>
+  </ion-toolbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <ion-row no-margin no-padding>
+    <ion-col no-margin no-padding *ngFor="let shipment of missingLR" col col-xs-12 col-sm-12 col-md-6 col-lg-6 col-xl-6>
+      <ion-card class="filterbox" (click)="updateLR(shipment)">
+        <ion-item >
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Shipment Number
+          </ion-note>
+          <ion-note item-end>
+            #{{shipment.shipment_number}}
+          </ion-note>
+        </ion-item>
+        <ion-item >
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Vehicle Number
+          </ion-note>
+          <ion-note item-end>
+            {{shipment.vehicle_no}}
+          </ion-note>
+        </ion-item>
+        <ion-item >
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Ship to party/Customer
+          </ion-note>
+          <ion-note item-end>
+            {{shipment.customer_name}}
+          </ion-note>
+        </ion-item>
+        <ion-item >
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Destination Name
+          </ion-note>
+          <ion-note item-end>
+            {{shipment.destination_name}}
+          </ion-note>
+        </ion-item>
+        <ion-item >
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Driver Name
+          </ion-note>
+          <ion-note item-end>
+            {{shipment.driver_name_plant}}
+            <span style="color:red" *ngIf="!shipment.driver_name_plant">NA</span>
+          </ion-note>
+        </ion-item>
+        <ion-item >
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Missing LR
+          </ion-note>
+          <ion-note item-end>
+            {{shipment.lr_number}}
+            <span style="color:red" *ngIf="!shipment.lr_number">NA</span>
+          </ion-note>
+        </ion-item>
+        <ion-item >
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Tracking Type
+          </ion-note>
+          <ion-note item-end>
+            <ion-badge color="primary" *ngIf="shipment.driver_using_smartphone_or_sim_plant == 1">epod</ion-badge>
+            <ion-badge color="dark" *ngIf="shipment.driver_using_smartphone_or_sim_plant == 0">sim</ion-badge>
+            <span style="color:red" *ngIf="!shipment.driver_using_smartphone_or_sim_plant">NA</span>
+          </ion-note>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

@@ -1,0 +1,109 @@
+<section class="aboutsection">
+    <div class="container-fluid reg-page-bg">
+          <div class="row">
+              <div class="col-md-6">
+                <button class="btn-back"(click)="navigateBack()"><i class="fas fa-arrow-circle-left"></i><span style="margin-left:4px">Back</span></button>
+              </div>
+          </div>
+        <div class="animated fadeInDown card shadow mb-4 p-4 mt-4">
+            <div class="card bg-light m-3">
+                <div class="row">
+                    <div class="pl-4 pt-2 pb-2">
+                        <img src="assets/images/institute_icon.png" alt="" class="instituteIcon">
+                    </div>
+                    <div class="col-md-9 pt-4" *ngIf="detailsList && detailsList.length">
+                        <span class="detail">Eideas ID(PIE)</span><span class="pl-4 detail">{{instituteId}}</span><span
+                            class="piped"></span><span class="detail pl-3">{{detailsList['0'].uniqueName}}</span><span
+                            class="pl-4 detail">{{detailsList['0'].code}}</span><br>
+                        <span class="instituteHeader">{{detailsList['0'].name}}</span><br>
+                        <span>{{detailsList['0'].address.premiseNo === 'null' ? '' :
+                            (detailsList['0'].address.premiseNo === 'NA' ? '' : detailsList['0'].address.premiseNo)}}
+                            {{detailsList['0'].address.subLocality === 'null' ? '' :
+                            detailsList['0'].address.subLocality}}
+                            {{detailsList['0'].address.locality === 'null' ? '' :
+                            detailsList['0'].address.locality}} {{detailsList['0'].address.district === 'null' ? '' :
+                            detailsList['0'].address.district}} {{detailsList['0'].address.state === 'null' ? '' :
+                            detailsList['0'].address.state}} {{detailsList['0'].address.pinCode === 'null' ? '' :
+                            detailsList['0'].address.pinCode}}</span>
+                        <!-- <span class="detail">{{district}}</span><span class="pl-4">{{detailsList['0'].address.district
+                            === 'null' ? '' :
+                            detailsList['0'].address.district}}</span><span class="detail pl-4">{{pincode}}</span><span
+                            class="pl-4">{{detailsList['0'].address.pinCode
+                            === 'null' ? '' :
+                            detailsList['0'].address.pinCode}}</span><br>
+                        <span
+                            class="detail">{{state}}</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>{{detailsList['0'].address.state
+                            === 'null' ? '' :
+                            detailsList['0'].address.state}}</span> -->
+                       
+                    </div>
+                </div>
+            </div>
+            
+
+
+            <div class="row" *ngIf="detailsList && detailsList.length">
+                <div class="form-row col-md-12 overflow-hidden">
+                    <div class="col-md-10 offset-md-1">
+                        <h3 class="heading">Basic Details</h3>
+                        <table class="table table-sm" style="font-family: auto;">
+                            <tr>
+                                <td>
+                                    Category
+                                </td>
+                                <td>
+                                    {{detailsList['0'].category === 'null' ? '' :
+                                    detailsList['0'].category}}
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    SubCategory
+                                </td>
+                                <td>
+                                    {{detailsList['0'].subCategory === 'null' ? '' :
+                                    detailsList['0'].subCategory}}
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Governance
+                                </td>
+                                <td>
+                                    {{detailsList['0'].governance === 'null' ? '' :
+                                    detailsList['0'].governance}}
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Year Of Establishment
+                                </td>
+                                <td>
+                                    {{detailsList['0'].establishmentYear === 'null' ? '' :
+                                    detailsList['0'].establishmentYear}}
+
+                                </td>
+                            </tr>
+
+
+                            <tr>
+                                <td>
+                                    Status
+                                </td>
+                                <td>
+                                    {{detailsList['0'].status === 'NA' ? '' :
+                                    detailsList['0'].status}}
+
+                                </td>
+                            </tr>
+
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

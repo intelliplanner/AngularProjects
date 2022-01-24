@@ -1,0 +1,134 @@
+<ion-header mode="ios">
+  <ion-navbar mode="ios" color="cement">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title mode="ios"><span *ngIf = "value == true">All Transporters Details</span><span *ngIf = "value == false">All User Details</span></ion-title>
+
+    <ion-buttons end royal *ngIf = "value">
+      <button ion-button icon-only (click)="add()">
+        <ion-icon name="add" color="light"></ion-icon>
+      </button>
+    </ion-buttons>
+
+<!--     <ion-buttons royal>    only for upload transporter
+      <input type="file" (change)="upload($event)" multiple="false" /> 
+        <ion-icon name="add" color="light"></ion-icon>
+    </ion-buttons> -->
+
+  </ion-navbar>
+   <ion-toolbar color="cement">
+  <ion-segment mode="ios" [(ngModel)]="tab">
+      <ion-segment-button value="transporters" (click)="toggle1()">
+       Transporters
+      </ion-segment-button>
+      <ion-segment-button value="users" (click)="toggle2()">
+        Users
+      </ion-segment-button>
+    </ion-segment>
+    <ion-row>
+    </ion-row>
+  </ion-toolbar>
+  <ion-toolbar color="cement">
+    <ion-row *ngIf = "value == true">
+        <ion-searchbar mode="ios" placeholder="search all {{transporters.length}} transporters by Name or Transporter code or Phone"  [(ngModel)]="searchTerm" 
+        (ionInput)="searchTransporter($event,1)"></ion-searchbar>
+    </ion-row>
+   <ion-row *ngIf = "value == false">
+        <ion-searchbar mode="ios" placeholder="search by Transporter code or TransporterID or Plant name"  [(ngModel)]="searchTerm" 
+        (ionInput)="searchTransporter($event,2)"></ion-searchbar>
+    </ion-row>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+
+   <div [ngSwitch]="tab">
+    <div *ngSwitchCase="'transporters'">
+      <table class="table table-striped" [mfData]=" selectedTransporters " #mf="mfDataTable" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder" border="0" style="background-color: #f8f8f8 !important;border:5px solid #f8f8f8"> 
+      <thead>
+    <tr>
+        <th style="width: 10%">
+            <mfDefaultSorter by="id">S No.</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="transporter_name">Name</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="email">Email</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="phone">Phone</mfDefaultSorter>
+        </th>
+         <th style="width: 10%">
+            <mfDefaultSorter by="city">City</mfDefaultSorter>
+        </th>
+         <th style="width: 10%">
+            <mfDefaultSorter by="state">State</mfDefaultSorter>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let transporter of mf.data; let i = index ">
+       <td>{{i+1}}</td>
+       <td (click)="edit(transporter)">{{transporter.name}}</td>
+       <td (click)="edit(transporter)">{{transporter.email}}</td>
+       <td (click)="edit(transporter)">{{transporter.phone}}</td>
+       <td (click)="edit(transporter)">{{transporter.city}}</td>
+       <td (click)="edit(transporter)">{{transporter.state}}</td>
+     
+    </tr>
+    </tbody>
+</table>
+      
+    </div>
+
+
+   <div *ngSwitchCase="'users'">
+      <table class="table table-striped" [mfData]="transporterUsers" #mf="mfDataTable" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder" border="0" style="background-color: #f8f8f8 !important;border:5px solid #f8f8f8"> 
+      <thead>
+    <tr>
+        <th style="width: 10%">
+            <mfDefaultSorter by="id">S No.</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="transporter_ID">Transporter ID</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="plant_name">Plant</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="transporter_code">Transporter Code</mfDefaultSorter>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let usr of mf.data; let i = index ">
+       <td>{{i+1}}</td>
+      <td>{{usr.transporter_ID}}</td>
+      <td>{{usr.plant_name}}</td>
+      <td>{{usr.transporter_code}}</td>     
+    </tr>
+    </tbody>
+</table>
+      
+    </div>
+</div>
+
+
+
+
+<!-- <table border="0" style="background-color: #f8f8f8 !important;border:5px solid #f8f8f8" *ngIf=" transporters.length > 0 ">
+  <tr>
+    <th style="color:blue">Name</th>
+    <th style="color:blue">Email</th>
+    <th style="color:blue">Phone.No</th>
+  </tr>
+  <tr *ngFor="let transporter of selectedTransporters">
+    <td (click)="edit(transporter)">{{transporter.name}}</td>
+    <td (click)="edit(transporter)">{{transporter.email}}</td>
+    <td (click)="edit(transporter)">{{transporter.phone}}</td>
+  </tr>
+</table> -->
+</ion-content>

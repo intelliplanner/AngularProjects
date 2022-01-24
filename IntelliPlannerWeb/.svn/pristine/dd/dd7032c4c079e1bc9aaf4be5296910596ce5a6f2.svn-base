@@ -1,0 +1,27 @@
+.heading{
+    background-color: #2384c6 !important;
+    color: #fff !important;
+    font-size: 22px !important;
+    padding: 10px;
+    font-family: auto;
+}
+.instituteIcon{
+    background-size: contain;
+    background-repeat: no-repeat;
+    height: 155px;
+    width: 170px;
+}
+.instituteHeader{
+    font-size: 35px;
+    font-family: auto;
+    // margin-left: 20px;
+   
+}
+.detail{
+    font-weight: 500;
+}
+.piped{
+    border-left: 2px solid #ccc;
+    margin-left: 15px;
+  }
+

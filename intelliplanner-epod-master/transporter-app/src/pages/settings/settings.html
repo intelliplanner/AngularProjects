@@ -1,0 +1,47 @@
+<ion-header mode="ios">
+  <ion-navbar mode="ios" color="cement">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title mode="ios">Change Password</ion-title>
+    <ion-buttons end royal>
+      <button ion-button icon-only (click)="update()">UPDATE
+        <ion-icon name="check"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <ion-list style="background: transparent;">
+    <ion-item>
+      <ion-label stacked>
+        Transporter Code</ion-label>
+      <ion-input [(ngModel)]="transporter.transporter_code" [disabled]="true" autocomplete="off" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>
+        Transporter ID</ion-label>
+      <ion-input [(ngModel)]="transporter.transporter_ID" [disabled]="true" autocomplete="off" type="text">
+      </ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label stacked>
+        New Password</ion-label>
+      <ion-input [(ngModel)]="transporter.newpassword" autocomplete="off" type="text">
+      </ion-input>
+    </ion-item>
+    <!--  <ion-item >
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            conform password</ion-label>
+          <ion-input [(ngModel)]="transporter.password" autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item> -->
+    <!--  <ion-item >
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            Transporter Name</ion-label>
+          <ion-input [(ngModel)]="transporter.name" autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item> -->
+  </ion-list>
+</ion-content>

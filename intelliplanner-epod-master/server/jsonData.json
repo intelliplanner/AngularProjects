@@ -1,0 +1,96 @@
+[
+  {
+    "Shipment Number":"12346",
+    "Plant":"plant",
+    "Shipment Status 1-creation":true,
+    "Shipment Assignment Date & Time":"2019-02-28 09:29:44",
+    "Shipment Cost":1000,
+    "Shipment Quantity":200,
+
+    "Vehicle No":"DL1234",
+    "TRO number":"qsr900",
+    "Load type (Bulk/bag)":"loadtype",
+    "Truck capacity (MT)":"500",
+    "Truck yard entry date & time":"2019-02-28 09:29:44",
+    "Vehicle classification (Market & Own)":"own",
+    "LR number":"BJP300",
+
+    "Sales office name":"office123",
+    "Destination name":"mumbai",
+    "Destination code":"0098",
+    "Zone name":"nagpur",
+     
+    "Concerned Sales officer name":"abcd-klmn",
+    "Concerned Sales officer phone No.":908767,
+
+    "Transporter Code":"908uio",
+    "Transporter Name":"pqrs-wxyz",
+
+    "Driver Name [Available in SAP currently in TRO]":"driver123",
+    "Driver Phone No.[To be added to TRO in SAP]":"99087667",
+    "Driver using smartphone/Sim [To be added to TRO in SAP]":"yes"
+},
+
+{
+    "Shipment Number":"12346",
+    "Plant":"plant",
+    "Shipment Status 1-creation":true,
+    "Shipment Assignment Date & Time":"2019-02-28 09:29:44",
+    "Shipment Cost":1000,
+    "Shipment Quantity":200,
+
+    "Vehicle No":"DL1234",
+    "TRO number":"qsr900",
+    "Load type (Bulk/bag)":"loadtype",
+    "Truck capacity (MT)":"500",
+    "Truck yard entry date & time":"2019-02-28 09:29:44",
+    "Vehicle classification (Market & Own)":"own",
+    "LR number":"BJP300",
+
+    "Sales office name":"office123",
+    "Destination name":"mumbai",
+    "Destination code":"0098",
+    "Zone name":"nagpur",
+     
+    "Concerned Sales officer name":"abcd-klmn",
+    "Concerned Sales officer phone No.":908767,
+
+    "Transporter Code":"908uio",
+    "Transporter Name":"pqrs-wxyz",
+
+    "Driver Name [Available in SAP currently in TRO]":"driver123",
+    "Driver Phone No.[To be added to TRO in SAP]":"99087667",
+    "Driver using smartphone/Sim [To be added to TRO in SAP]":"yes"
+},
+{
+    "Shipment Number":"12346",
+    "Plant":"plant",
+    "Shipment Status 1-creation":true,
+    "Shipment Assignment Date & Time":"2019-02-28 09:29:44",
+    "Shipment Cost":1000,
+    "Shipment Quantity":200,
+
+    "Vehicle No":"DL1234",
+    "TRO number":"qsr900",
+    "Load type (Bulk/bag)":"loadtype",
+    "Truck capacity (MT)":"500",
+    "Truck yard entry date & time":"2019-02-28 09:29:44",
+    "Vehicle classification (Market & Own)":"own",
+    "LR number":"BJP300",
+
+    "Sales office name":"office123",
+    "Destination name":"mumbai",
+    "Destination code":"0098",
+    "Zone name":"nagpur",
+     
+    "Concerned Sales officer name":"abcd-klmn",
+    "Concerned Sales officer phone No.":908767,
+
+    "Transporter Code":"908uio",
+    "Transporter Name":"pqrs-wxyz",
+
+    "Driver Name [Available in SAP currently in TRO]":"driver123",
+    "Driver Phone No.[To be added to TRO in SAP]":"99087667",
+    "Driver using smartphone/Sim [To be added to TRO in SAP]":"yes"
+ }
+]

@@ -1,0 +1,25 @@
+<div class="table-responsive">
+  <table class="table table-bordered" *ngIf="topics && topics.length">
+    <thead >
+      <tr class="bg-primary">
+        <th>Topic Id</th>
+        <th>Sub Topic Name</th>
+        <th>status</th>
+        <th>created_on</th>
+        <th>updated_by</th>
+        <th>updated_on</th>
+  		<th></th>
+      </tr>
+    </thead>  
+    <tbody>
+      <tr *ngFor="let topic of topics">
+        <td>{{topic.topicName}}</td>
+        <td>{{topic.status}}</td>
+        <td>{{topic.createdOn}}</td>
+        <td>{{topic.updatedBy}}</td>
+        <td>{{topic.updatedOn}}</td>        
+        <td><button type="button" class="button btn-primary"  >Edit</button></td>
+      </tr>      
+    </tbody>
+  </table>
+  </div>

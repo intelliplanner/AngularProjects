@@ -1,0 +1,17 @@
+<div class="table-responsive">
+  <table class="table table-bordered" *ngIf="mobileShop && mobileShop.length">
+    <thead >
+      <tr class="bg-primary">
+        <th>mobile Shop Name</th>    
+  		<th></th>
+      </tr>
+    </thead>  
+    <tbody>
+      <tr *ngFor="let mobile of mobileShop">
+        <td>{{mobile.mobileShopName}}</td>
+    
+        <td><button type="button" class="button btn-primary">Edit</button></td>
+      </tr>      
+    </tbody>
+  </table>
+  </div>

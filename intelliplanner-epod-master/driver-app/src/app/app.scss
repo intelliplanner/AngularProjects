@@ -1,0 +1,282 @@
+.scroll-content {
+  overflow-y: auto;
+}
+.split-pane {
+background: #222;
+}
+
+.split-pane-side {
+  max-width: 230px !important;
+  min-width: 230px !important;
+}
+
+.activeHighlight {
+  border-left: 4px solid #ee1d24 !important;
+  color: #ee1d24 !important;
+  font-weight: bold !important;
+}
+
+// .toolbar-background {
+//   background: #ee1d24 !important;
+// }
+
+.toolbar-ios-white .toolbar-title-ios, .toolbar-ios-white .bar-button-clear-ios, .toolbar-ios-white .bar-button-default-ios {
+    color: #fff;
+}
+
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #fff;
+}
+
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #fff;
+}
+
+.item-md.item-input.input-has-focus .item-inner {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.list-md .item-input.input-has-focus:last-child {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.list-md .item-input.input-has-focus:last-child .item-inner {
+  box-shadow: none;
+}
+
+.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child .item-inner {
+  box-shadow: none;
+}
+
+.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.bar-button-default-md, .bar-button-clear-md-default, .bar-button-md-default {
+    color: #ffffff;
+    background-color: transparent;
+}
+
+.toolbar-title-ios {
+    color: #fff;
+}
+
+.rootpage .toolbar-title-ios {
+  color: #fff;
+}
+
+.box {
+  border-radius: 10px;
+  padding: 20px;
+  border: 0px solid #ccc;
+
+  div {
+    font-weight: bold;
+    font-size: 16;
+  }
+
+  span {
+    font-size: 20px;
+    font-weight: 200;
+  }
+}
+
+.box2 {
+  border-radius: 10px;
+  padding: 5px;
+  border: 0px solid #ccc;
+
+  ion-item {
+    background: transparent;
+  }
+
+  ion-note {
+    color: #fff;
+    text-transform: capitalize;
+  }
+
+}
+
+.filterbox {
+padding: 10px 0px;
+  ion-item {
+    background: transparent;
+  }
+
+  ion-note {
+    color: #222;
+    font-size: 14px !important;
+    text-transform: capitalize;
+  }
+
+}
+
+.boxcol {
+  padding: 10px 10px 0px 10px !important;
+}
+
+.normalToast {
+  .toast-message {
+    border-radius: 0.20rem !important;
+    background-color: #77B1E0
+  }
+}
+
+.split-pane-md.split-pane-visible > .split-pane-side,.split-pane-ios.split-pane-visible > .split-pane-side {
+    border-right: 3px solid #ee1d24 !important;
+}
+
+
+// For 3d animations
+ion-menu[type='3d'],
+ion-menu[type='3d-open'],
+ion-menu[type='3d-skew'],
+ion-menu[type='3d-fall-down'],
+ion-menu[type='3d-float-up'],
+ion-menu[type='3d-scale-back'],
+ion-menu[type='3d-scale-up'],
+ion-menu[type='3d-rotate-out'],
+ion-menu[type='3d-reverse-slide'],
+ion-menu[type='3d-content-down'] {
+    &.show-menu {
+        .menu-inner {
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            -ms-transform: translate3d(0, 0, 0);
+            -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+}
+
+ion-menu[type='3d-rotate-out'].show-menu .menu-inner {
+    -webkit-transform-origin: 100% 50%;
+    transform-origin: 100% 50%;
+}
+
+ion-menu[type='3d-scale-back'] {
+    .show-backdrop {
+        display: block;
+    }
+}
+
+.menu-content-3d,
+.menu-content-3d-open,
+.menu-content-3d-skew,
+.menu-content-3d-fall-down,
+.menu-content-3d-float-up,
+.menu-content-3d-scale-back,
+.menu-content-3d-scale-up,
+.menu-content-3d-rotate-out,
+.menu-content-3d-reverse-slide,
+.menu-content-3d-content-down {
+    -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    -moz-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    -ms-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+}
+
+// Full with for '3d' sidemenu
+// You can make it permanent by set up $menu-width in variables.scss
+.fullWidthMenu {
+    .menu-inner {
+        width: 100% !important;
+    }
+}
+
+$breakpoints-keys: map-keys($screen-breakpoints);
+$breakpoints-values: map-values($screen-breakpoints);
+
+@for $i from 1 to length($breakpoints-keys)+1 {
+  @if $i < length($breakpoints-keys) {
+    .hidden-#{nth($breakpoints-keys, $i)} {
+      @media (min-width: nth($breakpoints-values, $i)) and (max-width: #{nth($breakpoints-values, $i+1)}) {
+        display: none !important;
+      }
+    }
+  }
+
+  @else {
+    .hidden-#{nth($breakpoints-keys, $i)} {
+      @media (min-width: nth($breakpoints-values, $i)) {
+        display: none !important;
+      }
+    }
+  }
+}
+
+
+.item-input ion-input,
+.item-input ion-textarea,
+{
+  position: static;
+  border: 1px solid #ccc;
+  padding: 0px 10px;
+  border-radius: 5px;
+}
+
+
+
+.item-md.item-input.input-has-focus .item-inner {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.list-md .item-input.input-has-focus:last-child {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.list-md .item-input.input-has-focus:last-child .item-inner {
+  box-shadow: none;
+}
+
+.item-md.item-input.ng-valid.input-has-value:not(.input-has-focus) .item-inner {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.list-md .item-input.ng-valid.input-has-value:not(.input-has-focus):last-child .item-inner {
+  box-shadow: none!important;
+}
+
+.item-md.item-input.ng-invalid.ng-touched:not(.input-has-focus) .item-inner {
+  border-bottom-color: transparent !important;
+  box-shadow: none !important;
+}
+
+.list-md .item-block .item-inner {
+    border-bottom: none!important;
+    box-shadow: none!important;
+}
+
+.list-md .item-input:last-child {
+    border-bottom: none!important;
+    box-shadow: none!important;
+}
+
+.label-md[stacked],
+.label-md[floating] {
+  margin-left: 0;
+  margin-bottom: 5px;
+  font-size: 15px;
+}

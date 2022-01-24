@@ -1,0 +1,14 @@
+<soapenv:Envelope xmlns:soapenv="http://schemas.xmlsoap.org/soap/envelope/" xmlns:urn="urn:Inteliplanner_Orient_AccountPosting.com">
+   <soapenv:Header/>
+   <soapenv:Body>
+      <urn:AccountPostingReqMT_Intel_Out>
+         <AccountPosting_Request>
+            <Shipment_Number>[Shipment_Number]</Shipment_Number>
+            <Plant>[Plant]</Plant>
+            <PO_Number>[PO_Number]</PO_Number>
+            <PO_Date>[PO_Date]</PO_Date>
+            <ShipmentCost_Number>[ShipmentCost_Number]</ShipmentCost_Number>
+         </AccountPosting_Request>
+      </urn:AccountPostingReqMT_Intel_Out>
+   </soapenv:Body>
+</soapenv:Envelope>

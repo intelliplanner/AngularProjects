@@ -1,0 +1,33 @@
+<ion-header mode="ios" no-border>
+  <ion-navbar mode="ios" color="cement">
+    <ion-title mode="ios">Welcome</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+
+<div style="margin-top: 0%" text-center>
+  <img style="text-align: center;width: 50%" src="assets/imgs/launchImg.png">
+       <ion-item>
+        <ion-label stacked>Enter Vehicle Number</ion-label>
+        <ion-input class="textColor" [(ngModel)]="form.vehicleNo" type="text" value="" name="vehicleNo" required=""></ion-input>
+      </ion-item>
+<!--       <ion-item>
+        <ion-label stacked>Enter Phone Number</ion-label>
+        <ion-input class="textColor" [(ngModel)]="phone" type="number" value="" name="phone" required=""></ion-input>
+      </ion-item> -->
+
+       <ion-item>
+        <ion-label stacked>Enter Transporter Code</ion-label>
+        <ion-input class="textColor" [(ngModel)]="form.transporterCode" type="text" value="" name="transporterCode" required=""></ion-input>
+      </ion-item>
+
+      <button style="margin-top:20px;" ion-button block [disabled]="!(form.vehicleNo && form.transporterCode)" round class="hidden-xl hidden-lg hidden-md" color="cement" (click)="continue()">LOGIN</button>
+</div>
+<!--       <ion-item no-lines style="padding-left: 10px">
+        <button ion-button clear class="signupButton" (click)="resetPassword()">Forgot Password</button>
+      </ion-item> -->
+</ion-content>
+
+<!-- <ion-footer no-border padding>
+      <button [disabled]="!(form.vehicleNo && form.transporterCode)" ion-button block outline color="cement" (click)="continue()">Next</button>
+</ion-footer> -->

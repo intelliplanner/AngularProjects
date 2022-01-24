@@ -1,0 +1,171 @@
+<ion-header mode="ios" no-border>
+  <ion-navbar mode="ios"  color="cement">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title mode="ios">
+      ePOD - Dashboard
+    </ion-title>
+    <ion-buttons end royal>
+      <button ion-button icon-only (click)="ionViewWillEnter()">
+        <ion-icon name="ios-refresh-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+<!--     <ion-buttons end royal>
+      <button ion-button icon-only (click)="add()">
+        <ion-icon name="ios-funnel-outline"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+<!--   <ion-toolbar color="white">
+    <ion-title mode="ios">
+      <div style="margin-top: 2px;" text-left>
+        <img style="text-align: center;height: 44px;" src="assets/imgs/header.png">
+      </div>
+    </ion-title>
+    <ion-buttons end royal>
+      <button ion-button icon-only (click)="ionViewWillEnter()">
+        <ion-icon name="ios-refresh-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar> -->
+</ion-header>
+<ion-content style="background: #fff;" padding>
+       <div class="hidden-xl hidden-lg hidden-md">
+        <img style="padding:0px;width:100%;border-radius:20px;" src="assets/imgs/orientCement.jpg">
+      </div>
+
+      <h6 class="titl hidden-xs hidden-sm">EPOD DASHBOARD</h6>
+    <!-- <button item-right ion-button block color="cement" (click)="getXML()">XML</button>     Demo purpose for checking xml -->
+    <ion-row class="hidden-xl hidden-lg hidden-md">
+
+    <ion-col *ngFor="let status of statuses" class="boxcol" text-center col col-sm-6 col-6 col-lg-6 col-md-6>
+      <div (click)="openTripFilter(status)" class="box2" style="background: transparent;" text-center>
+
+        <img [src]="status.img">
+        <div><b>{{status.name}} : </b>  <span>{{dashData[status.value]}}</span></div>
+<!--         <ion-item no-lines>
+          <ion-note item-start>
+            {{status.name}}
+          </ion-note>
+          <ion-note item-end>
+            {{dashData[status.value]}}
+          </ion-note>
+        </ion-item> -->
+      </div>
+    </ion-col>
+
+  </ion-row>
+
+
+<!-- <<<<<<< HEAD
+  <ion-row class="hidden-xs hidden-sm">
+    <ion-col *ngFor="let status of statuses" text-center col col-sm-12 col-12 col-lg-4 col-md-4 col-xl-4>
+======= -->
+  <!-- <ion-row class="hidden-xs hidden-sm">
+    <ion-col *ngFor="let status of statuses" text-center col col-sm-12 col-12 col-lg-6 col-md-6>
+      hide already <div (click)="openTripFilter(status)" class="box" [style.background]="status.color">
+>>>>>>> 1c60758f6d09b949e8bccb22a42e95f8e5c02fed
+      <div (click)="openTripFilter(status)" class="box" text-center>
+        <img [src]="status.img">
+        <div><b>{{status.name}}</b></div>
+        <span>{{dashData[status.value]}}</span>
+      </div>
+    </ion-col>
+  </ion-row> -->
+
+  
+  <div style="overflow: hidden" class="hidden-xs hidden-sm">
+    <div style="border: 3px solid #395E89;background-color:#DAEEF3;float: left;width: 30%;padding-bottom: 100%;margin-bottom: -100%;">
+      
+      <div style="background: #4F81BD;border:2px solid #395E89; width: 50%;height: 55px;text-align: center;margin-top: 130px;padding-top: 15px;margin-left: 80px;color: #ffffff;">
+        MY LIFTING
+      </div>
+  
+      <div style="background: #4F81BD;border:2px solid #395E89;width: 50%;height: 55px;text-align: center;padding-top: 15px;margin-top: 22px;margin-left: 80px;color: #ffffff;">
+        EPOD SIM TRACK
+      </div>
+      
+    </div>  
+  
+    <div style=" float: left;width: 70%;padding-bottom: 100%;margin-bottom: -100%;">
+      <div>
+       <ion-row *ngFor=" let status of statuses" style="padding-top: 10px">
+       <ion-col col col-xl-2 col-2 col-lg-2 col-md-2></ion-col>
+
+       <ion-col class="boxcol3" text-center col col-xl-2 col-2 col-lg-2 col-md-2>
+       <img [src]="status.img" style="width: 36px;height: 36px">
+      <!-- <div (click)="openTripFilter(status)" class="box-00" text-center>
+      <div><img [src]="status.img" style="width: 24px;height: 24px">&nbsp;&nbsp;<b>{{status.name}} : </b>  <span>{{dashData[status.value]}}</span></div>
+      </div> -->
+     </ion-col>
+     <ion-col class="box-00" text-center col col-xl-6 col-6 col-lg-6 col-md-6 style="background: #DAEEF3" (click)="openTripFilter(status)">
+       <b>{{status.name}} : </b>  <span>{{dashData[status.value]}}</span>
+     </ion-col>
+
+  <ion-col col col-xl-2 col-2 col-lg-2 col-md-2></ion-col>
+ 
+  </ion-row>
+  </div>
+    </div>
+
+     <div>
+        <img style="width:100%;height:282px" src="assets/imgs/orientCement.jpg">
+      </div>
+</div>
+
+
+  
+<!-- <div class="row" style="display: flex;">
+  <div class="col" style="flex: 1; padding: 1em;border: solid;">
+     <div>
+        MY LIFTING
+      </div>
+  
+      <div>
+        EPOD SIM TRACK
+      </div>
+      
+    </div>
+
+
+  <div class="col" style="flex: 1; padding: 1em;border: solid;">
+  <div *ngFor=" let status of statuses" (click)="openTripFilter(status)" class="box-00" text-center>
+      <div style="background-color: #DAEEF3"><img [src]="status.img" style="width: 24px;height: 24px">&nbsp;&nbsp;<b>{{status.name}} : </b>  <span>{{dashData[status.value]}}</span></div><br>
+      </div></div>
+</div> -->
+
+
+
+   <!-- <ion-row class="hidden-xs hidden-sm">
+    <ion-col *ngFor=" let status of statuses" text-center col col-sm-1.5 col-1.5 col-lg-1.5 col-md-1.5 col-xl-1.5 class="boxcol2">
+      <div (click)="openTripFilter(status)" class="box-00" text-center>
+        <img src="https://ui-avatars.com/api/?rounded=true&size=160&background=4F81BD&color=fff&name={{status.name}}">
+        <div><b>{{status.name}}</b></div>
+        <span>{{dashData[status.value]}}</span>
+      </div>
+    </ion-col>
+
+    <ion-col text-center col col-sm-12 col-12 col-lg-12 col-md-12 col-xl-12>
+     <div>
+        <img style="width:100%;height:282px" src="assets/imgs/orientCement.jpg">
+      </div>
+  </ion-col>
+
+  </ion-row> -->
+
+
+<!--   <ion-row class="hidden-xs hidden-sm">
+  <ion-col text-center col col-sm-12 col-12 col-lg-12 col-md-12 col-xl-12>
+     <div>
+        <img style="width:100%;" src="assets/imgs/orientCement.jpg">
+      </div>
+  </ion-col>
+  </ion-row> --> 
+
+  
+
+
+
+</ion-content>
+

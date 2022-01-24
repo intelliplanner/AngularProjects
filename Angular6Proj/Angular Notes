@@ -1,0 +1,108 @@
+https://www.youtube.com/watch?v=Cuyf1k4bIzc&list=PL6n9fhu94yhWNJaDgh0mfae_9xoQ4E_Zj&index=1
+Angular 6 Cover Topics
+>ReActive form controller
+>Angular nested form group
+>SetValue And PatchValue value method
+>Angular Form Builder  (Angular formbuilder example)
+>Implementing Validation in form builder form
+>Angular form control valuechanges
+>Loop through all form controls in formgroup in :reactive form
+>Move validation messages to the component class in reactive form
+>RxJS operators in angular services
+>launch new json server for data :  json-server --watch db.json
+> Send emails using Node.js, Nodemailer and Angular				https://www.youtube.com/watch?v=p4bnK0qy89w&t=167s
+
+
+
+node -v
+mpm -v
+
++++++++++++++++++++++++
+Install Angular CLI and Create Angular 6 Web Application
+To install or upgrade the latest Angular 6 CLI, type this command in the terminal or Node command line.
+
+sudo npm install -g @angular/cli
+If you use windows, it might be not necessary to add `sudo`. Next, create a new Angular 6 Web Application using this Angular CLI command.
+
+ng new angular6-start
+Next, go to the newly created Angular 6 project folder.
+
+cd ./angular6-start
+Now, you run the new Angular 6 web application using your own host and port.
+
+ng serve --host 0.0.0.0 --port 3000    or    		ng serve --open   		  or 						ng s -o
+
+
+
+The feature that comes with the new Angular 6 CLI is `ng add`. First, we have to try to convert or turn the regular Angular 6 application to the Progressive Web Apps (PWA):	ng add @angular/pwa
+
+We can now update to the required version above simply by using this command.: 			ng update @angular/core
+
+Back to the PWA, we have to run the Angular 6 PWA application. First, build the Angular 6 PWA by type this command.
+
+ng build --prod
+Next, install `http-server` using NPM command.:					sudo npm i -g http-server
+
+Next, go to the built Angular 6 PWA application.
+
+cd dist/angular6-start/
+Now, we can run the Angular 6 PWA using HTTP-server.
+
+http-server -p 8000
+
+
+-----------------------
+
+Generate Angular 6 Material Components
+Another new feature in Angular 6 is Angular Component that focused material to an existing Angular application. Type this Angular 6 CLI command to add it.
+ionic cordova platform add android
+npm i -g cordova-res
+ionic cordova resources android --force
+
+
+
+----------------------
+There will be available Angular Starter Material Component. Let's try the starter component for Navigation pane. You may generate the Navigation Component using this command.
+
+ng generate @angular/material:material-nav
+
+
+========================================================================
+
+Configure BootStrap for angular 6 application
+npm install bootstrap3 jquery --save
+
+
+-------
+NOw AngularCLI configuration   -angular.json file
+
+------------------------------------------
+Create module for routing
+
+ng g c employee/list-employee --spec=false --flat=true   
+
+-----------------------------------
+Angular 6 Routing Component
+
+Why a seperate  routing module
+maintainibility
+Seperation of concern
+
+
+Routing modude
+app-module --flat=true --module=app
+
+
+-----------------------------------
+
+Note: FormControl and FormGroup are inherit from AbstractControl base class
+
+-------------------------------------
+
+
+NOdeMailer:
+
+dotenv for hidden password
+ for install 
+
+

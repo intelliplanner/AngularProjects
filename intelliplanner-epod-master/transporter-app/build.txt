@@ -1,0 +1,6 @@
+
+
+jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore my-release-key.keystore app-release-unsigned.apk alias_name
+zipalign -v 4 app-release-unsigned.apk ota.apk
+
+

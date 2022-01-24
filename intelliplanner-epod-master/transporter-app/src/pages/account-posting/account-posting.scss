@@ -1,0 +1,154 @@
+page-account-posting {
+
+.item-md.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: 0px solid #dedede;
+}
+.item-block {
+  min-height: auto !important;
+}
+
+.item-md [item-left], .item-md [item-right], .item-md [item-start], .item-md [item-end], .item-ios [item-left], .item-ios [item-right], .item-ios [item-start], .item-ios [item-end] {
+    margin: 1px 8px 1px 0;
+}
+
+.card .note-md {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.toolbar-title-ios, .bar-button-clear-ios, .bar-button-default-ios {
+    color: #fff !important;
+}
+
+
+table {
+  width: 100%;
+  table-layout: fixed;
+  border: 1px solid #dddddd;
+}
+
+
+ion-card {
+  box-shadow: none !important;
+    background: #efefef !important;
+    border-bottom: 1px solid #ccc;  
+}
+
+.swiper-container {
+  background: #fff;
+}
+
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 10px 8px;
+  font-size: 13px !important;
+  height: 38px;
+  z-index: 9999;
+}
+
+
+th {
+  text-align: center;
+  padding: 12px 2px;
+  background-color: #ebebeb !important;
+  font-size: 12px;
+  border: 1px solid #ddd;
+  color: #5d5d5d;
+  font-weight: 200;
+}
+
+.empty {
+  color: #d64541;
+  font-size: 20px;
+  padding-top: 40px !important;
+}
+
+.addIcon {
+  font-size: 40px;
+  padding: 20px;
+  color: #039be5;
+  cursor: pointer;
+}
+
+.profile {
+  ion-icon {
+    transition: transform 10s;
+  }
+}
+
+.profile:hover {
+  ion-icon {
+    transform: rotate(36000deg);
+    transition: transform 100s;
+  }
+}
+
+.item-md.item-block .item-inner {
+  padding-right: 8px;
+  border-bottom: 0px solid #dedede;
+}
+
+.item-input ion-input,
+.item-input ion-textarea {
+  position: static;
+  border: 1px solid #ccc;
+  padding: 0px 10px;
+  border-radius: 5px;
+}
+
+tr {
+  background-color: #fff;
+  z-index: 999999;
+}
+
+  tr:nth-child(odd) {
+    background-color: #efefef;
+    z-index: 999999;
+  }
+  .outer {
+    position: relative;
+    overflow-x: scroll;
+    height: 100%;
+  }
+  .inner {
+    overflow-y: visible;
+    width: 100%;
+  }
+
+  .hard_left {
+    position: absolute;
+    *position: relative;
+    background: inherit;
+    /*ie7*/
+    left: 0;
+    width: 100px;
+    height: 100px;
+  }
+  .hard_leftData {
+    position: sticky;
+    background: inherit;
+    /*ie7*/
+    left: 0;
+    width: 100px;
+  }
+
+  .firstHeader {
+    position: sticky;
+    background: inherit;
+    /*ie7*/
+    left: 0;
+    width: 100px;
+    padding-right: 15px;
+  }
+
+  .breakLine {
+    page-break-before: always;
+  }
+
+  .textcenter {
+  text-align:center; font-weight:bold;
+  }
+
+}

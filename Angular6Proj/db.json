@@ -1,0 +1,26 @@
+{
+"employees":[{
+  "id":"1",
+  "fullName":"Virendra",
+  "email":"vicky.gupta1190",
+  "skills": [
+    {
+    "skillsName":"java",
+    "experianceInYear":"5",
+    "Proficiency":"beginner"
+    }]
+}]
+,
+  "ipssi_employees":[{
+    "id":"1",
+    "firstName":"Virendra",
+    "lastName":"Gupta",
+    "email":"string",
+    "phoneNo":"0876543212",
+    "hireDate":"240289",
+    "jobId":"job_123",
+    "salary":"123456",
+    "managerId":"man_123",
+    "departmentId":"dept_112"
+  }]
+}

@@ -1,0 +1,299 @@
+<ion-header mode="ios">
+  <ion-navbar mode="ios" color="cement">
+    <ion-title mode="ios"> Invoice </ion-title>
+    <!--     <ion-buttons end royal>
+      <button ion-button icon-only>UPDATE
+        <ion-icon name="checkbox"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <ion-row>
+    <ion-col col-12 col-lg-5 col-xl-5>
+      <ion-card>
+        <ion-card-header>
+          Invoice Details
+        </ion-card-header>
+        <ion-card-content>
+          <ion-item >
+            <ion-note item-start style="color:#000 !important;font-weight: 300">
+              Invoice Number
+            </ion-note>
+            <ion-note item-end>
+              #{{invoice.invoice_number}}
+            </ion-note>
+          </ion-item>
+          <ion-item >
+            <ion-note item-start style="color:#000 !important;font-weight: 300">
+              Vehicle Number
+            </ion-note>
+            <ion-note item-end>
+              {{invoice.vehicle_no}}
+            </ion-note>
+          </ion-item>
+          <ion-item >
+            <ion-note item-start style="color:#000 !important;font-weight: 300">
+              Ship to party/Customer
+            </ion-note>
+            <ion-note item-end>
+              <span>{{invoice.shiptoparty_name}}<br></span>
+            </ion-note>
+          </ion-item>
+          <ion-item >
+            <ion-note item-start style="color:#000 !important;font-weight: 300">
+              invoice Quantity
+            </ion-note>
+            <ion-note item-end>
+              <span>{{invoice.invoice_quantity}}<br></span>
+            </ion-note>
+          </ion-item>
+          <ion-item >
+            <ion-note item-start style="color:#000 !important;font-weight: 300">
+              Destination Name
+            </ion-note>
+            <ion-note item-end>
+              <span>{{invoice.destination_name}}<br></span>
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-note item-start style="color:#000 !important;font-weight: 300">
+              Invoice Date/Time
+            </ion-note>
+            <ion-note item-end>
+              {{invoice.invoice_date}}&nbsp;&nbsp;{{invoice.invoice_time}}
+            </ion-note>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+      <ion-col col-12 col-lg-6 col-xl-6 col-md-6>
+        <ion-card>
+          <ion-card-header>
+            Driver Details
+          </ion-card-header>
+          <ion-card-content>
+            <ion-item>
+              <ion-note item-start style="color:#000 !important;font-weight: 300">
+                Driver Name
+              </ion-note>
+              <ion-note item-end>
+                {{invoice.driver_name}}
+              </ion-note>
+            </ion-item>
+            <ion-item>
+              <ion-note item-start style="color:#000 !important;font-weight: 300">
+                Driver Phone
+              </ion-note>
+              <ion-note item-end>
+                {{invoice.driver_phoneno}}
+              </ion-note>
+            </ion-item>
+            <ion-item>
+              <ion-note item-start style="color:#000 !important;font-weight: 300">
+                Driver Location Destination
+              </ion-note>
+              <ion-note item-end>
+                {{invoice.destination_location}}
+              </ion-note>
+            </ion-item>
+            <ion-item>
+              <ion-note item-start style="color:#000 !important;font-weight: 300">
+                Location Destination Time
+              </ion-note>
+              <ion-note item-end>
+                {{invoice.dest_driver_reach_time || 'dd:mm:yyyy hh:mm:ss'}}
+              </ion-note>
+            </ion-item>
+               <ion-item *ngIf="invoice.dest_driver_loc_time">
+              <ion-note item-start style="color:#000 !important;font-weight: 300">
+                Location Destination Reach Time
+              </ion-note>
+              <ion-note item-end>
+                {{invoice.dest_driver_loc_time || 'dd:mm:yyyy hh:mm:ss'}}
+              </ion-note>
+            </ion-item>
+          <ion-item>
+            <ion-note item-start style="color:#000 !important;font-weight: 300">
+              Tracking Type
+            </ion-note>
+            <ion-note item-end>
+              <ion-badge color="primary" *ngIf="invoice.driver_using_smartphone_or_sim_plant == 'EPOD'">epod</ion-badge>
+              <ion-badge color="dark" *ngIf="invoice.driver_using_smartphone_or_sim_plant == 'SIM'">sim</ion-badge>
+              <span style="color:red" *ngIf="!invoice.driver_using_smartphone_or_sim_plant">NA</span>
+            </ion-note>
+          </ion-item>
+          </ion-card-content>
+        </ion-card>
+      </ion-col>
+      <!--       <ion-col col-12 col-lg-6 col-xl-6 col-md-6>
+        <ion-item>
+          <ion-label stacked>Ship to party/Customer</ion-label>
+          <ion-input disabled [(ngModel)]="invoice.shiptoparty_name" autocomplete="off" type="text"></ion-input>
+        </ion-item>
+      </ion-col>
+ -->
+    </ion-col>
+    <ion-col col-12 col-lg-7 col-xl-7>
+<div padding>
+  <ion-segment mode="ios" [(ngModel)]="tab">
+    <ion-segment-button mode="ios" value="locMissing">
+      Location
+    </ion-segment-button>
+    <ion-segment-button mode="ios" value="lrMissing">
+      LR Number/Signed LR
+    </ion-segment-button>
+    <ion-segment-button [disabled]='!invoice.signed_lr_image' mode="ios" value="waitingCustomer">
+      Customer Acceptance
+    </ion-segment-button>
+  </ion-segment>
+</div>
+<div [ngSwitch]="tab">
+  <div *ngSwitchCase="'locMissing'">
+    <div text-center padding>
+        <button ion-button color="dark" (click)="getConsent()" *ngIf="(invoice.destination_location == null && invoice.driver_using_smartphone_or_sim_plant == 'SIM')">Request Driver Location</button>
+    </div>
+
+    <div *ngIf="(invoice.destination_location != null)" style="width: 100%;height: 200px">
+  <agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+    </div>
+  </div>
+  <div *ngSwitchCase="'lrMissing'">
+
+      <ion-item>
+        <ion-label stacked>
+          LR Number</ion-label>
+        <ion-input [(ngModel)]="invoice.lr_number" autocomplete="off" type="text">
+        </ion-input>
+      </ion-item>
+      <ion-item>
+        <button (click)="updateinvoices()" ion-button color="secondary">Save</button>
+      </ion-item>
+      <div style="width: 200px;height: 200px;" class="hidden-xl hidden-lg hidden-md">
+        <ion-label>
+          Image LR</ion-label>
+        <label style="
+        background: #ccc;
+        float: left;
+        padding: 10px;
+        color: #ee1d24;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        cursor: pointer;" (click)="presentActionSheet(myImage)">Update LR Image</label>
+        <!-- <p *ngIf="!invoice.lr_number">LR Number Should be entered</p> -->
+        <img [src]="invoice.signed_lr_image" #myImage *ngIf="invoice.signed_lr_image != null ">
+        <img [src]="lrImg" #myImage *ngIf="invoice.signed_lr_image == null ">
+      </div>
+      <div style="width: 200px;height: 200px;" class="hidden-xs hidden-sm">
+        <ion-label>
+          LR Image</ion-label>
+        <label style="
+        background: #ccc;
+        float: left;
+        padding: 10px;
+        color: #ee1d24;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        cursor: pointer;" for="lrimage">Update LR Image</label>
+        <input (change)="onFileSelected($event, 'lrimage')" type="file" name="lrimage" id="lrimage" />
+        <img [src]="invoice.signed_lr_image" #myImage (click)="actionSheet(myImage)" *ngIf="invoice.signed_lr_image != null ">
+        <img [src]="lrImg" #myImage (click)="actionSheet(myImage)" *ngIf="invoice.signed_lr_image == null ">
+      </div>
+  </div>
+  <div *ngSwitchCase="'waitingCustomer'">
+<div *ngIf="invoice.customer_accepted == null" text-center color="cement" style="font-size: 15px;" padding-top>Customer not accepted</div>
+<div *ngIf="invoice.customer_accepted == 1" text-center color="cement" style="font-size: 15px;" padding-top>Customer Accepted!</div>
+<div *ngIf="invoice.customer_accepted == 0" text-center color="cement" style="font-size: 15px;" padding-top>Customer Declined</div>
+<div *ngIf="invoice.customer_accepted == 0" text-center color="cement" style="font-size: 18px;" padding-top>Reason-:&nbsp;&nbsp;{{invoice.customer_declined_reason}}</div>
+<div text-center>
+<button *ngIf="(!invoice.customer_accepted || invoice.customer_accepted == 0)" ion-button color="dark" (click)="sendMessage()">Resend Acceptance Message</button>
+</div>
+  </div>
+
+</div>
+
+    </ion-col>
+  </ion-row>
+  <ion-list style="background: transparent;">
+    <ion-row>
+      <!--       <ion-col col-12 col-lg-6 col-xl-6 col-md-6>
+        <ion-item>
+          <ion-label stacked>
+            Invoice Number</ion-label>
+          <ion-input disabled [(ngModel)]="invoice.invoice_number" autocomplete="off" type="text">
+          </ion-input>
+        </ion-item>
+      </ion-col>
+      <ion-col col-12 col-lg-6 col-xl-6 col-md-6>
+        <ion-item>
+          <ion-label stacked>
+            Destination Name</ion-label>
+          <ion-input disabled [(ngModel)]="invoice.destination_name" autocomplete="off" type="text">
+          </ion-input>
+        </ion-item>
+      </ion-col> -->
+      <!--       <ion-col col-12 col-lg-6 col-xl-6 col-md-6>
+        <ion-item>
+          <ion-label stacked>
+            invoice Quantity</ion-label>
+          <ion-input disabled [(ngModel)]="shipment.invoice_quantity" autocomplete="off" type="text">
+          </ion-input>
+        </ion-item>
+      </ion-col> -->
+      <!--       <ion-col col-12 col-lg-6 col-xl-6 col-md-6>
+        <ion-item>
+          <ion-label stacked>
+            Vehicle Number
+          </ion-label>
+          <ion-input disabled [(ngModel)]="shipment.vehicle_no" autocomplete="off" type="text"></ion-input>
+        </ion-item>
+      </ion-col> -->
+      <!--       <ion-col col-12 col-lg-6 col-xl-6 col-md-6>
+        <ion-item>
+          <ion-label stacked>
+            Driver Location Plant</ion-label>
+          <ion-input disabled [(ngModel)]="shipment.plant_location" autocomplete="off" type="text">
+          </ion-input>
+        </ion-item>
+      </ion-col> -->
+      <!--       <ion-col col-12 col-lg-6 col-xl-6 col-md-6>
+        <ion-item>
+          <ion-label stacked>
+            Customer Avaliability</ion-label>
+          <ion-input disabled [(ngModel)]="shipment.customer_reply_status" [disabled]='true' autocomplete="off" type="text">
+          </ion-input>
+        </ion-item>
+      </ion-col> -->
+      <!--       <ion-col col-12 col-lg-6 col-xl-6 col-md-6>
+        <ion-item>
+          <ion-note>
+            Ship Creation Date/Time
+          </ion-note>
+          <ion-note item-end>
+            {{shipment.invoice_date}}&nbsp;&nbsp;{{shipment.invoice_time}}
+          </ion-note>
+        </ion-item>
+      </ion-col> -->
+      <!--       <ion-col col-12 col-lg-6 col-xl-6 col-md-6>
+        <ion-item>
+          <ion-note>
+            Tracking Type
+          </ion-note>
+          <ion-note item-end>
+            <ion-badge [color]="shipment.driver_using_smartphone_or_sim_plant == 'EPOD' ? 'dark' : 'primary'">
+              <span style="color:white" *ngIf="shipment.driver_using_smartphone_or_sim_plant == 'EPOD'">EPOD</span><span style="color:white" *ngIf="shipment.driver_using_smartphone_or_sim_plant == 'SIM'">SIM</span>
+              <span style="color:white" *ngIf="!shipment.driver_using_smartphone_or_sim_plant">NA</span></ion-badge>
+          </ion-note>
+        </ion-item>
+      </ion-col> -->
+      <ion-col col-12 col-lg-6 col-xl-6 col-md-6>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+</ion-content>
+<!-- <ion-footer>
+  <button *ngIf="!shipment.plant_location && driver_using_smartphone_or_sim_plant == 'SIM'" ion-button clear color="cement" (click)="getConsent()">Get Driver Consent</button>
+  <button *ngIf="!shipment.destination_location" ion-button clear color="cement" (click)="sendMessage()">Change Driver</button>
+  <button *ngIf="!shipment.signed_lr_image && driver_using_smartphone_or_sim_plant == 'EPOD'" ion-button clear color="cement" (click)="sendMessage()">Upload Signed LR</button>
+</ion-footer> -->

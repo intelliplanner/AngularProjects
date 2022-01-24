@@ -1,0 +1,41 @@
+<ion-header>
+
+ <ion-navbar color="cement">
+    <ion-title><span *ngIf="action == 'edit'">Edit</span> Transporter</ion-title>
+    <ion-buttons end royal>
+    <button ion-button icon-only [disabled]="!(objt1.plant && objt1.plant.plant_code && objt1.transporter_ID && objt1.password)" (click)="updatePlantTransporter()">UPDATE
+        <ion-icon name="checkbox" color="light"></ion-icon>
+      </button>
+
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+	
+
+<ion-content padding>
+ <ion-list style="background: transparent;">
+     <ion-item no-lines style="background: transparent;">
+              <ion-label>Plant</ion-label>
+              <ion-select [(ngModel)]="objt1.plant" (ionChange)="typePlant(objt1)">
+                <ion-option *ngFor="let p of allplant" [value]="p">{{p.plant_name}}</ion-option>
+              </ion-select>
+      </ion-item>
+
+       <ion-item no-padding>
+        <ion-label stacked>Transporter Id</ion-label>
+        <ion-input [(ngModel)]="objt1.transporter_ID" autocomplete="off" type="text" required></ion-input>
+      </ion-item>
+
+    <ion-item no-padding>
+        <ion-label stacked>Password</ion-label>
+        <ion-input [(ngModel)]="objt1.password" autocomplete="off" [type]='type' required></ion-input>
+        <button style="color: #536173" no-padding *ngIf="!showPass" ion-button clear item-right (click)="showPassword()">
+          <ion-icon style="font-size: 25px;padding: 10px;" name="ios-eye-off-outline"></ion-icon>
+        </button>
+        <button *ngIf="showPass" ion-button clear color="dark" item-right (click)="showPassword()">
+          <ion-icon style="font-size: 25px;padding: 10px;" name="ios-eye-outline"></ion-icon>
+        </button>
+      </ion-item>
+  </ion-list>
+</ion-content>

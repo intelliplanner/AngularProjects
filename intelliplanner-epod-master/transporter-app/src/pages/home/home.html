@@ -1,0 +1,119 @@
+<ion-header mode="ios" no-border>
+  <ion-navbar mode="ios" color="light">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title mode="ios">
+      ePOD - Dashboard
+    </ion-title>
+    <ion-buttons end royal>
+      <button ion-button icon-only (click)="ionViewWillEnter()">
+        <ion-icon name="ios-refresh-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+    <!--     <ion-buttons end royal>
+      <button ion-button icon-only (click)="add()">
+        <ion-icon name="ios-funnel-outline"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+  <!--   <ion-toolbar color="white">
+    <ion-title mode="ios">
+      <div style="margin-top: 2px;" text-left>
+        <img style="text-align: center;height: 44px;" src="assets/imgs/header.png">
+      </div>
+    </ion-title>
+    <ion-buttons end royal>
+      <button ion-button icon-only (click)="ionViewWillEnter()">
+        <ion-icon name="ios-refresh-circle-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar> -->
+</ion-header>
+<ion-content style="background: #f4f4f4;">
+  <ion-row style="margin-top: 30px;margin-bottom: 30px">
+    <!--             <ion-col class="boxcol3" text-center col col-xl-3 col-3 col-lg-3 col-md-3>
+              <img [src]="status.img" style="width: 36px;height: 36px">
+
+            </ion-col> -->
+    <ion-col *ngFor=" let status of statuses" col-12 col-xl-3 col-lg-6 col-md-6 col-sm-12 col-xs-12 style="" (click)="openTripFilter(status)" style="margin-top: 15px;">
+      <div class="box">
+        <div class="colorBox" [style.background]="status.color">
+          <!-- <img [src]="status.img" style="width: 56px;height: 56px"> -->
+          <ion-icon [name]="status.icon" style="font-size: 50px; color: white;"></ion-icon>
+        </div>
+        <div style="background: #fff;height: 50px;width: calc(100% - 80px);float: right;text-align: right;">
+          <div style="font-weight: 300;
+    color: #898989;">{{status.name}}</div>
+          <span style="font-size: 30px">{{dashData[status.value]}}</span>
+        </div>
+      </div>
+    </ion-col>
+    <!-- <ion-col col col-xl-2 col-2 col-lg-2 col-md-2></ion-col> -->
+  </ion-row>
+  <div padding-left padding-right padding-bottom style="margin-bottom: 0px;">
+    <div class="graph">
+      <span style="padding: 10px;">Number of shipments in last 30 days.</span>
+      <div *ngIf="timelineData && timelineData.length == 0" style="text-align: center;padding-top: 30px;font-size: 20px;">No Data Available!</div>
+      <div id="chartdiv" [style.width.%]="100" [style.height.px]="210"></div>
+    </div>
+  </div>
+
+
+  <ion-row style="margin-top: 0px;margin-bottom: 30px">
+    <ion-col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 style="" style="margin-top: 15px;">
+      <div class="box">
+        <div style="background: #fff;height: 50px;width: calc(100% - 80px);float: right;text-align: right;">
+          <div style="font-weight: 300;
+    color: #898989;">Total Shipments (all time)</div>
+          <span style="font-size: 30px">{{shipmentsCount}}</span>
+        </div>
+      </div>
+    </ion-col>
+    <ion-col col-12 col-xl-6 col-lg-6 col-md-6 col-sm-12 col-xs-12 style="" style="margin-top: 15px;">
+      <div class="box">
+        <div style="background: #fff;height: 50px;width: calc(100% - 80px);float: right;text-align: right;">
+          <div style="font-weight: 300;
+    color: #898989;">Total Shipment Quantity (all time)</div>
+          <span style="font-size: 30px">{{shipmentsQuantity}}</span>
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+
+
+  <!--   <ion-row>
+    <ion-col col col-5>
+        <div style="background: #DAEEF3;border:2px solid #395E89; width: 100%;height: 100%;text-align: center;margin:;color: #ffffff;">
+
+          
+        <div style="background: #4F81BD;border:2px solid #395E89;width: 50%;height: 55px;text-align: center;padding-top: 15px;margin:80px auto;color: #ffffff;">
+          MY LIFTING
+        </div>
+          
+        <div style="background: #4F81BD;border:2px solid #395E89;width: 50%;height: 55px;text-align: center;padding-top: 15px;margin:80px auto;color: #ffffff;">
+          EPOD SIM TRACK
+        </div>
+
+        </div>
+    </ion-col>
+    <ion-col col col-7>
+      <div style=" float: left;width: 70%;padding-bottom: 100%;margin-bottom: -100%;">
+          <ion-row *ngFor=" let status of statuses" style="padding-top: 15px">
+            <ion-col col col-xl-2 col-2 col-lg-2 col-md-2></ion-col>
+            <ion-col class="boxcol3" text-center col col-xl-2 col-2 col-lg-2 col-md-2>
+              <img [src]="status.img" style="width: 36px;height: 36px">
+
+            </ion-col>
+            <ion-col class="box-00" text-center col col-xl-6 col-6 col-lg-6 col-md-6 style="background: #DAEEF3" (click)="openTripFilter(status)">
+              <b>{{status.name}} : </b> <span>{{dashData[status.value]}}</span>
+            </ion-col>
+            <ion-col col col-xl-2 col-2 col-lg-2 col-md-2></ion-col>
+          </ion-row>
+      </div>
+    </ion-col>
+  </ion-row> -->
+  <div class="hidden-xs hidden-sm">
+    <img style="width:100%;" src="assets/imgs/orientCement.jpg">
+  </div>
+</ion-content>

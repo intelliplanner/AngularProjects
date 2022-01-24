@@ -1,0 +1,144 @@
+<ion-header mode="ios">
+  <ion-navbar mode="ios" color="cement">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title mode="ios">Shipments </ion-title>
+<!--     <ion-buttons end royal>
+      <button ion-button icon-only (click)="toggleFilter()">
+        <ion-icon name="ios-funnel-outline"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+  <ion-toolbar no-border mode="ios" color="cement">
+    <ion-searchbar [(ngModel)]="searchTerm" placeholder="Search by Invoice number or Vehicle number or Shipment Number" (ionChange)="getItems($event)"></ion-searchbar>
+  </ion-toolbar>
+
+<!-- <ion-toolbar no-border mode="ios" color="cement">
+    <ion-row no-margin no-padding>
+    <ion-col no-margin no-padding col col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4>
+             <ion-item no-lines>
+              <ion-label>From Date</ion-label>
+              <ion-datetime displayFormat="YYYY/MM/DD" pickerFormat="YYYY/MM/DD" [(ngModel)]="searchfilter.fromDate"></ion-datetime>
+            </ion-item>
+ </ion-col>
+  <ion-col no-margin no-padding col col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4>
+              <ion-item no-lines>
+              <ion-label>To Date</ion-label>
+              <ion-datetime displayFormat="YYYY/MM/DD" pickerFormat="YYYY/MM/DD" [(ngModel)]="searchfilter.toDate" (ionChange)="search()"></ion-datetime>
+            </ion-item>
+ </ion-col>
+
+ <ion-col no-margin no-padding col col-xs-12 col-sm-12 col-md-4 col-lg-4 col-xl-4>
+        <button ion-button color ="dark" [disabled] = "!(searchfilter.fromDate && searchfilter.toDate)" (click)="download()">Search</button>
+ </ion-col>
+
+ </ion-row>
+</ion-toolbar> -->
+</ion-header>
+<ion-content style="background: #fff;">
+  <div class="hidden-xs hidden-sm" style="height: 100%;">
+  <div class="outer" scroller>
+    <div class="inner">
+
+    <table border="0" style="background-color: #f8f8f8 !important;border:5px solid #f8f8f8;table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }">
+      <tr>
+        <th class="firstHeader" style="color:blue;width: 120px;">Invoice no.</th>
+        <th style="color:blue;width: 100px;">Vehicle no.</th>
+        <th style="color:blue;width: 100px;">Shipment Number</th>
+        <!-- <th style="color:blue;width: 100px;">DO no.</th> -->
+        <th style="color:blue;width: 100px;">Quantity</th>
+        <th style="color:blue;width: 150px;">Destination Name</th>
+        <th style="color:blue;width: 180px;">Ship to party/Customer</th>
+        <th style="color:blue;width: 150px;">Delivery Type</th>
+        <!-- <th style="color:blue;width: 100px;">Driver Name</th> -->
+        <th style="color:blue;width: 180px;">Invoice Creation Date</th>
+        <th style="color:blue;width: 150px;">Tracking Type</th>
+      </tr>
+      <tr *ngFor="let invoice of selectedShipments">
+        <td (click)="openShipment(invoice)" class="hard_leftData">#{{invoice.invoice_number}}</td>
+        <td (click)="openShipment(invoice)">{{invoice.vehicle_no}}</td>
+        <td (click)="openShipment(invoice)">{{invoice.shipment_number}}</td>
+<!--         <td (click)="openShipment(invoice)">
+          <span>{{invoice.do_number}}</span>
+        </td> -->
+        <td (click)="openShipment(invoice)">{{invoice.invoice_quantity}}</td>
+        <td (click)="openShipment(invoice)">
+          <span>{{invoice.destination_name}}</span>
+        </td>
+        <td (click)="openShipment(invoice)">
+          <span>{{invoice.shiptoparty_name}}</span>
+        </td>
+        <td (click)="openShipment(invoice)">{{invoice.sto}}</td>
+        <!-- <td>{{invoice.driver_name}}</td> -->
+        <td (click)="openShipment(invoice)">{{invoice.invoice_date}}&nbsp;&nbsp;{{invoice.invoice_time}}</td>
+        <td (click)="openShipment(invoice)">
+          <ion-badge color="primary" *ngIf="invoice.driver_using_smartphone_or_sim_plant == 'EPOD'">epod</ion-badge>
+          <ion-badge color="dark" *ngIf="invoice.driver_using_smartphone_or_sim_plant == 'SIM'">sim</ion-badge>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+  </div>
+  <ion-row no-margin no-padding class="hidden-xl hidden-lg hidden-md">
+    <ion-col no-margin no-padding *ngFor="let invoice of selectedShipments" col col-xs-12 col-sm-12 col-md-12 col-lg-6 col-xl-6>
+      <ion-card class="filterbox">
+        <ion-item (click)="openShipment(invoice)">
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Shipment Number
+          </ion-note>
+          <ion-note item-end>
+            #{{invoice.shipment_number}}
+          </ion-note>
+        </ion-item>
+        <ion-item (click)="openShipment(invoice)">
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Vehicle Number
+          </ion-note>
+          <ion-note item-end>
+            {{invoice.vehicle_no}}
+          </ion-note>
+        </ion-item>
+        <ion-item (click)="openShipment(invoice)">
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Ship to party/Customer
+          </ion-note>
+          <ion-note item-end>
+            <span>{{invoice.shiptoparty_name}}<br></span>
+          </ion-note>
+        </ion-item>
+        <ion-item (click)="openShipment(invoice)">
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Destination Name
+          </ion-note>
+          <ion-note item-end>
+            <span>{{invoice.destination_name}}<br></span>
+          </ion-note>
+        </ion-item>
+        <ion-item (click)="openShipment(invoice)">
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Invoice Date/Time
+          </ion-note>
+          <ion-note item-end>
+            {{invoice.invoice_date}}&nbsp;&nbsp;{{invoice.invoice_time}}
+          </ion-note>
+        </ion-item>
+        <ion-item (click)="openShipment(invoice)">
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Tracking Type
+          </ion-note>
+          <ion-note item-end>
+            <ion-badge color="primary" *ngIf="invoice.driver_using_smartphone_or_sim_plant == 'EPOD'">epod</ion-badge>
+            <ion-badge color="dark" *ngIf="invoice.driver_using_smartphone_or_sim_plant == 'SIM'">sim</ion-badge>
+            <span style="color:red" *ngIf="!invoice.driver_using_smartphone_or_sim_plant">NA</span>
+          </ion-note>
+        </ion-item>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</ion-content>

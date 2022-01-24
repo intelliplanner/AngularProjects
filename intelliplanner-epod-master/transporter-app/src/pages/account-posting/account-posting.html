@@ -1,0 +1,130 @@
+<ion-header mode="ios" *ngIf="view">
+  <ion-navbar mode="ios" color="cement">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title mode="ios">Invoice Sheet</ion-title>
+    <ion-buttons end>
+      <button ion-button color="dark" style="font-size: 12px" (click)="download()">
+        <ion-icon item-end name="download">Print</ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content style="background: #fff;">
+
+  <div *ngIf="invoiceGenerated" id="print" #print [innerHTML]="invoiceHTML">
+  </div>
+  <div *ngIf="!invoiceGenerated" id="print" #print>
+   <table class="invoformat">
+  <tr>
+    <td colspan="4" rowspan="4">Tax Invoice</td>   
+  </tr>
+  
+   <tr>
+    <td colspan="2">Original</td>   
+  </tr>
+  
+   <tr>
+    <td colspan="2">Duplicate</td>   
+  </tr>
+   <tr>
+    <td colspan="2">Triplicate</td>   
+  </tr>
+  
+   <tr>
+     <td colspan="6">Name : {{trans.name}}<br>
+          Address : {{trans.street}}  {{trans.street_1}}  {{trans.street_2}}  {{trans.city}}  {{trans.district}}<br>
+          PAN NO: {{trans.pan_number}} <br>
+          GST No : {{trans.gst_number}}</td>   
+    </tr>
+  
+   <tr>
+    <td colspan="6" class="textcenter">Bill to Recipient</td>    
+  </tr>
+  
+  <tr>
+      <td colspan="4" rowspan="2">
+          Name : Orient Cement Limited <br>
+          Address : ltaga Vittage Near Malkhed Road, Chittapur, Gulbarga<br>
+          GSTNo: 29AABCO5420A1ZX<br>
+          PanNo: AABCO5420A</td>
+        <td>Invoice No</td>
+        <td>{{invoice.invoice_number}}</td>
+  </tr>
+  
+  <tr>
+    <td>Invoice Date</td>
+    <td>{{invoice.invoice_date}}</td>
+  </tr>
+  
+  <tr>
+    <td colspan="6"></td>  
+    
+  </tr>
+  
+    <tr>
+        <td>Description of Services</td>
+        <td>Accounting Code of Services CODE</td>
+        <td>QTY</td>
+        <td>UOM</td>
+        <td>Rate</td>
+        <td>Amount</td>
+    
+  </tr>
+   
+   <tr>
+    <td rowspan="2">Transportation Service Charges for the period from 17-08-2019 to 23-08-2019</td>
+    <td rowspan="2">9965</td>
+    <td colspan="3" rowspan="2">As Per Annexure</td>
+    <td>{{total}}</td> 
+  </tr>
+  
+  <tr>
+    <td></td>
+   
+  </tr>
+  
+     <tr>
+    <td colspan="2" >Purchase Order Number: &nbsp;{{trans.purchase_order_number}}</td>
+    <td colspan="3">Taxable</td>
+    <td>{{total}}</td>
+  </tr>
+  
+   <tr>
+    <td colspan="2" rowspan="4">Rupees Forty Nine Lakh Twenty Nine thousand Nine hundred Fifty One Paise Fifty Five Only</td> 
+  </tr>
+
+   <tr>
+    <td colspan="3">Igst</td>
+    <!-- <td rowspan="2">{{tax}}</td> -->
+  </tr>
+  
+   <tr>
+    <td colspan="3">Cgst</td> 
+    <td rowspan="2">{{tax}}</td>
+  </tr>
+  
+    <tr>
+    <td colspan="3">Sgst</td>
+    <!-- <td></td> -->
+  </tr>
+  
+    <tr>
+    <td colspan="5">Total Amount</td>
+    <td>{{taxTotal}}</td>
+   </tr>
+    
+    <tr>
+    <td colspan="5">GST Under RCM : Yes/No</td>
+    <td>NO</td>
+   </tr>
+    
+   <tr>
+    <td colspan="2">COMMON<br>SEAL</td>
+    <td colspan="4">For&nbsp;{{trans.name}}</td>
+  </tr>
+    
+</table>
+  </div>
+</ion-content>

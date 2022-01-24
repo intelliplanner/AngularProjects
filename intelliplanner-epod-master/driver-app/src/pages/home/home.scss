@@ -1,0 +1,33 @@
+page-home {
+		
+		.item-md.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: 0px solid #dedede;
+}
+.item-block {
+  min-height: auto !important;
+}
+
+.item-md [item-left], .item-md [item-right], .item-md [item-start], .item-md [item-end], .item-ios [item-left], .item-ios [item-right], .item-ios [item-start], .item-ios [item-end] {
+    margin: 1px 8px 1px 0;
+}
+
+.card .note-md {
+    font-size: 1.3rem;
+    font-weight: bold;
+}
+
+.toolbar-title-ios, .bar-button-clear-ios, .bar-button-default-ios {
+    color: #fff !important;
+}
+
+.filterbox {
+	padding: 10px;
+}
+
+ion-card {
+	box-shadow: none !important;
+	border: 1px solid #ccc!important;
+}
+
+}

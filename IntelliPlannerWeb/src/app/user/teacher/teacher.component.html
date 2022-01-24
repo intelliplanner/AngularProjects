@@ -1,0 +1,128 @@
+<div class="container-fluid reg-page-bg p-4">
+
+    <div class="container inputlinecolor">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="col-md-12 p-0">
+                    <ol class="breadcrumb bg-primary d-lg-block pb-3">
+                        <li class="breadcrumb-item active text-white d-inline">TEACHER'S PROFILE DETAILS</li>
+                        <li class="float-right">
+                            <button class="btn btn-warning btn-sm" routerLink="/teacher/reg/teacheredit/knowyourstatus">Application Status</button>
+                        </li>
+                    </ol>
+                 
+                </div>
+
+                <form [formGroup]="TableFormData" (ngSubmit)="onSubmit()">
+                    <div class="animated fadeInDown">
+                        <div class="form-group bg-white pl-5 pr-5 pt-3 pb-4">
+                            <div class="form-row">
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput formControlName="name" placeholder="Name of the Teacher">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <mat-label>Gender</mat-label>
+                                        <mat-select formControlName="Gender">
+                                            <mat-option [value]="k.code" *ngFor="let k of genderList">{{k.name}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <mat-label>Date of Birth(DD/MM/YYYY)</mat-label>
+                                        <input matInput [matDatepicker]="picker" formControlName="date">
+                                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                        <mat-datepicker #picker></mat-datepicker>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <mat-label>Type of Teacher</mat-label>
+                                        <mat-select formControlName="typeofteacher">
+                                            <mat-option [value]="k.code" *ngFor="let k of teacherTypeList">{{k.name}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput placeholder="Highest Academic Qualification"
+                                            formControlName="highestQualification">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput placeholder="Highest Professional Qualification"
+                                            formControlName="professinalQualification">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <mat-label>Nature of Appointment</mat-label>
+                                        <mat-select formControlName="natureofAppointment">
+                                            <mat-option [value]="k.code" *ngFor="let k of natureOfAppointmentList">
+                                                {{k.name}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <mat-label>Classes Taught</mat-label>
+                                        <mat-select formControlName="classesTaught">
+                                            <mat-option [value]="k.code" *ngFor="let k of classList">{{k.name}}
+                                            </mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput placeholder="Email Id" formControlName="emailid"
+                                            [disabled]="true">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput placeholder="Mobile No." formControlName="mobileNo">
+                                    </mat-form-field>
+                                </div>
+
+                                <div class="col-md-6">
+                                    <mat-form-field class="example-full-width d-block">
+                                        <input matInput placeholder="Present School" formControlName="presentSchool">
+                                    </mat-form-field>
+                                </div>
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="form-group text-right" >
+                        <!-- <button class="btn btn-primary btn-sm" type="button">Edit Details </button> -->
+                        &nbsp;
+                        <button class="btn btn-success btn-sm" type="submit">Send For Verification </button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

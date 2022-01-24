@@ -1,0 +1,149 @@
+import { HttpHeaders, HttpErrorResponse, HttpClient } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
+import { Observable, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
+import { environment } from 'src/environments/environment';
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Access-Control-Allow-Origin': '*',
+    
+  })
+};
+@Injectable({
+  providedIn: 'root'
+})
+export class LoginService {
+  ServerUrl = environment.baseUrlGet;
+  serverUrlLogin = environment.baseUrlLogin;
+  serverUrlUser = environment.baseUrlUser
+
+  constructor(private httpClient: HttpClient, private _router: Router) {
+    //this.environment()
+  }
+  
+
+  getUniversity(): Observable<any> {
+
+    return this.httpClient.get(this.ServerUrl + `institutecount?categoryId=27`, httpOptions).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+ 
+
+  
+  getSchool(): Observable<any> {
+    return this.httpClient.get(this.ServerUrl + `institutecount?categoryId=43`, httpOptions).pipe(
+      catchError(this.handleError)
+    )
+  }
+  getCollege(): Observable<any> {
+    return this.httpClient.get(this.ServerUrl + `institutecount?categoryId=15`, httpOptions).pipe(
+      catchError(this.handleError)
+    )
+  }
+  
+  getStandlonIns(): Observable<any> {
+    return this.httpClient.get(this.ServerUrl + `institutecount?categoryId=36`, httpOptions).pipe(
+      catchError(this.handleError)
+    )
+  }
+  getIndustrialIns(): Observable<any> {
+    return this.httpClient.get(this.ServerUrl + `institutecount?categoryId=58`, httpOptions).pipe(
+      catchError(this.handleError)
+    )
+  }
+  getAllState(payload): Observable<any> {
+
+    return this.httpClient.get(this.ServerUrl + `state?countryId=15&bilingual=${payload.bilingual}&languageId=${payload.languageId}`, httpOptions).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  // https://api.eideas.nic.in/eIdeas/instituteCategory?languageId=15&bilingual=S
+  getAllCategoryList(payload){
+    return this.httpClient.get(this.ServerUrl + `instituteCategory?languageId=15&bilingual=${payload.bilingual}&languageId=${payload.languageId}`, httpOptions).pipe(
+      catchError(this.handleError)
+    )
+  }
+  getAllSubCategoryList(payload){
+    return this.httpClient.get(this.ServerUrl + `instituteSubCategory?categoryId=${payload.categoryId}&bilingual=${payload.bilingual}&languageId=${payload.languageId}`, httpOptions).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+
+
+//  https://api.eideas.nic.in/eIdeas/district?countryId=15&stateId=58&bilingual=S
+  getAllDistrictStateWise(payload):Observable<any>{
+    return this.httpClient.get(this.ServerUrl + `district?countryId=15&stateId=${payload.stateId}&bilingual=${payload.bilingual}&languageId=${payload.languageId}`, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
+  getInstituteList(payload):Observable<any>{
+    return this.httpClient.get(this.ServerUrl +`getList?groupId=${payload.id}&bilingual=${payload.bilingual}&languageId=${payload.languageId}`, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
+  getInstituteListByFilter(payload):Observable<any>{
+    return this.httpClient.get(this.ServerUrl + `getList?districtId=${payload.districtId}&stateId=${payload.stateId}&categoryId=${payload.category}&subCategoryId=${payload.subId}&bilingual=${payload.bilingual}&limit=${payload.limit}&languageId=${payload.languageId}`, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
+  
+  getSearchByName(payload):Observable<any>{
+    return this.httpClient.get(this.ServerUrl +`searchByName?name=${payload.keyWord}&districtId=${payload.districtId}&stateId=${payload.stateId}&categoryId=${payload.category}&subCategoryId=${payload.subId}&limit=${payload.limit}&bilingual=${payload.bilingual}&languageId=${payload.languageId}`, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
+ 
+
+ 
+
+  getLanguageList(payload): Observable<any> {
+    return this.httpClient.get(this.ServerUrl + `language?bilingual=${payload}&groupId=20012`, httpOptions).pipe(
+      catchError(this.handleError)
+    );
+  }
+  getLoginPageContent(payload): Observable<any> {
+    return this.httpClient.get(this.serverUrlUser + `loginpagecontent?Id=${payload.siteId}&languageId=${payload.languageId}`, httpOptions).pipe(
+      catchError(this.handleError)
+    )
+  }
+  /**
+       * 
+       * @post api 
+       */
+  login(loginData): Observable<any> {
+    return this.httpClient.post(this.serverUrlLogin, loginData, httpOptions).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  forgotPassword(forgotData): Observable<any>{
+    return this.httpClient.post(this.serverUrlUser + `verifyforgotpassword`, forgotData, httpOptions).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  sendOtp(email):Observable<any>{
+    return this.httpClient.post(this.serverUrlUser + `forgot-password?email=${email}`, httpOptions).pipe(
+      catchError(this.handleError)
+    )
+  }
+
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong,
+      console.error(`Backend returned code ${error.status}, ` + `body was: ${error.error}`);
+    }
+    return throwError('Something bad happened. Please try again later.');
+  }
+
+}
+

@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="AccountPostingSI_Intel_Out" targetNamespace="urn:Inteliplanner_Orient_AccountPosting.com" xmlns:p1="urn:Inteliplanner_Orient_AccountPosting.com" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:documentation />
+    <wsp:UsingPolicy wsdl:required="true" />
+    <wsp:Policy wsu:Id="OP_AccountPostingSI_Intel_Out" />
+    <wsdl:types>
+        <xsd:schema targetNamespace="urn:Inteliplanner_Orient_AccountPosting.com" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="urn:Inteliplanner_Orient_AccountPosting.com">
+            <xsd:element name="AccountPostingReqMT_Intel_Out" type="AccountPostingReq_Intel_Out" />
+            <xsd:element name="AccountPostingResMT_Intel_In" type="AccountPostingReq_Intel_Out" />
+            <xsd:complexType name="AccountPostingReq_Intel_Out">
+                <xsd:annotation>
+                    <xsd:appinfo source="http://sap.com/xi/VersionID">8fbbacda7c4b11e997e800000031c8ba</xsd:appinfo>
+                </xsd:annotation>
+                <xsd:sequence>
+                    <xsd:element name="AccountPosting_Request" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">cbf454a57c4a11e987f3005056bbeb08</xsd:appinfo>
+                        </xsd:annotation>
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="Shipment_Number" type="xsd:string" minOccurs="0">
+                                    <xsd:annotation>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">cbf454a07c4a11e98738005056bbeb08</xsd:appinfo>
+                                    </xsd:annotation>
+                                </xsd:element>
+                                <xsd:element name="Plant" type="xsd:string" minOccurs="0">
+                                    <xsd:annotation>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">cbf454a17c4a11e9a494005056bbeb08</xsd:appinfo>
+                                    </xsd:annotation>
+                                </xsd:element>
+                                <xsd:element name="PO_Number" type="xsd:string" minOccurs="0">
+                                    <xsd:annotation>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">cbf454a27c4a11e988f3005056bbeb08</xsd:appinfo>
+                                    </xsd:annotation>
+                                </xsd:element>
+                                <xsd:element name="PO_Date" type="xsd:string" minOccurs="0">
+                                    <xsd:annotation>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">cbf454a37c4a11e985cc005056bbeb08</xsd:appinfo>
+                                    </xsd:annotation>
+                                </xsd:element>
+                                <xsd:element name="ShipmentCost_Number" type="xsd:string" minOccurs="0">
+                                    <xsd:annotation>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">cbf454a47c4a11e987ac005056bbeb08</xsd:appinfo>
+                                    </xsd:annotation>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                    <xsd:element name="AccountPosting_Response" minOccurs="0" maxOccurs="unbounded">
+                        <xsd:annotation>
+                            <xsd:appinfo source="http://sap.com/xi/TextID">cbf454a87c4a11e98db8005056bbeb08</xsd:appinfo>
+                        </xsd:annotation>
+                        <xsd:complexType>
+                            <xsd:sequence>
+                                <xsd:element name="Shipment_Number" type="xsd:string" minOccurs="0">
+                                    <xsd:annotation>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">cbf454a67c4a11e98688005056bbeb08</xsd:appinfo>
+                                    </xsd:annotation>
+                                </xsd:element>
+                                <xsd:element name="Status" type="xsd:string" minOccurs="0">
+                                    <xsd:annotation>
+                                        <xsd:appinfo source="http://sap.com/xi/TextID">cbf454a77c4a11e9aafb005056bbeb08</xsd:appinfo>
+                                    </xsd:annotation>
+                                </xsd:element>
+                            </xsd:sequence>
+                        </xsd:complexType>
+                    </xsd:element>
+                </xsd:sequence>
+            </xsd:complexType>
+        </xsd:schema>
+    </wsdl:types>
+    <wsdl:message name="AccountPostingReqMT_Intel_Out">
+        <wsdl:documentation />
+        <wsdl:part name="AccountPostingReqMT_Intel_Out" element="p1:AccountPostingReqMT_Intel_Out" />
+    </wsdl:message>
+    <wsdl:message name="AccountPostingResMT_Intel_In">
+        <wsdl:documentation />
+        <wsdl:part name="AccountPostingResMT_Intel_In" element="p1:AccountPostingResMT_Intel_In" />
+    </wsdl:message>
+    <wsdl:portType name="AccountPostingSI_Intel_Out">
+        <wsdl:documentation />
+        <wsdl:operation name="AccountPostingSI_Intel_Out">
+            <wsdl:documentation />
+            <wsp:Policy>
+                <wsp:PolicyReference URI="#OP_AccountPostingSI_Intel_Out" />
+            </wsp:Policy>
+            <wsdl:input message="p1:AccountPostingReqMT_Intel_Out" />
+            <wsdl:output message="p1:AccountPostingResMT_Intel_In" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="AccountPostingSI_Intel_OutBinding" type="p1:AccountPostingSI_Intel_Out">
+        <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+        <wsdl:operation name="AccountPostingSI_Intel_Out">
+            <soap:operation soapAction="http://sap.com/xi/WebService/soap1.1" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+            <wsdl:input>
+                <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="AccountPostingSI_Intel_OutService">
+        <wsdl:port name="HTTP_Port" binding="p1:AccountPostingSI_Intel_OutBinding">
+            <soap:address location="http://oclpod.birlaa1.com:50000/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=EPOD_IntelPlanner_SOAP&amp;receiverParty=&amp;receiverService=&amp;interface=AccountPostingSI_Intel_Out&amp;interfaceNamespace=urn%3AInteliplanner_Orient_AccountPosting.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+        </wsdl:port>
+        <wsdl:port name="HTTPS_Port" binding="p1:AccountPostingSI_Intel_OutBinding">
+            <soap:address location="https://oclpod.birlaa1.com:50001/XISOAPAdapter/MessageServlet?senderParty=&amp;senderService=EPOD_IntelPlanner_SOAP&amp;receiverParty=&amp;receiverService=&amp;interface=AccountPostingSI_Intel_Out&amp;interfaceNamespace=urn%3AInteliplanner_Orient_AccountPosting.com" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

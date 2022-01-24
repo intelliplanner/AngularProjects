@@ -1,0 +1,44 @@
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs/internal/Observable';
+import { throwError } from 'rxjs/internal/observable/throwError';
+import { catchError } from 'rxjs/internal/operators/catchError';
+import { environment } from 'src/environments/environment';
+
+@Injectable({
+  providedIn: 'root'
+})
+export class MasterService {
+  ServerUrl = environment.baseUrlGet;
+  constructor(public httpClient: HttpClient) { }
+
+  getInstituteById(payload): Observable<any> {
+    return this.httpClient.get(this.ServerUrl + `getBasicInfoByInstituteId?bilingual=${payload.bilingual}&languageId=${payload.languageId}&instituteId=${payload.instituteId}&codeStandard=${payload.codeStandard}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+  getInstituteSubCategory(payload): Observable<any> {
+    return this.httpClient.get(this.ServerUrl + `instituteSubCategory?bilingual=${payload.bilingual}&languageId=${payload.languageId}&categoryId=${payload.categoryId}&codeStandard=${payload.codeStandard}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  getSubCategoryDetailsById(payload): Observable<any> {
+    return this.httpClient.get(this.ServerUrl + `getList?bilingual=${payload.bilingual}&languageId=${payload.languageId}&subCategoryId=${payload.subCategoryId}&limit=${payload.limit}&codeStandard=${payload.codeStandard}`).pipe(
+      catchError(this.handleError)
+    );
+  }
+ 
+  private handleError(error: HttpErrorResponse) {
+    if (error.error instanceof ErrorEvent) {
+      // A client-side or network error occurred. Handle it accordingly.
+      console.error('An error occurred:', error.error.message);
+    } else {
+      // The backend returned an unsuccessful response code.
+      // The response body may contain clues as to what went wrong,
+      console.error(`Backend returned code ${error.status}, ` + `body was: ${error.error}`);
+    }
+    // return an observable with a user-facing error message
+    return throwError('Something bad happened. Please try again later.');
+  }
+}

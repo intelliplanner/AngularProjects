@@ -1,0 +1,77 @@
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+<div class="panel panel-primary mb-2" >
+<div class="panel-heading"><h3>Create-Student</h3></div>
+<div class="panel-body">
+  <div class="form-group" [ngClass]="{'has-error':studentForm.get('studentName').errors  && studentForm.get('studentName').dirty && studentForm.get('studentName').touched}">
+    <label class="control-label col-sm-2" for="studentName">Name</label>
+    <div class="col-sm-2"><input type="text" class="form-control" id="studentName" formControlName="studentName" placeholder="Enter Name" />
+    <span class="help-block" *ngIf="studentForm.get('studentName').errors  && (studentForm.get('studentName').dirty || studentForm.get('studentName').touched)">
+    	
+    	name is required
+    </span>
+    <label>{{studentNameLength}}</label>
+    </div>
+  </div>
+ 
+  <div class="form-group">   
+    <label class="control-label col-sm-2" for="studentEmail">Email</label>
+    <div class="col-sm-2"><input type="email" class="form-control" id="studentEmail" formControlName="studentEmail" placeholder="Enter Email"/></div>
+  </div>
+
+
+
+<div formGroupName="studentSkills"> 
+  <div class="form-group">  
+  	<label class="control-label col-sm-2" for="skillsName">skills Name</label>  
+ 	<div class="col-sm-2">
+ 		<input type="text" class="form-control" id="skillsName" formControlName="skillsName" placeholder="Enter skills Name"/>
+ 	</div>
+
+ <label class="control-label col-sm-2" for="experianceInYear">experianceInYear</label>  
+ <div class="col-sm-2">
+ 	<input type="text" class="form-control" id="experianceInYear" formControlName="experianceInYear" placeholder="Enter experianceInYear"/>
+ </div>
+</div>
+
+
+<div class="form-group">
+	<label class="control-label col-md-2">Proficiency</label>
+	<div class="col-md-8">
+	<label class="radio-inline">	<input type="radio"  formControlName="proficiency" value="beginner"/>Beginner</label>
+	<label class="radio-inline"><input type="radio"   formControlName="proficiency" value="advance"/>Advance</label>
+	</div>
+</div>
+
+</div>
+
+
+</div>
+
+<div class="panel-footer">
+	<div class="btn-toolbar">
+	<button type="submit" class="btn btn-primary mb-2">Submit</button>
+	<button type="button" class="btn btn-primary mb-2" (click)="loadDataFunc();">Load Data</button>
+</div>
+</div>
+</div>
+
+</form>
+
+
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>JSON Format</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{studentForm.controls.studentName.value}}</td>
+        <td>{{studentForm.controls.studentEmail.value}}</td>
+        <td>{{studentForm.value | json }}</td>
+      </tr>      
+      
+    </tbody>
+  </table>

@@ -1,0 +1,49 @@
+
+<section class="instituteCourseSection">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-sm-12">
+                <ul class="nav nav-tabs tabsmenu">
+                    <li class="nav-item" *ngFor="let data of tabList;let i=index">
+                        <a class="nav-link tabs-bg-default text-white {{data.visible}}" id="Tab{{data.name}}"
+                            data-toggle="tab" (click)="onTabClick(data,i)" href="#{{data.name}}">
+                            {{data.name}}
+                        </a>
+                    </li>
+                </ul>
+                <div class="tab-content bg-white tabsstyle">
+
+                    <div class="tab-pane container {{x.visible}}" *ngFor="let x of tabList;let i=index" id="{{x.name}}">
+
+                        <h3 class="headingIIT">{{x.name}}</h3>
+
+                        <div class="table-responsive" *ngFor="let y of detailsList | paginate: { itemsPerPage: 10, currentPage: p }; let i= 'index' ">
+                            <table class="table table-bordered table-hover table-striped table-sm fontsize">
+                                <tbody>
+                                    <tr>
+                                        <th rowspan="3" style="width:5%;">{{i+1}}</th>
+                                        <th>{{y.name}}</th>
+
+                                    </tr>
+                                    <tr>
+                                        <td> {{y.address.subLocality}},
+                                            {{y.address.district}}-{{y.address.pinCode}}, {{y.address.state}}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><a style="cursor: pointer;"
+                                            [routerLink]="['/details']" [queryParams]="{ id: y.id,standardId:'10019'}">{{viewInstitutionDetails}}
+                                            </a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+                            </table>
+                        </div>
+                        <pagination-controls (pageChange)="p = $event"></pagination-controls>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

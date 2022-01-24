@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<root>
+  <Shipment Number>12346</Shipment Number>
+  <Plant>plant</Plant>
+  <Shipment Status 1-creation>true</Shipment Status 1-creation>
+  <Shipment Assignment Date & Time>2019-02-28 09:29:44</Shipment Assignment Date & Time>
+  <Shipment Cost>1000</Shipment Cost>
+  <Shipment Quantity>200</Shipment Quantity>
+  <Vehicle No>DL1234</Vehicle No>
+  <TRO number>qsr900</TRO number>
+  <Load type (Bulk/bag)>loadtype</Load type (Bulk/bag)>
+  <Truck capacity (MT)>500</Truck capacity (MT)>
+  <Truck yard entry date & time>2019-02-28 09:29:44</Truck yard entry date & time>
+  <Vehicle classification (Market & Own)>own</Vehicle classification (Market & Own)>
+  <LR number>BJP300</LR number>
+  <Sales office name>office123</Sales office name>
+  <Destination name>mumbai</Destination name>
+  <Destination code>0098</Destination code>
+  <Zone name>nagpur</Zone name>
+  <Concerned Sales officer name>abcd-klmn</Concerned Sales officer name>
+  <Concerned Sales officer phone No.>908767</Concerned Sales officer phone No.>
+  <Transporter Code>908uio</Transporter Code>
+  <Transporter Name>pqrs-wxyz</Transporter Name>
+  <Driver Name [Available in SAP currently in TRO]>driver123</Driver Name [Available in SAP currently in TRO]>
+  <Driver Phone No.[To be added to TRO in SAP]>99087667</Driver Phone No.[To be added to TRO in SAP]>
+  <Driver using smartphone/Sim [To be added to TRO in SAP]>yes</Driver using smartphone/Sim [To be added to TRO in SAP]>
+  <Shipment Number>12346</Shipment Number>
+  <Plant>plant</Plant>
+  <Shipment Status 1-creation>true</Shipment Status 1-creation>
+  <Shipment Assignment Date & Time>2019-02-28 09:29:44</Shipment Assignment Date & Time>
+  <Shipment Cost>1000</Shipment Cost>
+  <Shipment Quantity>200</Shipment Quantity>
+  <Vehicle No>DL1234</Vehicle No>
+  <TRO number>qsr900</TRO number>
+  <Load type (Bulk/bag)>loadtype</Load type (Bulk/bag)>
+  <Truck capacity (MT)>500</Truck capacity (MT)>
+  <Truck yard entry date & time>2019-02-28 09:29:44</Truck yard entry date & time>
+  <Vehicle classification (Market & Own)>own</Vehicle classification (Market & Own)>
+  <LR number>BJP300</LR number>
+  <Sales office name>office123</Sales office name>
+  <Destination name>mumbai</Destination name>
+  <Destination code>0098</Destination code>
+  <Zone name>nagpur</Zone name>
+  <Concerned Sales officer name>abcd-klmn</Concerned Sales officer name>
+  <Concerned Sales officer phone No.>908767</Concerned Sales officer phone No.>
+  <Transporter Code>908uio</Transporter Code>
+  <Transporter Name>pqrs-wxyz</Transporter Name>
+  <Driver Name [Available in SAP currently in TRO]>driver123</Driver Name [Available in SAP currently in TRO]>
+  <Driver Phone No.[To be added to TRO in SAP]>99087667</Driver Phone No.[To be added to TRO in SAP]>
+  <Driver using smartphone/Sim [To be added to TRO in SAP]>yes</Driver using smartphone/Sim [To be added to TRO in SAP]>
+  <Shipment Number>12346</Shipment Number>
+  <Plant>plant</Plant>
+  <Shipment Status 1-creation>true</Shipment Status 1-creation>
+  <Shipment Assignment Date & Time>2019-02-28 09:29:44</Shipment Assignment Date & Time>
+  <Shipment Cost>1000</Shipment Cost>
+  <Shipment Quantity>200</Shipment Quantity>
+  <Vehicle No>DL1234</Vehicle No>
+  <TRO number>qsr900</TRO number>
+  <Load type (Bulk/bag)>loadtype</Load type (Bulk/bag)>
+  <Truck capacity (MT)>500</Truck capacity (MT)>
+  <Truck yard entry date & time>2019-02-28 09:29:44</Truck yard entry date & time>
+  <Vehicle classification (Market & Own)>own</Vehicle classification (Market & Own)>
+  <LR number>BJP300</LR number>
+  <Sales office name>office123</Sales office name>
+  <Destination name>mumbai</Destination name>
+  <Destination code>0098</Destination code>
+  <Zone name>nagpur</Zone name>
+  <Concerned Sales officer name>abcd-klmn</Concerned Sales officer name>
+  <Concerned Sales officer phone No.>908767</Concerned Sales officer phone No.>
+  <Transporter Code>908uio</Transporter Code>
+  <Transporter Name>pqrs-wxyz</Transporter Name>
+  <Driver Name [Available in SAP currently in TRO]>driver123</Driver Name [Available in SAP currently in TRO]>
+  <Driver Phone No.[To be added to TRO in SAP]>99087667</Driver Phone No.[To be added to TRO in SAP]>
+  <Driver using smartphone/Sim [To be added to TRO in SAP]>yes</Driver using smartphone/Sim [To be added to TRO in SAP]>
+</root>

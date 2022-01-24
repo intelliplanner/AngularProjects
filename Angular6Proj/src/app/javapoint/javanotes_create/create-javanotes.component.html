@@ -1,0 +1,66 @@
+<form [formGroup]="createTopicExtendedContentForm" (ngSubmit)="saveTopicExtendedContent()"  class="form-horizontal">
+<div class="panel panel-primary mb-2" >
+<div class="panel-heading"><h3>Create-Topic-NOtes</h3></div>
+<div class="panel-body">
+ 
+ <!-- <input type="hidden" formControlName="id" id="id" > -->
+
+
+ <div class="form-group">   
+    <label class="control-label col-sm-2" for="topicExtendId">Sub Topic</label>
+    <div class="col-sm-2">
+    <select  class="form-control" id="topicExtendId"  formControlName="topicExtendId">
+        <option value="">Choose Sub Topic</option>
+        <option *ngFor="let topic of topicsExtended" [ngValue]="topic.id">{{topic.subTopicName}}</option>
+    </select>
+    </div>
+  </div>
+ 
+ <div class="form-group">   
+    <label class="control-label col-sm-2" for="topicPrev">Previous Topic</label>
+    <div class="col-sm-2">
+    <select  class="form-control" id="topicPrev"  formControlName="topicPrev" >
+        <option value="">Previous Topic</option>
+        <option *ngFor="let topic of topicsExtended" [ngValue]="topic.id">{{topic.subTopicName}}</option>
+    </select>
+    </div>
+  </div>
+
+ <div class="form-group">
+    <label class="control-label col-sm-2" for="topicNext">Next Topic</label>
+    <div class="col-sm-2">
+    <select  class="form-control" id="topicNext"  formControlName="topicNext" >
+        <option value="">Next Topic</option>
+        <option *ngFor="let topic of topicsExtended" [ngValue]="topic.id">{{topic.subTopicName}}</option>
+    </select>
+    </div>
+  </div>
+
+
+  <div class="form-group" [ngClass]="">
+    <label class="control-label col-sm-2" for="topicHeader">Topic Header</label>
+    <div class="col-sm-2">
+      <input type="text"  class="form-control" id="topicHeader" formControlName="topicHeader" 
+      placeholder="Enter Header" />
+    </div>
+  </div>
+
+
+  <div class="form-group" [ngClass]="">
+    <label class="control-label col-sm-2" for="topicContent">Topic Content</label>
+    <div class="col-sm-10">
+     <!--  <input type="textarea" rows="5" class="form-control" id="topicContent" formControlName="topicContent" placeholder="Enter Content" /> -->
+     <textarea class="form-control" placeholder="Enter Content" id="topicContent" formControlName="topicContent" rows="5"></textarea>
+    </div>
+  </div>
+
+
+
+</div>
+<div class="panel-footer">
+  <div class="btn-toolbar">
+  <button type="submit" class="btn btn-primary mb-2">Submit</button>
+  <button type="button" class="btn btn-primary mb-2" >Load Data</button>
+</div>
+</div>
+</div></form>

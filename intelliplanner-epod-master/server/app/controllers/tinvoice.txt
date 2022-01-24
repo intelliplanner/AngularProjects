@@ -1,0 +1,108 @@
+   <table class="invoformat">
+  <tr>
+    <td colspan="4" rowspan="4">Tax Invoice</td>   
+  </tr>
+  
+   <tr>
+    <td colspan="2">Original</td>   
+  </tr>
+  
+   <tr>
+    <td colspan="2">Duplicate</td>   
+  </tr>
+   <tr>
+    <td colspan="2">Triplicate</td>   
+  </tr>
+  
+   <tr>
+     <td colspan="6">Name : [NAME]<br>
+          Address : [ADDRESS]<br>
+          PAN NO: [PAN] <br>
+          GST No : [GST]</td>   
+    </tr>
+  
+   <tr>
+    <td colspan="6" class="textcenter">Bill to Recipient</td>    
+  </tr>
+  
+  <tr>
+      <td colspan="4" rowspan="2">
+          Name : [COMPANYNAME] <br>
+          Address : [COMPANYADDRESS] <br>
+          GST No: [COMPANYGST]<br>
+          PAN No: [COMPANYPAN]</td>
+        <td>Invoice No</td>
+        <td>[INVOICENUMBER]</td>
+  </tr>
+  
+  <tr>
+    <td>Invoice Date</td>
+    <td>[INVOICEDATE]</td>
+  </tr>
+  
+  <tr>
+    <td colspan="6"></td>  
+    
+  </tr>
+  
+    <tr>
+        <td>Description of Services</td>
+        <td>Accounting Code of Services CODE</td>
+        <td>QTY</td>
+        <td>UOM</td>
+        <td>Rate</td>
+        <td>Amount</td>
+    
+  </tr>
+   
+   <tr>
+    <td rowspan="2">Transportation Service Charges for the period from ______ to ______</td>
+    <td rowspan="2">9965</td>
+    <td colspan="3" rowspan="2">As Per Annexure</td>
+    <td>[TOTAL]</td> 
+  </tr>
+  
+  <tr>
+    <td></td>
+   
+  </tr>
+  
+     <tr>
+    <td colspan="2" >Purchase Order Number: &nbsp;[PONUMBER]</td>
+    <td colspan="3">Taxable</td>
+    <td>[TOTAL]</td>
+  </tr>
+  
+   <tr>
+    <td colspan="2" rowspan="4">[WORDS]</td> 
+  </tr>
+
+   <tr>
+    <td colspan="3">Igst &nbsp;&nbsp;[IGST]</td>
+    <td rowspan="3">[TAX]</td> 
+  </tr>
+  
+   <tr>
+    <td colspan="3">Cgst &nbsp;&nbsp;[CGST]</td> 
+  </tr>
+  
+    <tr>
+    <td colspan="3">Sgst &nbsp;&nbsp;[SGST]</td>
+  </tr>
+  
+    <tr>
+    <td colspan="5">Total Amount</td>
+    <td>[TAXTOTAL]</td>
+   </tr>
+    
+    <tr>
+    <td colspan="5">GST Under RCM : Yes/No</td>
+    <td>[RCMVALUE]</td>
+   </tr>
+    
+   <tr>
+    <td colspan="2">COMMON<br>SEAL</td>
+    <td colspan="4">For&nbsp;[NAME]</td>
+  </tr>
+    
+</table>

@@ -1,0 +1,34 @@
+<ion-split-pane *ngIf="loggedIn">
+<ion-menu #menu id='menu' type="3d" class="fullWidthMenu" [content]="content">
+  <ion-header mode="ios" color="dark">
+    <ion-toolbar color="dark">
+      <ion-title class="rootpage" mode="ios">Menu</ion-title>
+    </ion-toolbar>
+    <ion-toolbar color="dark">
+      <ion-title class="rootpage" mode="ios">{{transporterName || 'UnNamed'}}</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content style="background: #222;">
+    <ion-list no-lines>
+      <button style="background: transparent;color: #ccc;" menuClose ion-item *ngFor="let p of pages" (click)="openPage(p)" [class.activeHighlight]=checkActive(p)>
+    <ion-icon [name]="p.icon" item-start></ion-icon>
+        {{p.title}}
+      </button>
+    </ion-list>
+  </ion-content>
+<ion-footer no-border>
+    <ion-list no-lines>
+      <button style="background: transparent;color: #fff;" (click)="logout()" menuClose ion-item>
+    <ion-icon name="log-out" item-start></ion-icon>
+        Logout
+      </button>
+    </ion-list>
+</ion-footer>
+</ion-menu>
+
+<!-- Disable swipe-to-go-back because it's poor UX to combine STGB with side menus -->
+<ion-nav [root]="rootPage" main #content swipeBackEnabled="false"></ion-nav>
+</ion-split-pane>
+
+<ion-nav *ngIf="!loggedIn" [root]="rootPage" #content swipeBackEnabled="false"></ion-nav>

@@ -1,0 +1,21 @@
+ <table>
+  <tr>
+    <th>Shipment Number</th> 
+    <th>Truck Number</th>
+    <th>Date</th>
+    <th>LR Num</th>
+    <th>Rate</th>
+    <th>Qty</th>
+    <th>Amount</th>     
+  </tr>
+  
+  <tr>
+    <td>[ShipmentNumber]</td>
+    <td>[TruckNumber]</td>
+    <td>[Date]</td>
+    <td>[LRNum]</td>
+    <td>[Rate]</td>
+    <td>[Qty]</td>
+    <td>[Amount]</td>
+  </tr>
+</table>

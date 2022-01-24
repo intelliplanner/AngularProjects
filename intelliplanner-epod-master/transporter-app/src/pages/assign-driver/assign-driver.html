@@ -1,0 +1,126 @@
+<ion-header mode="ios" no-border>
+  <ion-navbar no-border mode="ios" color="cement">
+    <ion-title mode="ios"> Assign Driver - #{{shipment.shipment_number}}</ion-title>
+    <ion-buttons end royal>
+      <button ion-button icon-only (click)="close()">
+        <ion-icon name="close"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar *ngIf="!toggleAddDriver" no-border mode="ios" color="cement">
+    <ion-searchbar mode="ios" [(ngModel)]="search"></ion-searchbar>
+  </ion-toolbar>
+</ion-header>
+<ion-content>
+  <div *ngIf="!toggleAddDriver">
+    <div *ngIf="!select">
+      <ion-list class="hidden-xl hidden-lg hidden-md">
+        <ion-item *ngFor="let driver of drivers" (click)="selectDriver(driver)">
+          <h2>{{driver.name}}</h2>
+          <h4>{{driver.phone}}</h4>
+          <p>
+            <ion-badge color="primary" *ngIf="driver.tracking_type == 1">Device</ion-badge>
+            <ion-badge color="dark" *ngIf="driver.tracking_type == 0">Sim</ion-badge>
+            <ion-badge color="danger" *ngIf="driver.tracking_type == 1 && !driver.app_installed">App Not Installed</ion-badge>
+            <ion-badge color="secondary" *ngIf="driver.tracking_type == 1 && driver.app_installed">App Installed</ion-badge>
+          </p>
+        </ion-item>
+      </ion-list>
+      <div padding class="hidden-xs hidden-sm" padding>
+        <table border="0" style="background-color: #f8f8f8 !important;border:5px solid #f8f8f8">
+          <tr>
+            <th style="color:blue">Name</th>
+            <th style="color:blue">Phone.No</th>
+            <th style="color:blue">Tracking Type</th>
+            <th style="color:blue">App Installed?</th>
+          </tr>
+          <tr *ngFor="let driver of drivers" (click)="selectDriver(driver)">
+            <td>{{driver.name}}</td>
+            <td>{{driver.phone}}</td>
+            <td *ngIf="driver.tracking_type == 1">
+              <ion-badge color="primary">Device</ion-badge>
+            </td>
+            <td *ngIf="driver.tracking_type == 0">
+              <ion-badge color="dark">Sim</ion-badge>
+            </td>
+            <td>
+              <ion-icon name="close-circle" color="danger"></ion-icon>
+            </td>
+          </tr>
+        </table>
+      </div>
+    </div>
+    <div *ngIf="select" padding>
+      <form [formGroup]="formSelect">
+        <ion-list style="background: transparent;">
+          <ion-item no-padding [class.invalid]="form.get('name').invalid">
+            <ion-label stacked>Name</ion-label>
+            <ion-input #input formControlName="name" autocomplete="off" type="text" required></ion-input>
+          </ion-item>
+          <div class="error" *ngIf="form.get('name').hasError('required') && (form.get('name').touched || form.get('name').dirty)">Name is required</div>
+          <ion-item no-padding [class.invalid]="form.get('phone').invalid">
+            <ion-label stacked>Phone</ion-label>
+            <ion-input #input formControlName="phone" autocomplete="off" type="number" required></ion-input>
+          </ion-item>
+          <div class="error" *ngIf="form.get('phone').hasError('required') && (form.get('phone').touched || form.get('phone').dirty)">Phone is required</div>
+          <ion-item no-padding>
+            <ion-label stacked>Tracking Type</ion-label>
+            <ion-select formControlName="tracking_type">
+              <ion-option value="1">Device</ion-option>
+              <ion-option value="0">Sim</ion-option>
+            </ion-select>
+          </ion-item>
+        </ion-list>
+      </form>
+    </div>
+  </div>
+  <div *ngIf="toggleAddDriver" padding>
+    <form [formGroup]="form">
+      <ion-list style="background: transparent;">
+        <ion-item no-padding [class.invalid]="form.get('name').invalid">
+          <ion-label stacked>Name</ion-label>
+          <ion-input #input formControlName="name" autocomplete="off" type="text" required></ion-input>
+        </ion-item>
+        <div class="error" *ngIf="form.get('name').hasError('required') && (form.get('name').touched || form.get('name').dirty)">Name is required</div>
+        <ion-item no-padding [class.invalid]="form.get('phone').invalid">
+          <ion-label stacked>Phone</ion-label>
+          <ion-input #input formControlName="phone" autocomplete="off" type="number" required></ion-input>
+        </ion-item>
+        <div class="error" *ngIf="form.get('phone').hasError('required') && (form.get('phone').touched || form.get('phone').dirty)">Phone is required</div>
+        <ion-item no-padding>
+          <ion-label stacked>Tracking Type</ion-label>
+          <ion-select formControlName="tracking_type">
+            <ion-option value="1">Device</ion-option>
+            <ion-option value="0">Sim</ion-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </form>
+  </div>
+</ion-content>
+<ion-footer style="padding: 5px 10px">
+  <ion-row no-padding no-margin *ngIf="!toggleAddDriver && !select">
+    <ion-col>
+      <button ion-button block outline color="cement" (click)="toggleAddNewDriver()">Add New Driver</button>
+    </ion-col>
+  </ion-row>
+
+
+  <ion-row no-padding no-margin *ngIf="select">
+    <ion-col>
+      <button ion-button block outline color="secondary" [disabled]="formSelect.invalid" (click)="assignDriver()">Select Driver</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button block outline color="cement" (click)="toggleSelect()">Cancel</button>
+    </ion-col>
+  </ion-row>
+
+  <ion-row no-padding no-margin *ngIf="toggleAddDriver">
+    <ion-col>
+      <button ion-button block outline color="secondary" [disabled]="form.invalid" (click)="save()">Save & Select</button>
+    </ion-col>
+    <ion-col>
+      <button ion-button block outline color="cement" (click)="toggleAddNewDriver()">Cancel</button>
+    </ion-col>
+  </ion-row>
+</ion-footer>

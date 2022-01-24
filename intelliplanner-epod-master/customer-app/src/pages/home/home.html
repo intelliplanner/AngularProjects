@@ -1,0 +1,54 @@
+
+<ion-header mode="ios" no-border>
+  <ion-navbar mode="ios">
+    <ion-title mode="ios">Delivery Confirmation</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content style="background:#efefef">
+      <ion-card *ngFor="let invoice of invoices" (click)="openInvoice(invoice)">
+        <ion-card-content>
+          <ion-item>
+            <ion-note item-start style="color:#000 !important;font-weight: 300">
+              Invoice Number
+            </ion-note>
+            <ion-note item-end>
+              #{{invoice.invoice_number}}
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-note item-start style="color:#000 !important;font-weight: 300">
+              Invoice Quantity
+            </ion-note>
+            <ion-note item-end>
+              <span>{{invoice.invoice_quantity}}<br></span>
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-note item-start style="color:#000 !important;font-weight: 300">
+              Ship to Party
+            </ion-note>
+            <ion-note item-end>
+              <span>{{invoice.shiptoparty_name}}<br></span>
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-note item-start style="color:#000 !important;font-weight: 300">
+              Destination Name
+            </ion-note>
+            <ion-note item-end>
+              <span>{{invoice.destination_name}}<br></span>
+            </ion-note>
+          </ion-item>
+          <ion-item>
+            <ion-note item-start style="color:#000 !important;font-weight: 300">
+              Invoice Date
+            </ion-note>
+            <ion-note item-end>
+              {{invoice.invoice_date}}
+            </ion-note>
+          </ion-item>
+        </ion-card-content>
+      </ion-card>
+  <div *ngIf="invoices.length == 0" padding style="font-weight: bold;margin-top: 20%; text-align: center;font-size: 14px;">No Active Invoices</div>
+</ion-content>

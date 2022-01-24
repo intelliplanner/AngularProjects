@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="MTapp">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Completing transaction</title>
+  
+<style type="text/css">
+	#preloader {
+  height: 30px;
+  width: 30px;
+  margin: 40vh auto;
+  border: 5px solid rgba(60,60,180,0.45);
+  border-top: 5px solid rgb(60,60,180);
+  border-radius: 50%;
+  animation: rotate 1s infinite linear;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.6/angular.js"></script>
+<script type="text/javascript">
+  
+  var app = angular.module('MTapp', []);
+
+app.config(['$locationProvider', function($locationProvider){
+$locationProvider.html5Mode({
+  enabled: true,
+  requireBase: false
+  })
+}])
+
+app.controller('mtctrl', function ($scope, $http, $location) {
+  
+$scope.spn = function() { 
+$scope.hdata = 'Please wait while the transaction completes.'
+//   $http({
+//   method: 'GET',
+//   url: 'http://159.203.175.11:1200/paymentsuccess?u='+$location.search().u+'&a='+$location.search().a+'&txnid='+$location.search().txnid
+// }).then(function successCallback(respo) {
+//     console.log(respo);
+//     $scope.spdata = respo.data[0];
+    
+//     if($scope.spdata == 'updated'){
+//       $scope.hdata == 'transaction completed successfully!'
+//       window.close();
+//     }else{
+// $scope.hdata == 'transaction failed!'
+//       window.close();
+//     }
+//   }, function errorCallback(response) {
+//     console.log(response);
+//   });
+// console.log($location.search());
+
+    }
+
+  });
+
+</script>
+  
+</head>
+
+<body ng-controller="mtctrl" ng-init="spn()">
+
+  <div id="preloader"></div>
+  <h3 style="text-align: center;">Please wait while the transaction completes.</h3>
+  
+
+</body>
+
+</html>

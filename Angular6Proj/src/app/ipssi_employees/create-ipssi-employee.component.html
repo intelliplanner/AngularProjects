@@ -1,0 +1,104 @@
+<form [formGroup]="testEmpForm" (ngSubmit)="onSubmit()" class="form-horizontal">
+<div class="panel panel-primary mb-2" >
+<div class="panel-heading"><h3>Create-Employee</h3></div>
+<div class="panel-body">
+  
+
+ 
+ <input type="hidden" formControlName="id" id="id" >
+
+
+  <div class="form-group" [ngClass]="{'has-error':testEmpForm.get('firstName').errors  && (testEmpForm.get('firstName').touched || testEmpForm.get('firstName').dirty)}">
+  
+
+    <label class="control-label col-sm-2" for="firstName">First Name</label>
+    <div class="col-sm-2">
+      <input type="text"  class="form-control" id="firstName" formControlName="firstName" 
+      placeholder="Enter First Name" />
+
+    <span class="help-desk" *ngIf="testEmpForm.get('firstName').errors  && 
+        (testEmpForm.get('firstName').touched || testEmpForm.get('firstName').dirty)">
+      <span *ngIf="testEmpForm.get('firstName').errors.required">First Name is required</span>
+      <span *ngIf="testEmpForm.get('firstName').errors.minlength || testEmpForm.get('firstName').errors.maxlength">Min length 2 & Max Length 10</span>
+    </span>
+
+    </div>
+  </div>
+  <div class="form-group" [ngClass]="{'has-error': testEmpForm.get('lastName').errors && (testEmpForm.get('firstName').touched || testEmpForm.get('firstName').dirty)}">
+    <label class="control-label col-sm-2" for="lastName">Last Name</label>
+    <div class="col-sm-2"><input type="text" class="form-control" id="lastName" formControlName="lastName" placeholder="Enter Last Name"/>
+    <span class="help-desk" *ngIf="testEmpForm.get('lastName').errors && 
+    (testEmpForm.get('firstName').touched || testEmpForm.get('firstName').dirty)">
+      <span *ngIf="testEmpForm.get('lastName').errors.required">Last Name Required</span>
+    </span>
+    </div>
+  </div>
+ 
+  <div class="form-group">   
+    <label class="control-label col-sm-2" for="email">Email</label>
+    <div class="col-sm-2"><input type="email" class="form-control" id="email" formControlName="email" placeholder="Enter Email"/></div>
+  </div>
+<div class="form-group">   
+    <label class="control-label col-sm-2" for="phoneNo">Phone No</label>
+    <div class="col-sm-2"><input type="email" class="form-control" id="phoneNo" formControlName="phoneNo" placeholder="Enter phoneNo"/></div>
+  </div>
+
+  <div class="form-group">   
+    <label class="control-label col-sm-2" for="hireDate">Hire Date</label>
+    <div class="col-sm-2"><input type="email" class="form-control" id="hireDate" formControlName="hireDate" placeholder="Enter hireDate"/></div>
+  </div>
+
+<div class="form-group">   
+    <label class="control-label col-sm-2" for="jobId">jobId</label>
+    <div class="col-sm-2"><input type="email" class="form-control" id="jobId" formControlName="jobId" placeholder="Enter jobId"/></div>
+  </div>
+
+<div class="form-group">   
+    <label class="control-label col-sm-2" for="salary">salary</label>
+    <div class="col-sm-2"><input type="email" class="form-control" id="salary" formControlName="salary" placeholder="Enter salary"/></div>
+  </div>
+  <div class="form-group">   
+    <label class="control-label col-sm-2" for="managerId">Manager Id</label>
+    <div class="col-sm-2"><input type="managerId" class="form-control" id="managerId" formControlName="managerId" placeholder="Enter jobId"/></div>
+  </div>
+  <div class="form-group">   
+    <label class="control-label col-sm-2" for="departmentId">Department Id</label>
+    <div class="col-sm-2"><input type="departmentId" class="form-control" id="departmentId" formControlName="departmentId" placeholder="Enter departmentId"/></div>
+  </div>
+
+
+
+</div>
+<div class="panel-footer">
+  <div class="btn-toolbar">
+  <button type="submit" class="btn btn-primary mb-2">Submit</button>
+  <button type="button" class="btn btn-primary mb-2" (click)="loadDataFunc();">Load Data</button>
+</div>
+</div>
+</div></form>
+
+  <table border="1">
+    <thead>
+      <tr>
+        <th style="padding: 10px">FormGroup</th>
+        <th style="padding: 10px">FormControl(fullName)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td style="padding: 10px">
+                touched: {{testEmpForm.touched}}
+        <br>        dirty:{{testEmpForm.dirty}}
+            <br>valid:{{testEmpForm.valid}}
+         <br>Form Values:{{testEmpForm.value | json}}
+        </td>
+        <td style="padding: 10px"> touched: {{testEmpForm.get("firstName").touched }}
+            <br>dirty:{{testEmpForm.get("firstName").dirty}}
+             <br>valid:{{testEmpForm.get("firstName").valid}}
+             <br>Form Values:{{testEmpForm.value | json}}
+        </td>
+      </tr>      
+    </tbody>
+  </table>
+
+

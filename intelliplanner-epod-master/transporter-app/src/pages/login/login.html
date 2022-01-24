@@ -1,0 +1,55 @@
+<ion-header mode="ios" no-border>
+  <ion-navbar mode="ios" color="cement">
+    <ion-title mode="ios">Welcome</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content style='background: #fff'>
+  <ion-row>
+    <ion-col col col-lg-4 offset-lg-4 col-md-4 offset-md-4 text-center>
+      <div class="hidden-xl hidden-lg hidden-md">
+        <img width="150" height="100" src="assets/imgs/orient.png">
+        <h1 class="epodText">EPOD</h1>
+      </div>
+      <div class="hidden-xs hidden">
+        <img  style="width: 100%;height: 200px;" src="assets/imgs/transporterWeb.PNG">
+      </div>
+      
+      <!-- <ion-card padding style='border: 0px solid #ccc'> -->
+        <!-- <div style="margin-top: 0%" text-center>
+  <img style="text-align: center;max-width: 150px" width="150" src="assets/imgs/orient.png">
+</div> -->
+
+        <ion-item id="rounded1">
+          <!-- <ion-label stacked>Phone Number</ion-label> -->
+          <ion-input class="textColor" [(ngModel)]="form.transporter_ID" type="text" value="" placeholder="Enter transporterID" name="userName" required=""></ion-input>
+        </ion-item>
+        <ion-item id="rounded2">
+          <!-- <ion-label stacked>Password</ion-label> -->
+          <ion-input class="textColor" [(ngModel)]="form.password" type='password' placeholder="Enter Password" name="password" required=""></ion-input>
+        </ion-item>
+      <!-- </ion-card> -->
+
+      
+      <!-- <ion-item id="rounded1">
+      <ion-chip>
+      <ion-avatar slot="start">
+     <img src="assets/imgs/usernameImage.png">
+     </ion-avatar>
+      <ion-input class="textColor" [(ngModel)]="form.username" type="text" value="" placeholder="Enter Phone number" name="userName" required=""></ion-input>
+      </ion-chip>
+      </ion-item> -->
+      
+       <h2 (click)="forgot()" class="webstyleForgotPass">Forgot Password</h2>
+      <button ion-button class="webstyleButton" (click)="doLogin()">LOGIN</button>
+      <button ion-button block class="hidden-xl hidden-lg hidden-md" color="cement" (click)="doLogin()">LOGIN</button>
+
+      <h2 (click)="forgot()" class="hidden-xl hidden-lg hidden-md" style="text-decoration: underline;font-family: serif;">Forgot Password</h2>
+    </ion-col>
+  </ion-row>
+  <!--       <ion-item no-lines style="padding-left: 10px">
+        <button ion-button clear class="signupButton" (click)="resetPassword()">Forgot Password</button>
+      </ion-item> -->
+</ion-content>
+<!-- <ion-footer no-border padding>
+  <button ion-button block outline color="cement" (click)="doLogin()">Log In</button>
+</ion-footer> -->

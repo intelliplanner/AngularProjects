@@ -1,0 +1,135 @@
+<ion-header mode="ios" mode="ios">
+  <ion-navbar mode="ios" color="cement">
+    <ion-title mode="ios">
+      e-POD
+    </ion-title>
+    <button ion-button end color="dark" style="font-size: 12px" (click)="logout()">SignOut</button>
+  </ion-navbar>
+</ion-header>
+<ion-content style="background: #efefef">
+
+<!--   <div *ngIf="allInvoices.length > 0" padding-left padding-right>
+    <ion-row>
+    <ion-col col-8>
+    <input [(ngModel)]="shipment.lr_number" style="padding:10px" type="text" placeholder="LR Number" name="lrNumber">
+    </ion-col>
+    <ion-col col-4>
+    <button style="background: green;
+    color: white;
+    text-align: center;
+    height: 40px;width: 100%;
+    line-height: 40px;
+    font-size: 20px;" [disabled]="!shipment.lr_number || shipment.lr_number == ''" (click)="updateLrNumber()">Save</button>
+    </ion-col>
+    <ion-col>
+    
+    </ion-col>
+    </ion-row>
+  </div> -->
+  <ion-card *ngFor="let invoice of allInvoices" (click)="openInvoice(invoice)">
+    <div padding>
+
+
+<!--       <ion-item (click)="openInvoice(invoice)">
+        <ion-note item-start style="color:#000 !important;font-weight: 300">
+          Invoice No.
+        </ion-note>
+        <ion-note item-end style="color:#000 !important;">
+          {{invoice.invoice_date}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item (click)="openInvoice(invoice)">
+        <ion-note item-start style="color:#000 !important;font-weight: 300">
+         <h4>#{{invoice.invoice_number}}</h4>
+        </ion-note>
+      </ion-item>
+
+      <ion-item (click)="openInvoice(invoice)">
+        <ion-note item-start style="color:#000 !important;font-weight: 300">
+          {{invoice.invoice_quantity}}&nbsp;&nbsp;MT
+        </ion-note>
+        <ion-note item-end style="color:#000 !important;">
+          {{invoice.shiptoparty_name}}
+        </ion-note>
+      </ion-item> -->
+
+      <ion-item>
+        <ion-note item-start style="color:#000 !important;font-weight: 300">
+          Invoice No.
+        </ion-note>
+        <ion-note item-end style="color:#000 !important;">
+          {{invoice.invoice_number}}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-note item-start style="color:#000 !important;font-weight: 300">
+          Vehicle No.
+        </ion-note>
+        <ion-note item-end style="color:#000 !important;">
+          {{invoice.vehicle_no}}
+        </ion-note>
+      </ion-item>
+      <ion-item>
+        <ion-note item-start style="color:#000 !important;font-weight: 300">
+          Transporter Code
+        </ion-note>
+        <ion-note item-end style="color:#000 !important;">
+          {{invoice.transporter_code}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-note item-start style="color:#000 !important;font-weight: 300">
+          Invoice Date
+        </ion-note>
+        <ion-note item-end style="color:#000 !important;">
+          {{invoice.invoice_date}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-note item-start style="color:#000 !important;font-weight: 300">
+          Customer Name
+        </ion-note>
+        <ion-note item-end style="color:#000 !important;">
+          {{invoice.shiptoparty_name || invoice.soldtoparty_name}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-note item-start style="color:#000 !important;font-weight: 300">
+          Destination
+        </ion-note>
+        <ion-note item-end style="color:#000 !important;">
+          {{invoice.destination_name}}
+        </ion-note>
+      </ion-item>
+
+      <ion-item>
+        <ion-note item-start style="color:#000 !important;font-weight: 300">
+          Quantity
+        </ion-note>
+        <ion-note item-end style="color:#000 !important;">
+          {{invoice.invoice_quantity}}&nbsp;&nbsp;MT
+        </ion-note>
+      </ion-item>
+
+
+    </div>
+
+
+<!--     <div>
+      <ion-row no-padding no-margin>
+        <ion-col no-padding no-margin col-5 style="background: #488aff;">
+          <button ion-button full color="primary" style="font-size: 12px;box-shadow: none;" (click)="presentActionSheet(invoice)">Upload LR</button>
+        </ion-col>
+        <ion-col no-padding no-margin col-7 style="background: #222222;">
+          <button ion-button full color="dark" style="font-size: 12px" (click)="notAvailable(invoice)">Customer Not Available</button>
+        </ion-col>
+      </ion-row>
+    </div> -->
+  </ion-card>
+  
+  <div *ngIf="allInvoices.length == 0" padding style="font-weight: bold;margin-top: 20%; text-align: center;font-size: 14px;">No Active Invoices</div>
+</ion-content>

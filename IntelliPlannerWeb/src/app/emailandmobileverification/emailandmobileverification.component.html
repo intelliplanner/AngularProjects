@@ -1,0 +1,220 @@
+<div class="container-fluid">
+    <div class="row bg-gray-200 pl-4 pt-3 pb-3">
+        <div class="col-md-8 animated fadeInLeft">
+
+
+            <div class="login-das-box card">
+
+                <div class="col-md-12 p-3">
+                    <div class="after-loop row p-0 ">
+                        <div class="col-md-12">
+                            <h4 class="d-block font-weight-light text-black bg-light p-2 m-0">
+                                <img src="/assets/images/teacher-icon1.png" class="" alt="Teacher">
+                                <span class="small pt-3 pl-2">Teachers Registry</span>
+                            </h4>
+            
+                            <span class="text-center d-block">
+                                <img src="/assets/images/teachers-registry-1.png" class="" alt="Teacher registry">
+                            </span>
+                            <p class="d-block p-1 pt-4 text-justify">The Teacher Registry is a secure, centralized repository of
+                                verified
+                                educators who work in any recognized government, government-aided, private, or other schools in
+                                India. It gives each educator a single national digital identification and profile.
+                               
+                                <span class="collapse" id="collapseExample">
+                                  
+                                        Teachers can
+                                        self-register on the platform with the help of a federated approval system. Multiple data
+                                        issuers,
+                                        such as schools, School Management, Education Boards, and other approved representatives, can
+                                        publish teacher data on behalf of teachers, allowing multiple permitted requestors access to
+                                        consented data.
+                                        Teachers who register for the teacher platform gain access to a variety of interoperable and
+                                        digitally-enabled services like training, transfer posting, and more.
+                                   
+                                </span>
+                                <button class="btn btn-link btn-sm" type="button" data-toggle="collapse" data-target="#collapseExample"
+                                aria-expanded="false" aria-controls="collapseExample" id="changebuttontext" (click)="callChangeFunc()">
+                                View More...
+                            </button>
+                            </p>
+            
+                          
+            
+            
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-12 p-3">
+                    <div class="after-loop row p-0 ">
+
+                        <!-- <div class="col-md-6">
+                            <a href="#" class="after-loop-item card border-0 card-themes  p-0">
+                                <div
+                                    class="align-items-end card-body d-flex flex-column text-right bg-gradient-primary">
+                                    <h4>Teachers Approved</h4>
+                                    <p class="w-75">{{totalRecordPenDetails}}</p>
+                                    <i class="fa fa-university"></i>
+                                </div>
+                            </a>
+                        </div> -->
+
+                        <div class="col-md-6">
+                            <a href="#" class="after-loop-item card border-0 card-themes  p-0">
+                                <div
+                                    class="align-items-end card-body d-flex flex-column text-right bg-gradient-primary">
+                                    <h4>Request Received</h4>
+                                    <p class="w-75">{{totalRequestReceived}}</p>
+                                    <i class="fas fa-check-double"></i>
+                                </div>
+                            </a>
+                        </div>
+
+                        <div class="col-md-6">
+                            <a href="#" class="after-loop-item card border-0 card-templates  p-0">
+                                <div class="align-items-end card-body d-flex flex-column text-right bg-gradient-success">
+                                    <h4>PEN Generated</h4>
+                                    <p class="w-75">{{totalRecordPenDetails}}</p>
+                                    <i class="far fa-file-alt"></i>
+                                </div>
+                            </a>
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div
+                class="w-100 pl-4 pr-4 pt-4 bg-white  border-bottom-primary mt-0 login-box animated fadeInRight card">
+             <form  [formGroup]="TableFormData" (ngSubmit)="onSubmit()">
+                <div class=" example-form">
+                    <div class="border-bottom-dark col-md-12  text-center">
+                        <h5 class="d-block pb-0 mb-0 ">Welcome!</h5>
+                        <span class="d-block pb-1">Verify your Email and Mobile No.</span>
+                    </div>
+                   
+
+                    
+                        <div class="row pl-3 pr-3">
+                            <div class="col-md-8">
+                                <mat-form-field class="d-block">
+                                    <input 
+                                     matInput 
+                                     autocomplete="off" 
+                                     placeholder="Email ID"
+                                     formControlName="email" #email
+                                     pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}">
+                                     <mat-error *ngIf="TableFormData.get('email').hasError('required')"
+                                     >Email ID is required</mat-error>
+                                     <mat-error *ngIf="TableFormData.get('email').hasError('email')"
+                                     >Please enter a valid email address
+                                     </mat-error>
+ 
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                                <button 
+                                 class="btn btn-light btn-link btn-sm mt-3 w-100"
+                                  type="button" 
+                                  (click)="verifyEmail(email.value)" #emailid id="emailid"
+                                  >Email OTP</button>
+                            </div>
+                        </div>
+
+                        <div class="row pl-3 pr-3" *ngIf="emailoptshow">
+                            <div class="col-md-8">
+                                <mat-form-field class="d-block">
+                                    <input 
+                                     matInput 
+                                     autocomplete="off" 
+                                     placeholder="Email OTP"
+                                     formControlName="emailopt" #emailopt
+                                     >
+                                </mat-form-field>
+                                <mat-error *ngIf="emailOtpErrorShow">
+                                    {{message}}
+                                 </mat-error>
+                            </div>
+                            <div class="col-md-4">
+                                <button 
+                                class="btn btn-light btn-link btn-sm mt-3 w-100" 
+                                type="button"
+                                (click)="verifyEmailOtp(emailopt.value)"
+                                >Submit</button>
+                            </div>
+                        </div>
+
+                  
+
+                        <div class="row pl-3 pr-3">
+                            <div class="col-md-8">
+                                <mat-form-field class="d-block">
+                                    <input 
+                                     matInput 
+                                     autocomplete="off" 
+                                     placeholder="Mobile No."
+                                     formControlName="mobile"
+                                     #mobile
+                                     >
+                                     <mat-error *ngIf="TableFormData.get('mobile').hasError('required')"
+                                     >Mobile No. is required</mat-error>
+                                     <mat-error *ngIf="TableFormData.get('mobile').hasError('mobile')"
+                                     >Please enter a valid Mobile No.
+                                     </mat-error>
+                                </mat-form-field>
+                            </div>
+                            <div class="col-md-4">
+                                <button 
+                                 class="btn btn-light btn-link btn-sm mt-3 w-100"
+                                 type="button"
+                                 (click)="verifyMobile(mobile.value)" id="mobileid"
+                                 >Mobile OTP</button>
+                            </div>
+                        </div>
+
+                        <div class="row pl-3 pr-3" *ngIf="mobileoptshow">
+                            <div class="col-md-8">
+                                <mat-form-field class="d-block">
+                                    <input 
+                                     matInput
+                                     autocomplete="off"
+                                     placeholder="Mobile OTP"
+                                     formControlName="mobileopt" #mobileopt
+                                    >
+                                </mat-form-field>
+                                <mat-error *ngIf="mobileOtpErrorShow">
+                                    {{message}}
+                                 </mat-error>
+                            </div>
+                            <div class="col-md-4">
+                                <button 
+                                class="btn btn-light btn-link btn-sm mt-3 w-100"
+                                type="button"
+                                (click)="verifyMobileOpt(mobileopt.value)"
+                                >Submit</button>
+                            </div>
+                        </div>
+
+
+ 
+               
+                </div>
+                <div class="form-group mt-3">
+                    <button 
+                    class="btn btn-primary col-md-12" 
+                    type="submit" 
+                    [disabled]="!(mobileOptIsDone && emailOptIsDone)"
+                    >Generate Credentials</button>
+
+                      <!--  -->
+                </div>
+             </form>
+            </div>
+        </div>
+    </div>
+</div>

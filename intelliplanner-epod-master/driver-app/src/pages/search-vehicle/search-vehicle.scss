@@ -1,0 +1,28 @@
+page-search-vehicle {
+  .content-md hr {
+    background-color: cadetblue;
+    height: 2px;
+  }
+
+
+  .item-md.item-block .item-inner {
+    padding-right: 8px;
+    border-bottom: 0px solid #dedede;
+  }
+
+  .item-block {
+    min-height: auto !important;
+  }
+
+  .item-md [item-left],
+  .item-md [item-right],
+  .item-md [item-start],
+  .item-md [item-end],
+  .item-ios [item-left],
+  .item-ios [item-right],
+  .item-ios [item-start],
+  .item-ios [item-end] {
+    margin: 1px 8px 1px 0;
+  }
+
+}

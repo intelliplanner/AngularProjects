@@ -1,0 +1,32 @@
+<form [formGroup]="attendenceForm" (ngSubmit)="onSubmit()"  class="form-horizontal">
+<div class="panel panel-primary mb-2" >
+<div class="panel-heading"><h3>Attendence</h3></div>
+<div class="panel-body">
+  <div class="form-group">
+    <label class="control-label col-sm-2" for="empName">Name</label>
+    <div class="col-sm-2"><input type="text" class="form-control" id="empName" formControlName="empName" placeholder="Enter Name"/></div>
+  </div>
+ 
+  <div class="form-group">   
+    <label class="control-label col-sm-2" for="empEmail">Email</label>
+    <div class="col-sm-2"><input type="email" class="form-control" id="empEmail" formControlName="empEmail" placeholder="Enter Email"/></div>
+  </div> 
+
+ <div class="form-group">   
+    <label class="control-label col-sm-2" for="attendenceDate">Attendence Date</label>
+    <div class="col-sm-2"><input type="text" class="form-control datepicker" id="todayDate" formControlName="attendenceDate" placeholder="Selected Date"/></div>
+  </div>
+
+</div>
+
+<div class="panel-footer">
+  <div class="btn-toolbar">
+  <button type="submit" class="btn btn-primary mb-2">Submit</button>
+  <button type="button" class="btn btn-primary mb-2" (click)="loadDataFunc();">Load Data</button>
+  <button type="button" class="btn btn-primary mb-2" (click)="loadDataFunc();">FormArray</button>
+</div>
+</div>
+</div>
+
+</form> 
+

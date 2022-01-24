@@ -1,0 +1,32 @@
+<div class="table-responsive">
+  <table class="table table-bordered" *ngIf="topicsContent && topicsContent.length">
+    <thead >
+      <tr class="bg-primary">
+        <th>Topic Header</th>
+        <th>Topic Prev</th>
+        <th>Topic Next</th>
+        <th>Topic Content</th>
+        <th>status</th>
+        <th>created on</th>
+        <th>updated by</th>
+        <th>updated on</th>
+        <th>Extended Id</th>
+        <th></th>
+      </tr>
+    </thead>  
+    <tbody>
+      <tr *ngFor="let topicContent of topicsContent">
+        <td>{{topicContent.topicHeader}}</td>
+        <td>{{topicContent.topicPrev}}</td>
+        <td>{{topicContent.topicNext}}</td>
+        <td>{{topicContent.topicContent}}</td>
+        <td>{{topicContent.status}}</td>
+        <td>{{topicContent.createdOn}}</td>
+        <td>{{topicContent.updatedBy}}</td>
+        <td>{{topicContent.updatedOn}}</td> 
+        <td>{{topicContent.topicExtendId}}</td>        
+        <td><button type="button" class="button btn-primary"  >Edit</button></td>
+      </tr>      
+    </tbody>
+  </table>
+  </div> 

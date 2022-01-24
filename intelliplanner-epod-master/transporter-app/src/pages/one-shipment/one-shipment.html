@@ -1,0 +1,391 @@
+<ion-header mode="ios">
+  <ion-navbar mode="ios" color="cement">
+    <ion-title mode="ios"> Shipment </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <!--       <ion-row>
+      <ion-col col col-3>
+        <ion-searchbar mode="ios" placeholder="search all {{count}} devices" [(ngModel)]="searchTerm"></ion-searchbar>
+      </ion-col>
+      <ion-col col col-9>
+        <ion-row no-padding>
+          <ion-col no-padding col col-4>
+            <ion-item no-lines>
+              <ion-label>From Date</ion-label>
+              <ion-datetime displayFormat="YYYY/MM/DD" pickerFormat="YYYY/MM/DD" [(ngModel)]="filter.fromDate"></ion-datetime>
+            </ion-item>
+          </ion-col>
+          <ion-col no-padding col col-4>
+            <ion-item no-lines>
+              <ion-label>To Date</ion-label>
+              <ion-datetime displayFormat="YYYY/MM/DD" pickerFormat="YYYY/MM/DD" [(ngModel)]="filter.toDate"></ion-datetime>
+            </ion-item>
+          </ion-col>
+          <ion-col no-padding col col-2>
+            <button ion-button block clear (click)="search()">Search</button>
+          </ion-col>
+          <ion-col no-padding col col-2>
+            <button ion-button block clear color="danger" (click)="clearFilter()">Clear Filter</button>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row> -->
+
+<!--     <ion-row *ngIf="filter.value == 'plantLocMissing'">
+      <ion-col col col-12 col-xl-6 offset-xl-3 col-lg-6 offset-lg-3 col-md-6 offset-md-3>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Shipment Number
+    </ion-note>
+    <ion-note item-end>
+      #{{shipment.shipment_number}}
+    </ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Vehicle Number
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.vehicle_no}}
+    </ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Ship to party/Customer
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.customer_name_shiptoparty}}
+    </ion-note>
+  </ion-item>
+  <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Destination Name
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.destination_name}}
+    </ion-note>
+  </ion-item>
+    <ion-item>
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+      LR Number
+    </ion-note>
+    <ion-note item-end>
+      {{shipment.lr_number}}
+    </ion-note>
+  </ion-item>
+  <ion-item *ngIf="filter.value != 'driverDetailsMissing'">
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+        Driver Name
+    </ion-note>
+    <ion-note item-end>
+        {{shipment.driver_name_plant}}
+    </ion-note>
+  </ion-item>
+  <ion-item *ngIf="filter.value != 'driverDetailsMissing'">
+    <ion-note item-start style="color:#000 !important;font-weight: 300">
+        Tracking Type
+    </ion-note>
+    <ion-note item-end>
+        <ion-badge color="primary" *ngIf="shipment.driver_using_smartphone_or_sim_plant == 1">epod</ion-badge>
+        <ion-badge color="dark" *ngIf="shipment.driver_using_smartphone_or_sim_plant == 0">sim</ion-badge>
+    </ion-note>
+  </ion-item>
+</ion-col>
+</ion-row> -->
+<!-- =============================plant Location section start================================ -->
+<ion-list style="background: transparent;" *ngIf="filter.value == 'plantLocMissing'">   
+       <ion-item>
+      <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Shipment Number
+      </ion-note>
+     <ion-note item-end>
+      #{{shipment.shipment_number}}
+    </ion-note>
+    </ion-item>
+
+        <ion-item no-padding>
+        <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>Vehicle Number</ion-label>
+       <ion-input [(ngModel)]="shipment.vehicle_no" [disabled]="true" autocomplete="off" type="text" ></ion-input>
+      </ion-item>
+
+          <ion-item>
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            Destination Name</ion-label>
+          <ion-input [(ngModel)]="shipment.destination_name1" [disabled]="true" *ngIf="shipment.destination_name1" autocomplete="off" type="text" > 
+          </ion-input>
+          <ion-input [(ngModel)]="shipment.destination_name2" [disabled]="true" *ngIf="shipment.destination_name2" autocomplete="off" type="text" > 
+          </ion-input>
+          <ion-input [(ngModel)]="shipment.destination_name3" [disabled]="true" *ngIf="shipment.destination_name3" autocomplete="off" type="text" > 
+          </ion-input>
+          <ion-input [(ngModel)]="shipment.destination_name4" [disabled]="true" *ngIf="shipment.destination_name4" autocomplete="off" type="text" > 
+          </ion-input>
+          <ion-input [(ngModel)]="shipment.destination_name5" [disabled]="true" *ngIf="shipment.destination_name5" autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item>
+
+       <ion-item no-padding>
+        <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>Ship to party/Customer</ion-label>
+       <ion-input [(ngModel)]="shipment.ship_to_party1" [disabled]="true" *ngIf="shipment.ship_to_party1" autocomplete="off" type="text" ></ion-input>
+       <ion-input [(ngModel)]="shipment.ship_to_party2" [disabled]="true" *ngIf="shipment.ship_to_party2" autocomplete="off" type="text" ></ion-input>
+       <ion-input [(ngModel)]="shipment.ship_to_party3" [disabled]="true" *ngIf="shipment.ship_to_party3" autocomplete="off" type="text" ></ion-input>
+       <ion-input [(ngModel)]="shipment.ship_to_party4" [disabled]="true" *ngIf="shipment.ship_to_party4" autocomplete="off" type="text" ></ion-input>
+       <ion-input [(ngModel)]="shipment.ship_to_party5" [disabled]="true" *ngIf="shipment.ship_to_party5" autocomplete="off" type="text" ></ion-input>
+      </ion-item>
+
+          <ion-item >
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            Driver Name</ion-label>
+          <ion-input [(ngModel)]="shipment.driver_name" [disabled]="true" autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            Driver Phone</ion-label>
+          <ion-input [(ngModel)]="shipment.driver_phoneno" [disabled]="true" autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item>
+
+         <ion-item>
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            Driver Location</ion-label>
+          <ion-input [(ngModel)]="shipment.plant_location" autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item>
+   
+        <ion-item>
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Tracking Type
+          </ion-note>
+          <ion-note item-end>
+            <ion-badge color="primary" *ngIf="shipment.driver_using_smartphone_or_sim_plant == 'EPOD'">epod</ion-badge>
+            <ion-badge color="dark" *ngIf="shipment.driver_using_smartphone_or_sim_plant == 'SIM'">sim</ion-badge>
+            <span style="color:red" *ngIf="!shipment.driver_using_smartphone_or_sim_plant">NA</span>
+          </ion-note>
+        </ion-item>
+    
+</ion-list> 
+
+
+
+<!-- =============================LR Missing section start==================================== -->
+<ion-list style="background: transparent;" *ngIf="filter.value == 'lrMissing' && shipment.signed_lr_image == null">   
+      
+       <ion-item>
+         <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Shipment Number
+      </ion-note>
+     <ion-note item-end>
+      #{{shipment.shipment_number}}
+    </ion-note>
+    </ion-item>
+      <ion-item no-padding>
+        <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>Vehicle Number</ion-label>
+        <ion-input [(ngModel)]="shipment.vehicle_no" [disabled]="true" autocomplete="off" type="text" required></ion-input>
+      </ion-item>
+
+       <ion-item no-padding>
+        <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>Ship to party/Customer</ion-label>
+       <ion-input [(ngModel)]="shipment.ship_to_party1" [disabled]="true" *ngIf="shipment.ship_to_party1" autocomplete="off" type="text" ></ion-input>
+       <ion-input [(ngModel)]="shipment.ship_to_party2" [disabled]="true" *ngIf="shipment.ship_to_party2" autocomplete="off" type="text" ></ion-input>
+       <ion-input [(ngModel)]="shipment.ship_to_party3" [disabled]="true" *ngIf="shipment.ship_to_party3" autocomplete="off" type="text" ></ion-input>
+       <ion-input [(ngModel)]="shipment.ship_to_party4" [disabled]="true" *ngIf="shipment.ship_to_party4" autocomplete="off" type="text" ></ion-input>
+       <ion-input [(ngModel)]="shipment.ship_to_party5" [disabled]="true" *ngIf="shipment.ship_to_party5" autocomplete="off" type="text" ></ion-input>
+      </ion-item>
+
+          <ion-item>
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            Destination Name</ion-label>
+          <ion-input [(ngModel)]="shipment.destination_name1" [disabled]="true" *ngIf="shipment.destination_name1" autocomplete="off" type="text" > 
+          </ion-input>
+          <ion-input [(ngModel)]="shipment.destination_name2" [disabled]="true" *ngIf="shipment.destination_name2" autocomplete="off" type="text" > 
+          </ion-input>
+          <ion-input [(ngModel)]="shipment.destination_name3" [disabled]="true" *ngIf="shipment.destination_name3" autocomplete="off" type="text" > 
+          </ion-input>
+          <ion-input [(ngModel)]="shipment.destination_name4" [disabled]="true" *ngIf="shipment.destination_name4" autocomplete="off" type="text" > 
+          </ion-input>
+          <ion-input [(ngModel)]="shipment.destination_name5" [disabled]="true" *ngIf="shipment.destination_name5" autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item>
+
+          <ion-item>
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            Driver Name</ion-label>
+          <ion-input [(ngModel)]="shipment.driver_name" [disabled]="true" autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item>
+        <ion-item >
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            Driver Phone</ion-label>
+          <ion-input [(ngModel)]="shipment.driver_phone" [disabled]="true" autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item>
+      
+        <ion-item >
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Tracking Type
+          </ion-note>
+          <ion-note item-end>
+            <ion-badge color="primary" *ngIf="shipment.driver_using_smartphone_or_sim_plant == 'EPOD'">epod</ion-badge>
+            <ion-badge color="dark" *ngIf="shipment.driver_using_smartphone_or_sim_plant == 'SIM'">sim</ion-badge>
+            <span style="color:red" *ngIf="!shipment.driver_using_smartphone_or_sim_plant">NA</span>
+          </ion-note>
+        </ion-item>
+
+        <ion-item >
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            Missing LR</ion-label>
+          <ion-input [(ngModel)]="shipment.lr_number" autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item>
+ 
+    <div style="width: 200px;height: 200px;" class="hidden-xl hidden-lg hidden-md">
+      <ion-label item-start style="color:#000 !important;font-weight: 300">
+        Image LR</ion-label>
+      <p *ngIf="!shipment.lr_number">LR Number Should be entered</p>
+      <img [src]="shipment.signed_lr_image" #myImage (click)="presentActionSheet(myImage)" *ngIf="shipment.signed_lr_image != null ">
+      <img [src]="lrImg" #myImage (click)="presentActionSheet(myImage)" *ngIf="shipment.signed_lr_image == null ">
+    </div>
+    <div style="width: 200px;height: 200px;" class="hidden-xs hidden-sm">
+      <ion-label item-start style="color:#000 !important;font-weight: 300">
+        LR Image</ion-label>
+      <label style="
+        background: #ccc;
+        float: left;
+        padding: 10px;
+        color: #ee1d24;
+        margin-bottom: 10px;
+        border-radius: 5px;
+        cursor: pointer;" for="lrimage">Update LR Image</label>
+      <input (change)="onFileSelected($event, 'lrimage')" [(ngModel)]="lrimage" type="file" name="lrimage" id="lrimage" />
+      <img [src]="shipment.signed_lr_image" #myImage (click)="actionSheet(myImage)" *ngIf="shipment.signed_lr_image != null ">
+      <img [src]="lrImg" #myImage (click)="actionSheet(myImage)" *ngIf="shipment.signed_lr_image == null ">
+    </div>
+    
+</ion-list> 
+
+<!-- =============================waitingCustAccpt section start================================ -->
+<ion-list style="background: transparent;" *ngIf="filter.value == 'waitingCustAccpt'">   
+       <ion-item>
+         <ion-note item-start style="color:#000 !important;font-weight: 300">
+      Shipment Number
+      </ion-note>
+     <ion-note item-end>
+      #{{shipment.shipment_number}}
+    </ion-note>
+    </ion-item>
+
+        <ion-item no-padding>
+        <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>Vehicle Number</ion-label>
+       <ion-input [(ngModel)]="shipment.vehicle_no" [disabled]="true" autocomplete="off" type="text" ></ion-input>
+      </ion-item>
+
+       <ion-item no-padding>
+        <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>Ship to party/Customer</ion-label>
+       <ion-input [(ngModel)]="shipment.ship_to_party1" [disabled]="true" *ngIf="shipment.ship_to_party1" autocomplete="off" type="text" ></ion-input>
+       <ion-input [(ngModel)]="shipment.ship_to_party2" [disabled]="true" *ngIf="shipment.ship_to_party2" autocomplete="off" type="text" ></ion-input>
+       <ion-input [(ngModel)]="shipment.ship_to_party3" [disabled]="true" *ngIf="shipment.ship_to_party3" autocomplete="off" type="text" ></ion-input>
+       <ion-input [(ngModel)]="shipment.ship_to_party4" [disabled]="true" *ngIf="shipment.ship_to_party4" autocomplete="off" type="text" ></ion-input>
+       <ion-input [(ngModel)]="shipment.ship_to_party5" [disabled]="true" *ngIf="shipment.ship_to_party5" autocomplete="off" type="text" ></ion-input>
+      </ion-item>
+
+          <ion-item>
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            Destination Name</ion-label>
+          <ion-input [(ngModel)]="shipment.destination_name1" [disabled]="true" *ngIf="shipment.destination_name1" autocomplete="off" type="text" > 
+          </ion-input>
+          <ion-input [(ngModel)]="shipment.destination_name2" [disabled]="true" *ngIf="shipment.destination_name2" autocomplete="off" type="text" > 
+          </ion-input>
+          <ion-input [(ngModel)]="shipment.destination_name3" [disabled]="true" *ngIf="shipment.destination_name3" autocomplete="off" type="text" > 
+          </ion-input>
+          <ion-input [(ngModel)]="shipment.destination_name4" [disabled]="true" *ngIf="shipment.destination_name4" autocomplete="off" type="text" > 
+          </ion-input>
+          <ion-input [(ngModel)]="shipment.destination_name5" [disabled]="true" *ngIf="shipment.destination_name5" autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item>
+
+          <ion-item >
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            Driver Name</ion-label>
+          <ion-input [(ngModel)]="shipment.driver_name" [disabled]="true" autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item>
+
+        <ion-item >
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            Driver Phone</ion-label>
+          <ion-input [(ngModel)]="shipment.driver_phoneno" [disabled]="true" autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item>
+
+         <ion-item >
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            Driver Plant Location</ion-label>
+          <ion-input [(ngModel)]="shipment.plant_location" autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item>
+
+         <ion-item >
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            Driver Destination Location</ion-label>
+          <ion-input [(ngModel)]="shipment.destination_location" autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item>
+
+         <ion-item >
+          <ion-label item-start style="color:#000 !important;font-weight: 300" stacked>
+            Customer Avaliability</ion-label>
+          <ion-input [(ngModel)]="shipment.customer_reply_status" [disabled]='true' autocomplete="off" type="text" > 
+          </ion-input>
+        </ion-item>
+   
+        <ion-item >
+          <ion-note item-start style="color:#000 !important;font-weight: 300">
+            Tracking Type
+          </ion-note>
+          <ion-note item-end>
+            <ion-badge color="primary" *ngIf="shipment.driver_using_smartphone_or_sim_plant == 'EPOD'">epod</ion-badge>
+            <ion-badge color="dark" *ngIf="shipment.driver_using_smartphone_or_sim_plant == 'SIM'">sim</ion-badge>
+            <span style="color:red" *ngIf="!shipment.driver_using_smartphone_or_sim_plant">NA</span>
+          </ion-note>
+        </ion-item>
+    
+</ion-list> 
+</ion-content>
+<ion-footer  *ngIf="filter.value == 'plantLocMissing'">
+  <ion-toolbar color="cement">
+    <ion-row>
+      <ion-col col col-12 col-xl-2 col-lg-3 col-md-4 *ngIf="shipment.plant_location == null">
+        <button ion-button block outline color="light" (click)="getConsent()">Get Driver Consent</button>
+      </ion-col>
+    <!--   <ion-col col col-12 col-xl-2 col-lg-3 col-md-4>
+        <button ion-button block outline color="light" (click)="getLocation()">Get Driver Location</button>
+      </ion-col> -->
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+<ion-footer  *ngIf="filter.value == 'lrMissing' && shipment.signed_lr_image == null">
+  <ion-toolbar color="cement">
+    <ion-row>
+      <ion-col col col-6 col-xl-2 col-lg-3 col-md-4>
+        <button ion-button block outline color="light" (click)="saveLR()">Save LR</button>
+      </ion-col>
+      <!-- <ion-col col col-6 col-xl-2 col-lg-3 col-md-4 *ngIf="filter.value == 'lrMissing' && shipment.signed_lr_image == null">
+        <button ion-button block outline color="light" (click)="uploadLR()">UPLOAD LR</button>
+      </ion-col> -->
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>
+<ion-footer  *ngIf="filter.value == 'waitingCustAccpt'">
+  <ion-toolbar color="cement">
+    <ion-row>
+     <!--  <ion-col col col-12 col-xl-2 col-lg-3 col-md-4 *ngIf="shipment.customer_reply_status == 'notAvaliable'">
+        <button ion-button block outline color="light" (click)="sendMessage()">Message to Customer</button>
+      </ion-col> -->
+    <!--   <ion-col col col-12 col-xl-2 col-lg-3 col-md-4>
+        <button ion-button block outline color="light" (click)="getLocation()">Get Driver Location</button>
+      </ion-col> -->
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

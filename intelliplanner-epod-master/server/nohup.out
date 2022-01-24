@@ -1,0 +1,329 @@
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Interface ppp0 is UP.
+INFO:   Setting new routes...
+INFO:   Adding VPN nameservers...
+INFO:   Tunnel is up and running.
+INFO:   Cancelling threads...
+INFO:   Setting ppp interface down.
+INFO:   Restoring routes...
+INFO:   Removing VPN nameservers...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Interface ppp0 is UP.
+INFO:   Setting new routes...
+INFO:   Adding VPN nameservers...
+INFO:   Tunnel is up and running.
+INFO:   Cancelling threads...
+INFO:   Setting ppp interface down.
+INFO:   Restoring routes...
+INFO:   Removing VPN nameservers...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.102], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.102], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.102], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.102], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.102], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.102], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.102], ns [0.0.0.0, 0.0.0.0]
+INFO:   Interface ppp0 is UP.
+INFO:   Setting new routes...
+INFO:   Adding VPN nameservers...
+INFO:   Tunnel is up and running.
+INFO:   Cancelling threads...
+INFO:   Setting ppp interface down.
+INFO:   Restoring routes...
+INFO:   Removing VPN nameservers...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.103], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.103], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.103], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.103], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.103], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.103], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.103], ns [0.0.0.0, 0.0.0.0]
+ERROR:  read: Input/output error
+INFO:   Cancelling threads...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+ERROR:  read: Input/output error
+INFO:   Cancelling threads...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Interface ppp0 is UP.
+INFO:   Setting new routes...
+INFO:   Adding VPN nameservers...
+INFO:   Tunnel is up and running.
+INFO:   Cancelling threads...
+INFO:   Setting ppp interface down.
+INFO:   Restoring routes...
+INFO:   Removing VPN nameservers...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.102], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.102], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.102], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.102], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.102], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.102], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.102], ns [0.0.0.0, 0.0.0.0]
+INFO:   Interface ppp0 is UP.
+INFO:   Setting new routes...
+INFO:   Adding VPN nameservers...
+INFO:   Tunnel is up and running.
+INFO:   Cancelling threads...
+INFO:   Setting ppp interface down.
+INFO:   Restoring routes...
+INFO:   Removing VPN nameservers...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.104], ns [0.0.0.0, 0.0.0.0]
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.104], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.104], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.104], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.104], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.104], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.104], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+INFO:   Interface ppp0 is UP.
+INFO:   Setting new routes...
+INFO:   Adding VPN nameservers...
+INFO:   Tunnel is up and running.
+INFO:   Got addresses: [192.168.20.105], ns [0.0.0.0, 0.0.0.0]
+ERROR:  read: Input/output error
+INFO:   Cancelling threads...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Cancelling threads...
+INFO:   Setting ppp interface down.
+INFO:   Restoring routes...
+INFO:   Removing VPN nameservers...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Interface ppp0 is UP.
+INFO:   Setting new routes...
+INFO:   Adding VPN nameservers...
+INFO:   Tunnel is up and running.
+INFO:   Cancelling threads...
+INFO:   Setting ppp interface down.
+INFO:   Restoring routes...
+INFO:   Removing VPN nameservers...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+ERROR:  read: Input/output error
+INFO:   Cancelling threads...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+ERROR:  read: Input/output error
+INFO:   Cancelling threads...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+ERROR:  read: Input/output error
+INFO:   Cancelling threads...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Interface ppp0 is UP.
+INFO:   Setting new routes...
+INFO:   Adding VPN nameservers...
+INFO:   Tunnel is up and running.
+INFO:   Cancelling threads...
+INFO:   Setting ppp interface down.
+INFO:   Restoring routes...
+INFO:   Removing VPN nameservers...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.100], ns [0.0.0.0, 0.0.0.0]
+INFO:   Interface ppp0 is UP.
+INFO:   Setting new routes...
+INFO:   Adding VPN nameservers...
+INFO:   Tunnel is up and running.
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Interface ppp1 is UP.
+INFO:   Setting new routes...
+WARN:   Route to vpn server exists already.
+INFO:   Adding VPN nameservers...
+INFO:   Tunnel is up and running.
+INFO:   Cancelling threads...
+INFO:   Setting ppp interface down.
+INFO:   Restoring routes...
+INFO:   Removing VPN nameservers...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Cancelling threads...
+INFO:   Setting ppp interface down.
+INFO:   Restoring routes...
+INFO:   Removing VPN nameservers...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+INFO:   Logged out.
+INFO:   Connected to gateway.
+INFO:   Authenticated.
+INFO:   Remote gateway has allocated a VPN.
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Got addresses: [192.168.20.101], ns [0.0.0.0, 0.0.0.0]
+INFO:   Interface ppp0 is UP.
+INFO:   Setting new routes...
+INFO:   Adding VPN nameservers...
+INFO:   Tunnel is up and running.
+ERROR:  read: Input/output error
+INFO:   Cancelling threads...
+INFO:   Setting ppp interface down.
+INFO:   Restoring routes...
+INFO:   Removing VPN nameservers...
+INFO:   Terminated pppd.
+INFO:   Closed connection to gateway.
+ERROR:  connect: Connection timed out
+INFO:   Could not log out.

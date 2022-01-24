@@ -1,0 +1,267 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="ORIENTWebService" xmlns:tns="WebServices.ORIENT" targetNamespace="WebServices.ORIENT" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:types>
+        <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:tns="WebServices.ORIENT" elementFormDefault="unqualified" targetNamespace="WebServices.ORIENT" version="1.0">
+            <xs:element name="createPurchaseOrder" type="tns:createPurchaseOrder" />
+            <xs:element name="cancelPurchaseOrder" type="tns:cancelPurchaseOrder" />
+            <xs:element name="createShipment" type="tns:createShipment" />
+            <xs:element name="cancelShipment" type="tns:cancelShipment" />
+            <xs:element name="createInvoice" type="tns:createInvoice" />
+            <xs:element name="cancelInvoice" type="tns:cancelInvoice" />
+            
+            <xs:complexType name="createPurchaseOrder">
+                <xs:complexContent>
+                    <xs:restriction base="soapenc:Array">
+                        <xs:sequence>
+							<xs:element name="purchase_order_date" type="xs:string" />
+							<xs:element name="purchase_order_number" type="xs:string" />
+							<xs:element name="plant" type="xs:string" />
+							<xs:element name="shipment_number" type="xs:string" />
+							<xs:element name="shipment_cost_number" type="xs:string" />
+							<xs:element name="shipment_cost" type="xs:string" />
+							<xs:element name="invoice_number1" type="xs:string" minOccurs="0" maxOccurs="1" />
+							<xs:element name="invoice_number2" type="xs:string" minOccurs="0" maxOccurs="1" />
+							<xs:element name="invoice_number3" type="xs:string" minOccurs="0" maxOccurs="1" />
+							<xs:element name="invoice_number4" type="xs:string" minOccurs="0" maxOccurs="1" />
+							<xs:element name="invoice_number5" type="xs:string" minOccurs="0" maxOccurs="1" />
+							<xs:element name="cancellation_indicator" type="xs:string" />
+							<xs:element name="transporter_name" type="xs:string" />
+							<xs:element name="rate" type="xs:string" />
+							<xs:element name="quantity" type="xs:string" />
+                        </xs:sequence>
+                    </xs:restriction>
+                </xs:complexContent>
+            </xs:complexType>
+
+            <xs:complexType name="cancelPurchaseOrder">
+                <xs:sequence>
+                    <xs:element name="purchase_order_number" type="xs:string" />
+                    <xs:element name="shipment_cost_number" type="xs:string" />
+                    <xs:element name="purchase_order_cancellation_date" type="xs:string" />
+                    <xs:element name="cancellation_indicator" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="createShipment">
+                <xs:sequence>
+                    <xs:element name="shipment_number" type="xs:string" />
+                    <xs:element name="plant" type="xs:string" />
+                    <xs:element name="shipment_status" type="xs:string" />
+                    <xs:element name="shipment_creation_date" type="xs:string" />
+                    <xs:element name="shipment_creation_time" type="xs:string" />
+                    <xs:element name="shipment_assigning_user" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="shipment_quantity" type="xs:string" />
+                    <xs:element name="vehicle_no" type="xs:string" />
+                    <xs:element name="tro_no" type="xs:string" />
+                    <xs:element name="load_type" type="xs:string" />
+                    <xs:element name="truck_capacity" type="xs:string" />
+                    <xs:element name="vehicle_classification_market_own" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="lr_number" type="xs:string" />
+                    <xs:element name="flag" type="xs:string" />
+                    <xs:element name="salesoffice_name" type="xs:string" />
+                    <xs:element name="destination_name1" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="destination_name2" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="destination_name3" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="destination_name4" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="destination_name5" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="transporter_code" type="xs:string" />
+                    <xs:element name="transporter_name" type="xs:string" />
+                    <xs:element name="driver_name" type="xs:string" />
+                    <xs:element name="driver_phoneno" type="xs:string" />
+                    <xs:element name="driver_using_smartphone_or_sim_plant" type="xs:string" />
+                    <xs:element name="sto" type="xs:string" />
+                    <xs:element name="do_number1" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="do_number2" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="do_number3" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="do_number4" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="do_number5" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="ship_to_party1" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="ship_to_party2" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="ship_to_party3" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="ship_to_party4" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="ship_to_party5" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="do_distribution_channel" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="cancellation_indicator" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="cancelShipment">
+                <xs:sequence>
+                    <xs:element name="shipment_number" type="xs:string" />
+                    <xs:element name="cancellation_indicator" type="xs:string" />
+                    <xs:element name="shipment_cancellation_date" type="xs:string" />
+                    <xs:element name="shipment_cancellation_time" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="createInvoice">
+                <xs:sequence>
+                    <xs:element name="invoice_number" type="xs:string" />
+                    <xs:element name="invoice_date" type="xs:string" />
+                    <xs:element name="invoice_time" type="xs:string" />
+                    <xs:element name="invoice_quantity" type="xs:string" />
+                    <xs:element name="do_number" type="xs:string" />
+                    <xs:element name="plant" type="xs:string" />
+                    <xs:element name="destination_name" type="xs:string" />
+                    <xs:element name="shiptoparty_code" type="xs:string" />
+                    <xs:element name="shiptoparty_name" type="xs:string" />
+                    <xs:element name="shiptoparty_address" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="shiptoparty_address1" type="xs:string" />
+                    <xs:element name="shiptoparty_address2" type="xs:string" />
+                    <xs:element name="shiptoparty_mobileno" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="soldtoparty_name" type="xs:string" />
+                    <xs:element name="soldtoparty_mobileno" type="xs:string" />
+                    <xs:element name="material_description" type="xs:string" />
+                    <xs:element name="inco_terms" type="xs:string" />
+                    <xs:element name="trade_nontrade" type="xs:string" />
+                    <xs:element name="salesofficer_name" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="salesofficer_number" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="salesofficer_location" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="salesofficer_emailid" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="shipment_number" type="xs:string" />
+                    <xs:element name="shipment_date" type="xs:string" minOccurs="0" maxOccurs="1" />
+                    <xs:element name="invoice_status" type="xs:string" />
+                    <xs:element name="cancellation_indicator" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+            <xs:complexType name="cancelInvoice">
+                <xs:sequence>
+                    <xs:element name="invoice_number" type="xs:string" />
+                    <xs:element name="invoice_cancellation_date" type="xs:string" />
+                    <xs:element name="invoice_cancellation_time" type="xs:string" />
+                    <xs:element name="cancellation_indicator" type="xs:string" />
+                </xs:sequence>
+            </xs:complexType>
+        </xs:schema>
+    </wsdl:types>
+    <wsdl:message name="createPurchaseOrder">
+        <wsdl:part element="tns:createPurchaseOrder" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="cancelPurchaseOrder">
+        <wsdl:part element="tns:cancelPurchaseOrder" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createShipment">
+        <wsdl:part element="tns:createShipment" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="cancelShipment">
+        <wsdl:part element="tns:cancelShipment" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createInvoice">
+        <wsdl:part element="tns:createInvoice" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="cancelInvoice">
+        <wsdl:part element="tns:cancelInvoice" name="parameters">
+        </wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createShipmentResponse">
+        <wsdl:part name="response" type="xsd:string" />
+        <wsdl:part name="status" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="cancelShipmentResponse">
+        <wsdl:part name="response" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="createInvoiceResponse">
+        <wsdl:part name="response" type="xsd:string" />
+        <wsdl:part name="status" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="cancelInvoiceResponse">
+        <wsdl:part name="response" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="createPurchaseOrderResponse">
+        <wsdl:part name="response" type="xsd:string" />
+        <wsdl:part name="status" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="cancelPurchaseOrderResponse">
+        <wsdl:part name="response" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:portType name="service">
+        <wsdl:operation name="createShipment">
+            <wsdl:input message="tns:createShipment"></wsdl:input>
+            <wsdl:output message="tns:createShipmentResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="cancelShipment">
+            <wsdl:input message="tns:cancelShipment"></wsdl:input>
+            <wsdl:output message="tns:cancelShipmentResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="createInvoice">
+            <wsdl:input message="tns:createInvoice"></wsdl:input>
+            <wsdl:output message="tns:createInvoiceResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="cancelInvoice">
+            <wsdl:input message="tns:cancelInvoice"></wsdl:input>
+            <wsdl:output message="tns:cancelInvoiceResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="createPurchaseOrder">
+            <wsdl:input message="tns:createPurchaseOrder"></wsdl:input>
+            <wsdl:output message="tns:createPurchaseOrderResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="cancelPurchaseOrder">
+            <wsdl:input message="tns:cancelPurchaseOrder"></wsdl:input>
+            <wsdl:output message="tns:cancelPurchaseOrderResponse" />
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="orientwebservice" type="tns:service">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="createShipment">
+            <soap:operation soapAction="createShipment" style="rpc" />
+            <wsdl:input>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="cancelShipment">
+            <soap:operation soapAction="cancelShipment" style="rpc" />
+            <wsdl:input>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createInvoice">
+            <soap:operation soapAction="createInvoice" style="rpc" />
+            <wsdl:input>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="cancelInvoice">
+            <soap:operation soapAction="cancelInvoice" style="rpc" />
+            <wsdl:input>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createPurchaseOrder">
+            <soap:operation soapAction="createPurchaseOrder" style="rpc" />
+            <wsdl:input>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="cancelPurchaseOrder">
+            <soap:operation soapAction="cancelPurchaseOrder" style="rpc" />
+            <wsdl:input>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ws">
+        <wsdl:port binding="tns:orientwebservice" name="operations">
+            <soap:address location="http://157.230.91.154:4000/wsdl" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,33 @@
+<div class="table-responsive">
+  <table class="table table-bordered" *ngIf="ipssi_employees && ipssi_employees.length">
+    <thead >
+      <tr class="bg-primary">
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Email</th>
+        <th>Phone No</th>
+        <th>Hire Date</th>
+        <th>Job Id</th>
+        <th>Salary</th>
+        <th>Manager Id</th>
+        <th>Department Id</th>
+  		<th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let empForm of ipssi_employees">
+        <td>{{empForm.firstName}}</td>
+        <td>{{empForm.lastName}}</td>
+        <td>{{empForm.email}}</td>
+        <td>{{empForm.phoneNo}}</td>
+        <td>{{empForm.hireDate}}</td>
+        <td>{{empForm.jobId}}</td>
+        <td>{{empForm.salary}}</td>
+        <td>{{empForm.managerId}}</td>
+        <td>{{empForm.departmentId}}</td>
+        
+        <td><button type="button" class="button btn-primary" (click)="editIpssiEmployee(empForm.id)" >Edit</button></td>
+      </tr>      
+    </tbody>
+  </table>
+  </div>

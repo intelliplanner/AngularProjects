@@ -1,0 +1,26 @@
+page-one-shipment {
+	.profile-item {
+        text-align: center;
+    }
+    .profile-picture {
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-radius: 100%;
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+        margin: 0 auto;
+        width: 100px;
+        height: 100px;
+        overflow: hidden;
+    }
+    .profile-picture img {
+        width: 100px;
+        border-radius: 0%;
+    }
+  #lrimage
+   {
+    opacity: 0;
+    position: absolute;
+    z-index: -1;
+  }
+}

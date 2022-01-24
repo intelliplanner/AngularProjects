@@ -1,0 +1,91 @@
+<ion-header mode="ios">
+  <ion-navbar mode="ios" color="cement">
+<!--     <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button> -->
+    <ion-title mode="ios">Add New Driver</ion-title>
+    <ion-buttons end royal>
+      <button ion-button icon-only (click)="dismiss()">
+        <ion-icon name="close" color="light"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+<ion-content>
+  <table class="table table-striped" border="0" style="background-color: #f8f8f8 !important;border:5px solid #f8f8f8">
+    <thead>
+      <tr>
+        <th style="width: 20%; color:blue">
+          Driver Name
+        </th>
+        <th style="width: 30%; color:blue">
+          Driver Phone
+        </th>
+        <th style="width: 30%; color:blue">
+          Vehicle Number
+        </th>
+        <th style="width: 30%; color:blue">
+          Tracking Type
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{orderDriver.driver_name}}</td>
+        <td>{{orderDriver.driver_phoneno}}</td>
+        <td>{{orderDriver.vehicle_no}}</td>
+        <td *ngIf="orderDriver.driver_using_smartphone_or_sim_plant == 'EPOD'">
+          <ion-badge color="primary">Epod</ion-badge>
+        </td>
+        <td *ngIf="orderDriver.driver_using_smartphone_or_sim_plant == 'SIM'">
+          <ion-badge color="dark">Sim</ion-badge>
+        </td>
+      </tr>
+    </tbody>
+</table>
+  
+  <div padding> 
+   
+       <form [formGroup]="form">
+    <ion-list style="background: transparent;">
+      <ion-item no-padding [class.invalid]="form.get('driver_name').invalid">
+        <ion-label stacked>Driver Name</ion-label>
+        <ion-input #input formControlName="driver_name" autocomplete="off" type="text" required></ion-input>
+      </ion-item>
+      <div class="error" *ngIf="form.get('driver_name').hasError('required') && (form.get('driver_name').touched || form.get('driver_name').dirty)">Name is required</div>
+
+      <ion-item no-padding [class.invalid]="form.get('driver_phoneno').invalid">
+        <ion-label stacked>Driver Mobile Number (min 10 digits max 13 digsts)</ion-label>
+        <ion-input #input formControlName="driver_phoneno" autocomplete="off" type="number" required></ion-input>
+      </ion-item>
+      <div class="error" *ngIf="form.get('driver_phoneno').hasError('required') && (form.get('driver_phoneno').touched || form.get('driver_phoneno').dirty)">Phone is required</div>
+
+
+         <ion-item no-padding [class.invalid]="form.get('vehicle_no').invalid">
+        <ion-label stacked>Vehicle Number</ion-label>
+        <ion-input #input formControlName="vehicle_no" autocomplete="off" type="text" required></ion-input>
+      </ion-item>
+      <div class="error" *ngIf="form.get('vehicle_no').hasError('required') && (form.get('vehicle_no').touched || form.get('vehicle_no').dirty)">Vehicle Number is required</div>
+
+       <ion-item no-padding [class.invalid]="form.get('tro_no').invalid">
+        <ion-label stacked>TRO Number</ion-label>
+        <ion-input #input formControlName="tro_no" autocomplete="off" type="text" required></ion-input>
+      </ion-item>
+      <div class="error" *ngIf="form.get('tro_no').hasError('required') && (form.get('tro_no').touched || form.get('tro_no').dirty)">Vehicle Number is required</div>
+
+      <ion-item no-padding>
+        <ion-label stacked>Tracking Type</ion-label>
+        <ion-select formControlName="driver_using_smartphone_or_sim_plant">
+          <ion-option value="EPOD">EPOD</ion-option>
+          <ion-option value="SIM">SIM</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </form> 
+  </div>
+
+</ion-content>
+<ion-footer mode="ios" padding>
+<button (click)="change()" ion-button outline block [disabled]='(form.value.driver_phoneno.length < 10 || form.value.driver_phoneno.length > 13) || form.invalid'>Change</button>
+</ion-footer> 
+

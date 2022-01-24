@@ -1,0 +1,78 @@
+<div class="container-fluid reg-page-bg p-4">
+
+    <div class="container inputlinecolor">
+        <div class="row">
+            <div class="col-md-12 ">
+                <div class="col-md-12 p-0">
+                    <ol class="breadcrumb bg-primary d-lg-block pb-3">
+                        <li class="breadcrumb-item active text-white d-inline">TPR DETAILS</li>
+                        <li class="float-right">
+                            <button class="btn btn-warning btn-sm" routerLink="/tpr/tprDetails">TPR Details</button>
+                        </li>
+                    </ol>
+                 
+                </div>
+
+                <form [formGroup]="TableFormData" (ngSubmit)="onSubmit()">
+                    <div class="animated fadeInDown">
+                        <div class="form-group bg-white pl-5 pr-5 pt-3 pb-4">
+                            <div class="form-row">
+
+                                    <div class="col-md-6">
+                                            <mat-form-field class="example-full-width d-block">
+                                                <input matInput formControlName="tprId" placeholder="TPR ID" [disabled]="true">
+                                            </mat-form-field>
+                                        </div>
+        
+                                        <div class="col-md-6">
+                                            <mat-form-field class="example-full-width d-block">
+                                                <input matInput formControlName="vehicle" placeholder="Vehicle" [disabled]="false">
+                                            </mat-form-field>
+                                        </div>
+        
+                                        <!-- <div class="col-md-6">
+                                            <mat-form-field class="example-full-width d-block">
+                                                <mat-label>Tpr Create Date(DD/MM/YYYY)</mat-label>
+                                                <input matInput [matDatepicker]="picker" formControlName="date">
+                                                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                                                <mat-datepicker #picker></mat-datepicker>
+                                            </mat-form-field>
+                                        </div> -->
+                                        <div class="col-md-6">
+                                            <mat-form-field class="example-full-width d-block">
+                                                <input matInput formControlName="customer" placeholder="Customer" [disabled]="false">
+                                            </mat-form-field>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <mat-form-field class="example-full-width d-block">
+                                                <input matInput formControlName="transporter" placeholder="transporter" [disabled]="false">
+                                            </mat-form-field>
+                                        </div>
+        
+                                        <div class="col-md-6">
+                                            <mat-form-field class="example-full-width d-block">
+                                                <input matInput placeholder="Tare" formControlName="tare">
+                                            </mat-form-field>
+                                        </div>
+        
+                                        <div class="col-md-6">
+                                            <mat-form-field class="example-full-width d-block">
+                                                <input matInput placeholder="Gross" formControlName="gross">
+                                            </mat-form-field>
+                                        </div>
+
+                            </div>
+                        </div>
+                    </div>
+
+                    <hr>
+                    <div class="form-group text-right" >
+                        <!-- <button class="btn btn-primary btn-sm" type="button">Edit Details </button> -->
+                        &nbsp;
+                        <button class="btn btn-success btn-sm" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

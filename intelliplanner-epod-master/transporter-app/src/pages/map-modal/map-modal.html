@@ -1,0 +1,17 @@
+<ion-header mode="ios">
+  <ion-navbar mode="ios" color="cement">
+    <ion-title mode="ios"> Location </ion-title>
+    <ion-buttons end royal>
+      <button ion-button icon-only navPop>
+        <ion-icon name="close" color="light"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content>
+ <agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+</ion-content>

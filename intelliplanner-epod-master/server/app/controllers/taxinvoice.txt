@@ -1,0 +1,17 @@
+ <table>
+  <tr>
+    <th>S No.</th> 
+    <th>Date</th>
+    <th>Shipment No.</th> 
+    <th>Container ID</th>
+    <th>Excise No.</th>
+    <th>P.O.No.</th>
+    <th>Destination</th> 
+    <th>QTY. MT</th> 
+    <th>Rate</th>
+    <th>Amount</th> 
+    <th>LR</th>     
+  </tr>
+  
+[DATA]
+</table>

@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" name="ORIENTWebService" xmlns:tns="WebServices.ORIENT" targetNamespace="WebServices.ORIENT" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+    <wsdl:message name="createShipment">
+        <wsdl:part name="shipment_number" type="xsd:string"></wsdl:part>
+        <wsdl:part name="plant" type="xsd:string"></wsdl:part>
+        <wsdl:part name="shipment_status" type="xsd:string"></wsdl:part>
+        <wsdl:part name="shipment_assignment_datetime" type="xsd:date"></wsdl:part>
+        <wsdl:part name="shipment_cost" type="xsd:string"></wsdl:part>
+        <wsdl:part name="shipment_quantity" type="xsd:string"></wsdl:part>
+        <wsdl:part name="vehicle_no" type="xsd:string"></wsdl:part>
+        <wsdl:part name="tro_no" type="xsd:string"></wsdl:part>
+        <wsdl:part name="load_type_bulk_bag" type="xsd:string"></wsdl:part>
+        <wsdl:part name="truck_capacity" type="xsd:string"></wsdl:part>
+        <wsdl:part name="truckyard_entry_datetime" type="xsd:date"></wsdl:part>
+        <wsdl:part name="vehicle_classification_market_own" type="xsd:string"></wsdl:part>
+        <wsdl:part name="lr_number" type="xsd:string"></wsdl:part>
+        <wsdl:part name="salesoffice_name" type="xsd:string"></wsdl:part>
+        <wsdl:part name="destination_name" type="xsd:string"></wsdl:part>
+        <wsdl:part name="destination_code" type="xsd:string"></wsdl:part>
+        <wsdl:part name="zone_name" type="xsd:string"></wsdl:part>
+        <wsdl:part name="concerned_sales_officer_name" type="xsd:string"></wsdl:part>
+        <wsdl:part name="concerned_sales_officer_phoneno" type="xsd:string"></wsdl:part>
+        <wsdl:part name="transporter_code" type="xsd:string"></wsdl:part>
+        <wsdl:part name="transporter_name" type="xsd:string"></wsdl:part>
+        <wsdl:part name="driver_name_plant" type="xsd:string"></wsdl:part>
+        <wsdl:part name="driver_phoneno_plant" type="xsd:string"></wsdl:part>
+        <wsdl:part name="driver_using_smartphone_or_sim_plant" type="xsd:string"></wsdl:part>
+        <wsdl:part name="customer_name_shiptoparty" type="xsd:string"></wsdl:part>
+        <wsdl:part name="customer_name_soldtoparty" type="xsd:string"></wsdl:part>
+        <wsdl:part name="customer_number_of_shiptoparty" type="xsd:string"></wsdl:part>
+        <wsdl:part name="do_number" type="xsd:string"></wsdl:part>
+        <wsdl:part name="sto_party" type="xsd:string"></wsdl:part>
+        <wsdl:part name="dist_channel" type="xsd:string"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="cancelShipment">
+        <wsdl:part name="shipment_number" type="xsd:string"></wsdl:part>
+        <wsdl:part name="tro_no" type="xsd:string"></wsdl:part>
+        <wsdl:part name="shipment_cancellation_datetime" type="xsd:date"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createShipmentResponse">
+        <wsdl:part name="response" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="cancelShipmentResponse">
+        <wsdl:part name="response" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="createInvoice">
+        <wsdl:part name="truck_no" type="xsd:string"></wsdl:part>
+        <wsdl:part name="truck_capacity" type="xsd:string"></wsdl:part>
+        <wsdl:part name="bag_bulk" type="xsd:string"></wsdl:part>
+        <wsdl:part name="invoice_datetime" type="xsd:date"></wsdl:part>
+        <wsdl:part name="invoice_number" type="xsd:string"></wsdl:part>
+        <wsdl:part name="transporter_name" type="xsd:string"></wsdl:part>
+        <wsdl:part name="transporter_code" type="xsd:string"></wsdl:part>
+        <wsdl:part name="plant" type="xsd:string"></wsdl:part>
+        <wsdl:part name="destination_code" type="xsd:string"></wsdl:part>
+        <wsdl:part name="destination_name" type="xsd:string"></wsdl:part>
+        <wsdl:part name="shiptoparty_code" type="xsd:string"></wsdl:part>
+        <wsdl:part name="shiptoparty_name" type="xsd:string"></wsdl:part>
+        <wsdl:part name="soldtoparty_codename" type="xsd:string"></wsdl:part>
+        <wsdl:part name="material_description" type="xsd:string"></wsdl:part>
+        <wsdl:part name="inco_terms" type="xsd:string"></wsdl:part>
+        <wsdl:part name="trade_nontrade" type="xsd:string"></wsdl:part>
+        <wsdl:part name="address1" type="xsd:string"></wsdl:part>
+        <wsdl:part name="address2" type="xsd:string"></wsdl:part>
+        <wsdl:part name="address3" type="xsd:string"></wsdl:part>
+        <wsdl:part name="shiptoparty_telephoneno" type="xsd:string"></wsdl:part>
+        <wsdl:part name="salesofficer_name" type="xsd:string"></wsdl:part>
+        <wsdl:part name="salesofficer_number" type="xsd:string"></wsdl:part>
+        <wsdl:part name="salesofficer_location" type="xsd:string"></wsdl:part>
+        <wsdl:part name="invoice_quantity" type="xsd:string"></wsdl:part>
+        <wsdl:part name="distance" type="xsd:string"></wsdl:part>
+        <wsdl:part name="transporter_contact_number" type="xsd:string"></wsdl:part>
+        <wsdl:part name="salesoffice" type="xsd:string"></wsdl:part>
+        <wsdl:part name="depot_plant" type="xsd:string"></wsdl:part>
+        <wsdl:part name="salesofficer_email_id" type="xsd:string"></wsdl:part>
+        <wsdl:part name="invoice_date" type="xsd:date"></wsdl:part>
+        <wsdl:part name="do_number" type="xsd:string"></wsdl:part>
+        <wsdl:part name="shipment_number" type="xsd:string"></wsdl:part>
+        <wsdl:part name="shipment_date" type="xsd:date"></wsdl:part>
+        <wsdl:part name="tro_number" type="xsd:string"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="cancelInvoice">
+        <wsdl:part name="invoice_number" type="xsd:string"></wsdl:part>
+        <wsdl:part name="shipment_number" type="xsd:string"></wsdl:part>
+        <wsdl:part name="shipment_cancellation_datetime" type="xsd:date"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createInvoiceResponse">
+        <wsdl:part name="response" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="cancelInvoiceResponse">
+        <wsdl:part name="response" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="createPurchaseOrder">
+        <wsdl:part name="purchase_order_datetime" type="xsd:date"></wsdl:part>
+        <wsdl:part name="purchase_order_number" type="xsd:string"></wsdl:part>
+        <wsdl:part name="plant" type="xsd:string"></wsdl:part>
+        <wsdl:part name="shipment_number" type="xsd:string"></wsdl:part>
+        <wsdl:part name="invoice_number" type="xsd:string"></wsdl:part>
+        <wsdl:part name="transporter_name" type="xsd:string"></wsdl:part>
+        <wsdl:part name="purchase_order_create_datetime" type="xsd:date"></wsdl:part>
+        <wsdl:part name="freight_details" type="xsd:string"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="cancelPurchaseOrder">
+        <wsdl:part name="purchase_order_number" type="xsd:string"></wsdl:part>
+        <wsdl:part name="plant" type="xsd:string"></wsdl:part>
+        <wsdl:part name="purchase_order_cancellation_datetime" type="xsd:date"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="createPurchaseOrderResponse">
+        <wsdl:part name="response" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="cancelPurchaseOrderResponse">
+        <wsdl:part name="response" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="sumarRequest">
+        <wsdl:part name="a" type="xsd:string"></wsdl:part>
+        <wsdl:part name="b" type="xsd:string"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="sumarResponse">
+        <wsdl:part name="sumres" type="xsd:string" />
+    </wsdl:message>
+    <wsdl:message name="multiplicarRequest">
+        <wsdl:part name="a" type="xsd:string"></wsdl:part>
+        <wsdl:part name="b" type="xsd:string"></wsdl:part>
+    </wsdl:message>
+    <wsdl:message name="multiplicarResponse">
+        <wsdl:part name="mulres" type="xsd:string"></wsdl:part>
+    </wsdl:message>
+    <wsdl:portType name="service">
+        <wsdl:operation name="createShipment">
+            <wsdl:input message="tns:createShipment"></wsdl:input>
+            <wsdl:output message="tns:createShipmentResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="cancelShipment">
+            <wsdl:input message="tns:cancelShipment"></wsdl:input>
+            <wsdl:output message="tns:cancelShipmentResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="createInvoice">
+            <wsdl:input message="tns:createInvoice"></wsdl:input>
+            <wsdl:output message="tns:createInvoiceResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="cancelInvoice">
+            <wsdl:input message="tns:cancelInvoice"></wsdl:input>
+            <wsdl:output message="tns:cancelInvoiceResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="createPurchaseOrder">
+            <wsdl:input message="tns:createPurchaseOrder"></wsdl:input>
+            <wsdl:output message="tns:createPurchaseOrderResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="cancelPurchaseOrder">
+            <wsdl:input message="tns:cancelPurchaseOrder"></wsdl:input>
+            <wsdl:output message="tns:cancelPurchaseOrderResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="sumar">
+            <wsdl:input message="tns:sumarRequest"></wsdl:input>
+            <wsdl:output message="tns:sumarResponse" />
+        </wsdl:operation>
+        <wsdl:operation name="multiplicar">
+            <wsdl:input message="tns:multiplicarRequest"></wsdl:input>
+            <wsdl:output message="tns:multiplicarResponse"></wsdl:output>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="orientwebservice" type="tns:service">
+        <soap:binding style="rpc" transport="http://schemas.xmlsoap.org/soap/http" />
+        <wsdl:operation name="createShipment">
+            <soap:operation soapAction="createShipment" style="rpc" />
+            <wsdl:input>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="cancelShipment">
+            <soap:operation soapAction="cancelShipment" style="rpc" />
+            <wsdl:input>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createInvoice">
+            <soap:operation soapAction="createInvoice" style="rpc" />
+            <wsdl:input>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="cancelInvoice">
+            <soap:operation soapAction="cancelInvoice" style="rpc" />
+            <wsdl:input>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="createPurchaseOrder">
+            <soap:operation soapAction="createPurchaseOrder" style="rpc" />
+            <wsdl:input>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="cancelPurchaseOrder">
+            <soap:operation soapAction="cancelPurchaseOrder" style="rpc" />
+            <wsdl:input>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="sumar">
+            <soap:operation soapAction="sumar" style="rpc" />
+            <wsdl:input>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+        <wsdl:operation name="multiplicar">
+            <soap:operation soapAction="multiplicar" style="rpc" />
+            <wsdl:input>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body namespace="http://157.230.91.154:4000/wsdl" use="literal" />
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="ws">
+        <wsdl:port binding="tns:orientwebservice" name="operations">
+            <soap:address location="http://157.230.91.154:4000/wsdl" />
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

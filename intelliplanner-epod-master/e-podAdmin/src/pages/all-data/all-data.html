@@ -1,0 +1,279 @@
+<ion-header mode="ios">
+  <ion-navbar mode="ios" color="cement">
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title mode="ios">All ePOD Data</ion-title>
+   <ion-buttons end royal>
+      <button ion-button icon-only (click)="toggleFilter()">
+        <ion-icon name="ios-funnel-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+  <ion-toolbar color="cement">
+  <ion-segment mode="ios" [(ngModel)]="tab">
+      <ion-segment-button value="allShipments" (click)="getshipment()">
+        Shipments  {{scount}}
+      </ion-segment-button>
+      <ion-segment-button value="allInvoices" (click)="getinvoice()">
+        Invoices  {{icount}}
+      </ion-segment-button>
+      <ion-segment-button value="allPos" (click)="getpos()">
+        Purchase Orders  {{pcount}}
+      </ion-segment-button>
+    </ion-segment>
+    <ion-row>
+        <!-- <ion-searchbar mode="ios" placeholder="search all {{transporters.length}} transporters"  [(ngModel)]="searchTerm" 
+        (ionInput)="searchTransporter($event)"></ion-searchbar> -->
+    </ion-row>
+  </ion-toolbar>
+
+    <ion-toolbar *ngIf="toggle" color="light">
+    <ion-grid *ngIf=" tab == 'allShipments'">
+      <ion-row>
+        <ion-col col-12 col-sm-12 col-xs-12 col-md-12 col-xl-4 col-lg-4>
+          <ion-searchbar color="light" mode="ios" placeholder="Shipment Number" [(ngModel)]="sfilter.shipment_number" 
+        (ionInput)="search()"></ion-searchbar>
+        </ion-col> 
+        <ion-col col-12 col-sm-12 col-xs-12 col-md-12 col-xl-4 col-lg-4>
+          <ion-searchbar color="light" mode="ios" placeholder="Plant" [(ngModel)]="sfilter.plant" (ionInput)="search($event)"></ion-searchbar>
+        </ion-col>
+        <ion-col col-12 col-sm-12 col-xs-12 col-md-12 col-xl-4 col-lg-4> 
+          <ion-searchbar color="light" mode="ios" placeholder="LR Number" [(ngModel)]="sfilter.lr_number" (ionInput)="search()"></ion-searchbar>
+        </ion-col>
+      </ion-row>
+      <ion-row style="border-top: 1px solid #ccc;padding-top:10px;">
+        <ion-col no-padding col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12>
+          <ion-item no-lines color="light">
+            <ion-label>From Date</ion-label>
+            <ion-datetime displayFormat="YYYY/MM/DD" pickerFormat="YYYY/MM/DD" [(ngModel)]="sfilter.fromDate"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col no-padding col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12>
+          <ion-item no-lines color="light">
+            <ion-label>To Date</ion-label>
+            <ion-datetime displayFormat="YYYY/MM/DD" pickerFormat="YYYY/MM/DD" [(ngModel)]="sfilter.toDate"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col no-padding col-6 col-xl-2 col-lg-2 col-sm-12 col-xs-12>
+          <button ion-button block outline color="primary" [disabled]=" !sfilter.shipment_number && !sfilter.plant && !sfilter.lr_number && !( sfilter.fromDate && sfilter.toDate )" (click)="search()">Search</button>
+        </ion-col>
+        <ion-col no-padding col-6 col-xl-2 col-lg-2 col-sm-12 col-xs-12>
+          <button ion-button block clear color="dark" (click)="clearFilter()">Clear Filter</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- Invoice search -->
+      <ion-grid *ngIf=" tab == 'allInvoices'">
+      <ion-row>
+        <ion-col col-12 col-sm-12 col-xs-12 col-md-12 col-xl-4 col-lg-4>
+          <ion-searchbar color="light" mode="ios" placeholder="Invoice Number" [(ngModel)]="ifilter.invoice_number" (ionInput)="search()"></ion-searchbar>
+        </ion-col>
+        <ion-col col-12 col-sm-12 col-xs-12 col-md-12 col-xl-4 col-lg-4>
+          <ion-searchbar color="light" mode="ios" placeholder="Plant" [(ngModel)]="ifilter.plant" (ionInput)="search()"></ion-searchbar>
+        </ion-col>
+      </ion-row>
+      <ion-row style="border-top: 1px solid #ccc;padding-top:10px;">
+        <ion-col no-padding col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12>
+          <ion-item no-lines color="light">
+            <ion-label>From Date</ion-label>
+            <ion-datetime displayFormat="YYYY/MM/DD" pickerFormat="YYYY/MM/DD" [(ngModel)]="ifilter.fromDate"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col no-padding col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12>
+          <ion-item no-lines color="light">
+            <ion-label>To Date</ion-label>
+            <ion-datetime displayFormat="YYYY/MM/DD" pickerFormat="YYYY/MM/DD" [(ngModel)]="ifilter.toDate"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col no-padding col-6 col-xl-2 col-lg-2 col-sm-12 col-xs-12>
+          <button ion-button block outline color="primary" [disabled]=" !ifilter.invoice_number && !ifilter.plant && !( ifilter.fromDate && ifilter.toDate )" (click)="search()">Search</button>
+        </ion-col>
+        <ion-col no-padding col-6 col-xl-2 col-lg-2 col-sm-12 col-xs-12>
+          <button ion-button block clear color="dark" (click)="clearFilter()">Clear Filter</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+    <!-- PurchaseOrder search -->
+
+      <ion-grid *ngIf=" tab == 'allPos'">
+      <ion-row>
+        <ion-col col-12 col-sm-12 col-xs-12 col-md-12 col-xl-4 col-lg-4>
+          <ion-searchbar color="light" mode="ios" placeholder="Purchase Order Number" [(ngModel)]="pfilter.purchase_order_number" (ionInput)="search()"></ion-searchbar>
+        </ion-col>
+        <ion-col col-12 col-sm-12 col-xs-12 col-md-12 col-xl-4 col-lg-4>
+          <ion-searchbar color="light" mode="ios" placeholder="Plant" [(ngModel)]="pfilter.plant" (ionInput)="search()"></ion-searchbar>
+        </ion-col>
+      </ion-row>
+      <ion-row style="border-top: 1px solid #ccc;padding-top:10px;">
+        <ion-col no-padding col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12>
+          <ion-item no-lines color="light">
+            <ion-label>From Date</ion-label>
+            <ion-datetime displayFormat="YYYY/MM/DD" pickerFormat="YYYY/MM/DD" [(ngModel)]="pfilter.fromDate"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col no-padding col-12 col-xl-4 col-lg-4 col-md-6 col-sm-12 col-xs-12>
+          <ion-item no-lines color="light">
+            <ion-label>To Date</ion-label>
+            <ion-datetime displayFormat="YYYY/MM/DD" pickerFormat="YYYY/MM/DD" [(ngModel)]="pfilter.toDate"></ion-datetime>
+          </ion-item>
+        </ion-col>
+        <ion-col no-padding col-6 col-xl-2 col-lg-2 col-sm-12 col-xs-12>
+          <button ion-button block outline color="primary" 
+          [disabled]=" !pfilter.purchase_order_number && !pfilter.plant && !( pfilter.fromDate && pfilter.toDate )" (click)="search()">Search</button>
+        </ion-col>
+        <ion-col no-padding col-6 col-xl-2 col-lg-2 col-sm-12 col-xs-12>
+          <button ion-button block clear color="dark" (click)="clearFilter()">Clear Filter</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </ion-toolbar>
+</ion-header>
+
+
+<ion-content padding>
+ <div [ngSwitch]="tab">
+    <div *ngSwitchCase="'allShipments'">
+      <table class="table table-striped" [mfData]=" allShipments " #mf="mfDataTable" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder" border="0" style="background-color: #f8f8f8 !important;border:5px solid #f8f8f8"> 
+      <thead>
+    <tr>
+        <th style="width: 10%">
+            <mfDefaultSorter by="id">S No.</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="shipment_number">Shipment Number</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="shipment_status">Shipment Status</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="shipment_cost">Shipment Quantity</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="transporter_name">Transporter Name</mfDefaultSorter>
+        </th>
+          <th style="width: 20%">
+            <mfDefaultSorter by="shipment_creation_date">Shipment Date</mfDefaultSorter>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let ship of mf.data; let i = index " (click)='open(ship,"Shipment")'>
+       <td>{{i+1}}</td>
+      <td>{{ship.shipment_number}}</td>
+      <td>{{ship.shipment_status}}</td>
+      <td>{{ship.shipment_quantity}}</td>
+      <td>{{ship.transporter_name}}</td>
+      <td>{{ship.shipment_creation_date | date:'dd MMM yyyy'}}</td>
+     
+    </tr>
+    </tbody>
+</table>
+    	
+    </div>
+
+    <div *ngSwitchCase="'allInvoices'">
+    	   <table class="table table-striped" [mfData]=" allInvoices " #mf="mfDataTable" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder" border="0" style="background-color: #f8f8f8 !important;border:5px solid #f8f8f8"> 
+      <thead>
+    <tr>
+        <th style="width: 10%">
+            <mfDefaultSorter by="id">S No.</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="invoice_number">Invoice Number</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="invoice_quantity">Invoice Quantity</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="shiptoparty_name">Shiptoparty</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="soldtoparty_name">Soldtoparty</mfDefaultSorter>
+        </th>
+          <th style="width: 20%">
+            <mfDefaultSorter by="invoice_date">Invoice Date</mfDefaultSorter>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let invo of mf.data; let i = index " (click)='open(invo,"Invoice")'>
+       <td>{{i+1}}</td>
+      <td>{{invo.invoice_number}}</td>
+      <td>{{invo.invoice_quantity}}</td>
+      <td>{{invo.shiptoparty_name}}</td>
+      <td>{{invo.soldtoparty_name}}</td>
+      <td>{{invo.invoice_date | date:'dd MMM yyyy'}}</td>
+     
+    </tr>
+    </tbody>
+</table>
+    </div>
+
+    <div *ngSwitchCase="'allPos'">
+    	   <table class="table table-striped" [mfData]=" allPos " #mf="mfDataTable" [(mfSortBy)]="sortBy" [(mfSortOrder)]="sortOrder" border="0" style="background-color: #f8f8f8 !important;border:5px solid #f8f8f8"> 
+      <thead>
+    <tr>
+        <th style="width: 10%">
+            <mfDefaultSorter by="id">S No.</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="purchase_order_number">PO Number</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="shipment_cost">Shipment Cost</mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="quantity">Quantity</mfDefaultSorter>
+        </th>
+        <th style="width: 10%">
+            <mfDefaultSorter by="rate">Rate</mfDefaultSorter>
+        </th>
+        <th style="width: 20%">
+            <mfDefaultSorter by="transporter_name">Transporter</mfDefaultSorter>
+        </th>
+          <th style="width: 20%">
+            <mfDefaultSorter by="purchase_order_date">PO Create</mfDefaultSorter>
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let purch of mf.data; let i = index " (click)='open(purch,"PurchaseOrder")'>
+       <td>{{i+1}}</td>
+      <td>{{purch.purchase_order_number}}</td>
+      <td>{{purch.shipment_cost}}</td>
+      <td>{{purch.quantity}}</td>
+      <td>{{purch.rate}}</td>
+      <td>{{purch.transporter_name}}</td>
+      <td>{{purch.purchase_order_date | date:'dd MMM yyyy'}}</td>
+     
+    </tr>
+    </tbody>
+</table>
+    </div>
+ </div>
+
+</ion-content>
+<ion-footer style="background: #fff;">
+  <div text-center>
+    <ul *ngIf=" pager && pager.pages && pager.pages.length" class="pagination">
+      <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage123(1)">First</a>
+      </li>
+      <li [ngClass]="{disabled:pager.currentPage === 1}">
+        <a (click)="setPage123(pager.currentPage - 1)">Previous</a>
+      </li>
+      <li *ngFor="let page of pager.pages" [ngClass]="{active:pager.currentPage === page}">
+        <a (click)="setPage123(page)">{{page}}</a>
+      </li>
+      <li [ngClass]="{ disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage123(pager.currentPage + 1)">Next</a>
+      </li>
+      <li [ngClass]="{ disabled:pager.currentPage === pager.totalPages}">
+        <a (click)="setPage123(pager.totalPages)">Last</a>
+      </li>
+    </ul>
+  </div>
+</ion-footer>

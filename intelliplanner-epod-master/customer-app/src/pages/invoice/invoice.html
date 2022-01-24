@@ -1,0 +1,68 @@
+<ion-header mode="ios" no-border>
+  <ion-navbar mode="ios">
+    <ion-title mode="ios">Delivery Confirmation</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content style="background:#efefef" >
+  <div text-center style="padding:10px;border-bottom: 1px solid #ccc;">
+    <h2>Invoice Number</h2>
+    <div style="font-size: 20px;font-weight: 200;">#{{invoice.invoice_number}}</div>
+  </div>
+
+  <ion-row *ngIf="!responded" style="padding:10px;border-bottom: 1px solid #ccc;">
+    <ion-col col col-6 text-center>
+      <div style="color:#535353; font-weight: 300">Invoice Date</div>
+      <div style="font-size: 16px;color:#222; font-weight: bold">{{invoice.invoice_date}}</div>
+    </ion-col>
+    <ion-col col col-6 text-center>
+      <div style="color:#535353; font-weight: 300">Invoice Quantity</div>
+      <div style="font-size: 16px;color:#222; font-weight: bold">{{invoice.invoice_quantity}}</div>
+    </ion-col>
+  </ion-row>
+  <ion-card>
+  
+    <ion-card-header>
+      Unloading Destination
+    </ion-card-header>
+  
+    <ion-card-content>
+<agm-map [latitude]="lat" [longitude]="lng">
+  <agm-marker [latitude]="lat" [longitude]="lng"></agm-marker>
+</agm-map>
+    </ion-card-content>
+  
+  </ion-card>
+  <ion-card>
+  
+    <ion-card-header>
+      LR Image
+    </ion-card-header>
+  
+    <ion-card-content>
+      <img [src]="invoice.signed_lr_image">
+    </ion-card-content>
+  
+  </ion-card>
+
+
+  <div *ngIf=" invoice.customer_accepted == '1'" text-center padding>
+    <img width="100" src="assets/imgs/response.png">
+    <div style="font-size: 20px;" padding>Thank you for your response!</div>
+  </div>
+</ion-content>
+<ion-footer>
+  <ion-row *ngIf="(invoice.customer_accepted == '0' || invoice.customer_accepted == null)">
+    <ion-col col col-6>
+      <button ion-button outline color="secondary" block (click)="response(1)">Accept</button>
+    </ion-col>
+    <ion-col col col-6>
+      <button ion-button outline color="danger" block (click)="response(0)">Decline</button>
+    </ion-col>
+  </ion-row>
+
+   <ion-row *ngIf="invoice.customer_accepted == '1'">
+    <ion-col col col-12>
+    <div style="font-size: 20px;" text-center padding>Invoice Complete..!!</div>
+    </ion-col>
+  </ion-row>
+</ion-footer>
